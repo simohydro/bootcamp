@@ -73,6 +73,34 @@
         text-align: left;
     }
 }
+            .news-card {
+        transition: transform 0.3s ease;
+        border: none;
+        background: rgba(255, 255, 255, 0.9);
+    }
+
+    .news-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    .carousel-control-prev,
+    .carousel-control-next {
+        width: 5%;
+        background: rgba(0,0,0,0.2);
+    }
+
+    @media (max-width: 768px) {
+        .carousel-inner .row {
+            flex-wrap: nowrap;
+            overflow-x: auto;
+        }
+        
+        .col-lg-4 {
+            flex: 0 0 100%;
+            max-width: 100%;
+        }
+    }
     </style>
 </head>
  
@@ -91,7 +119,7 @@
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="team.html" target="_blank">Team</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#pubblicazioni">Pubblicazioni</a></li>
+                    <li class="nav-item"><a class="nav-link" href="pubblicazioni.html" target="_blank">Pubblicazioni</a></li>
                     <li class="nav-item"><a class="nav-link" href="#contatti">Contatti</a></li>
                 </ul>
             </div>
@@ -146,22 +174,135 @@
     </div>
 </section>
 
-    <!-- Pubblicazioni Section -->
-    <section id="pubblicazioni" class="bg-light">
-        <div class="container">
-            <h2 class="text-center mb-5">Pubblicazioni Recenti</h2>
-            <div class="list-group">
-                <a href="#" class="list-group-item list-group-item-action">
-                    <div class="d-flex w-100 justify-content-between">
-                        <h5 class="mb-1">Titolo Pubblicazione 2023</h5>
-                        <small>Journal of AI Research</small>
-                    </div>
-                    <p class="mb-1">Breve descrizione della pubblicazione...</p>
-                </a>
-                <!-- Aggiungi altre pubblicazioni -->
+<!-- Sezione Pubblicazioni -->
+<section id="pubblicazioni" class="bg-white py-5">
+    <div class="container">
+        <div class="row mb-4">
+            <div class="col">
+                <h2 class="text-center">Pubblicazioni Recenti</h2>
+                <p class="text-center text-muted">Le nostre ultime ricerche scientifiche</p>
             </div>
         </div>
-    </section>
+
+        <!-- Lista Pubblicazioni -->
+        <div class="row g-4">
+            <!-- Pub 1 -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">Modelli predittivi per alluvioni</h5>
+                        <p class="card-subtitle mb-2 text-muted">Rossi et al. (2023)</p>
+                        <p class="card-text">Sviluppo di un nuovo modello machine learning per la previsione...</p>
+                        <a href="#" class="btn btn-sm btn-outline-primary">Dettagli</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pub 2 -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">Analisi sedimenti fluviali</h5>
+                        <p class="card-subtitle mb-2 text-muted">Bianchi et al. (2023)</p>
+                        <p class="card-text">Studio quantitativo sui sedimenti nel bacino del fiume Po...</p>
+                        <a href="#" class="btn btn-sm btn-outline-primary">Dettagli</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pub 3 -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">Impatto climatico su falde</h5>
+                        <p class="card-subtitle mb-2 text-muted">Verdi et al. (2023)</p>
+                        <p class="card-text">Analisi multivariata su 20 anni di dati idrogeologici...</p>
+                        <a href="#" class="btn btn-sm btn-outline-primary">Dettagli</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pulsante Read More -->
+        <div class="row mt-5">
+            <div class="col text-center">
+                <a href="pubblicazioni.html"
+                   class="btn btn-primary px-4"
+                   target="_blank">
+                   Vedi Tutte le Pubblicazioni <i class="bi bi-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Sezione News -->
+<section id="news" class="bg-light py-5">
+    <div class="container">
+        <h2 class="text-center mb-5">Ultime News</h2>
+        
+        <!-- Carosello -->
+        <div id="newsCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                
+                <!-- Slide 1 (Active) -->
+                <div class="carousel-item active">
+                    <div class="row g-4">
+                        <!-- News 1 -->
+                        <div class="col-lg-4">
+                            <div class="card news-card h-100">
+                                <div class="card-body">
+                                    <small class="text-muted">15 Ott 2023</small>
+                                    <h5>Conferenza Internazionale</h5>
+                                    <p>Presentazione risultati ricerca a Vienna...</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- News 2 -->
+                        <div class="col-lg-4">
+                            <div class="card news-card h-100">
+                                <div class="card-body">
+                                    <small class="text-muted">12 Ott 2023</small>
+                                    <h5>Nuovo Laboratorio</h5>
+                                    <p>Inaugurazione nuovo centro ricerche...</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- News 3 -->
+                        <div class="col-lg-4">
+                            <div class="card news-card h-100">
+                                <div class="card-body">
+                                    <small class="text-muted">10 Ott 2023</small>
+                                    <h5>Premio Innovazione</h5>
+                                    <p>Vinto premio nazionale per miglior progetto...</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 2 -->
+                <div class="carousel-item">
+                    <div class="row g-4">
+                        <!-- Aggiungi altre 3 news -->
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Controlli Carosello -->
+            <button class="carousel-control-prev" type="button" data-bs-target="#newsCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#newsCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </button>
+        </div>
+    </div>
+</section>
+
 
     <!-- Contatti Section -->
     <section id="contatti" class="bg-primary text-white">
