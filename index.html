@@ -101,6 +101,29 @@
             max-width: 100%;
         }
     }
+                .project-card {
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .project-card img {
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .project-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            z-index: 2;
+        }
     </style>
 </head>
  
@@ -120,6 +143,16 @@
                     <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="team.html" target="_blank">Team</a></li>
                     <li class="nav-item"><a class="nav-link" href="pubblicazioni.html" target="_blank">Pubblicazioni</a></li>
+                     <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" 
+                       data-bs-toggle="dropdown" aria-expanded="false">
+                        Progetti
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="progetti.html?filter=attivi">Attivi</a></li>
+                        <li><a class="dropdown-item" href="progetti.html?filter=conclusi">Conclusi</a></li>
+                    </ul>
+                </li>
                     <li class="nav-item"><a class="nav-link" href="#contatti">Contatti</a></li>
                 </ul>
             </div>
