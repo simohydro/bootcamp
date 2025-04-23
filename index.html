@@ -101,29 +101,43 @@
             max-width: 100%;
         }
     }
-                .project-card {
-            transition: all 0.3s ease;
-            cursor: pointer;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .project-card img {
-            height: 250px;
-            object-fit: cover;
-            transition: transform 0.3s ease;
-        }
+        .project-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(0,0,0,0.125);
+}
 
-        .project-card:hover img {
-            transform: scale(1.05);
-        }
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
 
-        .project-badge {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            z-index: 2;
-        }
+.carousel-control-prev,
+.carousel-control-next {
+    background-color: rgba(0,0,0,0.1);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+@media (max-width: 768px) {
+    .carousel-inner .row {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+    }
+    
+    .col-lg-4 {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+    
+    .carousel-control-prev,
+    .carousel-control-next {
+        display: none;
+    }
+}
+               
     </style>
 </head>
  
@@ -332,6 +346,104 @@
             <button class="carousel-control-next" type="button" data-bs-target="#newsCarousel" data-bs-slide="next">
                 <span class="carousel-control-next-icon"></span>
             </button>
+        </div>
+    </div>
+</section>
+
+    <!-- Sezione Progetti in Carosello -->
+<section id="progetti-home" class="py-5 bg-white">
+    <div class="container">
+        <div class="row mb-4">
+            <div class="col">
+                <h2 class="text-center">Progetti in Evidenza</h2>
+                <p class="text-center text-muted">Esplora le nostre ricerche attive</p>
+            </div>
+        </div>
+
+        <!-- Carosello Progetti -->
+        <div id="projectsCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                
+                <!-- Slide 1 (Active) -->
+                <div class="carousel-item active">
+                    <div class="row g-4">
+                        <!-- Progetto 1 -->
+                        <div class="col-lg-4">
+                            <a href="progetti/progetto-1.html" class="text-decoration-none">
+                                <div class="card project-card h-100">
+                                    <div class="position-relative">
+                                        <img src="images/progetti/acqua-urbana.jpg" class="card-img-top" alt="Gestione acqua urbana">
+                                        <span class="position-absolute top-0 end-0 m-2 badge bg-success">Attivo</span>
+                                    </div>
+                                    <div class="card-body">
+                                        <h5 class="card-title">Acqua Urbana Sostenibile</h5>
+                                        <p class="card-text">Nuovi modelli per la gestione idrica nelle città</p>
+                                        <div class="btn btn-sm btn-primary">Dettagli</div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                        <!-- Progetto 2 -->
+                        <div class="col-lg-4">
+                            <a href="progetti/progetto-2.html" class="text-decoration-none">
+                                <div class="card project-card h-100">
+                                    <div class="position-relative">
+                                        <img src="images/progetti/alluvioni.jpg" class="card-img-top" alt="Previsione alluvioni">
+                                        <span class="position-absolute top-0 end-0 m-2 badge bg-warning text-dark">In fase iniziale</span>
+                                    </div>
+                                    <div class="card-body">
+                                        <h5 class="card-title">Sistema Early Warning</h5>
+                                        <p class="card-text">Tecnologie predittive per eventi estremi</p>
+                                        <div class="btn btn-sm btn-primary">Dettagli</div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                        <!-- Progetto 3 -->
+                        <div class="col-lg-4">
+                            <a href="progetti/progetto-3.html" class="text-decoration-none">
+                                <div class="card project-card h-100">
+                                    <div class="position-relative">
+                                        <img src="images/progetti/falde.jpg" class="card-img-top" alt="Monitoraggio falde">
+                                        <span class="position-absolute top-0 end-0 m-2 badge bg-secondary">Concluso</span>
+                                    </div>
+                                    <div class="card-body">
+                                        <h5 class="card-title">Falde Acquifere 2020-2022</h5>
+                                        <p class="card-text">Analisi quantitativa risorse sotterranee</p>
+                                        <div class="btn btn-sm btn-primary">Dettagli</div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 2 -->
+                <div class="carousel-item">
+                    <div class="row g-4">
+                        <!-- Aggiungi altri 3 progetti -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Controlli -->
+            <button class="carousel-control-prev" type="button" data-bs-target="#projectsCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#projectsCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </button>
+        </div>
+
+        <!-- Pulsante Vedi Tutti -->
+        <div class="row mt-4">
+            <div class="col text-center">
+                <a href="progetti.html" class="btn btn-outline-primary">
+                    Vedi Tutti i Progetti <i class="bi bi-arrow-right"></i>
+                </a>
+            </div>
         </div>
     </div>
 </section>
