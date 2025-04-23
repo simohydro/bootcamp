@@ -10,30 +10,28 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
     <!-- Intestazione identica alle altre pagine -->
     <style>
+        /* Stili esistenti + nuove transizioni */
         .project-card {
             transition: all 0.3s ease;
-            cursor: pointer;
-            position: relative;
-            overflow: hidden;
+            opacity: 1;
+            transform: translateY(0);
         }
         
-        .project-card img {
-            height: 250px;
-            object-fit: cover;
-            transition: transform 0.3s ease;
-        }
-
-        .project-card:hover img {
-            transform: scale(1.05);
-        }
-
-        .project-badge {
+        .project-card.hidden {
+            opacity: 0;
+            transform: translateY(20px);
+            pointer-events: none;
             position: absolute;
-            top: 15px;
-            right: 15px;
-            z-index: 2;
+            width: 100%;
+            visibility: hidden;
+        }
+
+        .filter-btn.active {
+            background-color: #0d6efd !important;
+            color: white !important;
         }
     </style>
+  
 </head>
 <body>
      <!-- Navbar (identica alla homepage) -->
@@ -65,46 +63,57 @@
             </div>
         </div>
     </nav>
+  <!-- Sezione Principale Modificata -->
     <main class="container py-5 mt-5">
-        <h1 class="text-center mb-5">I Nostri Progetti</h1>
+        <!-- Titolo Dinamico -->
+        <h1 class="text-center mb-5" id="dynamicTitle">Progetti di Ricerca</h1>
         
-        <!-- Filtri -->
+        <!-- Filtri Aggiornati -->
         <div class="row mb-4">
             <div class="col text-center">
                 <div class="btn-group">
-                    <a href="progetti.html?filter=attivi" class="btn btn-outline-primary active">Attivi</a>
-                    <a href="progetti.html?filter=conclusi" class="btn btn-outline-primary">Conclusi</a>
+                    <a href="?filter=attivi" 
+                       class="btn btn-outline-primary filter-btn" 
+                       data-filter="attivi">Attivi</a>
+                    <a href="?filter=conclusi" 
+                       class="btn btn-outline-primary filter-btn" 
+                       data-filter="conclusi">Conclusi</a>
+                    <a href="?filter=tutti" 
+                       class="btn btn-outline-primary filter-btn" 
+                       data-filter="tutti">Tutti</a>
                 </div>
             </div>
         </div>
 
-        <!-- Griglia Progetti -->
-        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-            <!-- Progetto 1 -->
-            <div class="col">
-                <a href="progetto-simulazioni.html" class="text-decoration-none">
-                    <div class="card project-card h-100 shadow">
-                        <span class="project-badge badge bg-success">In Corso</span>
-                        <img src="images/progetti/simulazioni.jpg" class="card-img-top" alt="Simulazioni Idrodinamiche">
+        <!-- Griglia Progetti con Data Attributes -->
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4" id="projectsGrid">
+            <!-- Progetto 1 - Attivo -->
+            <div class="col project-card" data-status="attivi">
+                <a href="progetto-1.html" class="text-decoration-none">
+                    <div class="card h-100 shadow">
+                        <div class="position-relative">
+                            <img src="images/progetti/1.jpg" class="card-img-top" alt="...">
+                            <span class="position-absolute top-0 end-0 m-2 badge bg-success">Attivo</span>
+                        </div>
                         <div class="card-body">
-                            <h5 class="card-title">Simulazioni Idrodinamiche 3D</h5>
-                            <p class="card-text">Sviluppo di modelli predittivi per flussi complessi...</p>
-                            <div class="btn btn-sm btn-primary">Vedi Dettagli</div>
+                            <h5 class="card-title">Gestione Risorse Idriche</h5>
+                            <p class="card-text">Sviluppo di nuovi modelli predittivi...</p>
                         </div>
                     </div>
                 </a>
             </div>
 
-            <!-- Progetto 2 -->
-            <div class="col">
-                <a href="progetto-falde.html" class="text-decoration-none">
-                    <div class="card project-card h-100 shadow">
-                        <span class="project-badge badge bg-secondary">Concluso</span>
-                        <img src="images/progetti/falde.jpg" class="card-img-top" alt="Monitoraggio Falde">
+            <!-- Progetto 2 - Concluso -->
+            <div class="col project-card" data-status="conclusi">
+                <a href="progetto-2.html" class="text-decoration-none">
+                    <div class="card h-100 shadow">
+                        <div class="position-relative">
+                            <img src="images/progetti/2.jpg" class="card-img-top" alt="...">
+                            <span class="position-absolute top-0 end-0 m-2 badge bg-secondary">Concluso</span>
+                        </div>
                         <div class="card-body">
                             <h5 class="card-title">Monitoraggio Falde 2020-2022</h5>
-                            <p class="card-text">Analisi quantitativa delle risorse idriche sotterranee...</p>
-                            <div class="btn btn-sm btn-primary">Vedi Dettagli</div>
+                            <p class="card-text">Analisi quantitativa delle risorse...</p>
                         </div>
                     </div>
                 </a>
@@ -112,5 +121,54 @@
             <!-- Aggiungi altri progetti -->
         </div>
     </main>
+
+    <!-- Script Integrato -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Configurazione iniziale
+        const urlParams = new URLSearchParams(window.location.search)
+        const filter = urlParams.get('filter') || 'tutti'
+        const titles = {
+            'attivi': 'Progetti Attivi in Corso',
+            'conclusi': 'Progetti Conclusi',
+            'tutti': 'Tutti i Progetti di Ricerca'
+        }
+        // Aggiorna titolo
+        document.getElementById('dynamicTitle').textContent = titles[filter]
+
+        // Gestione filtri
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.classList.toggle('active', btn.dataset.filter === filter)
+            
+            btn.addEventListener('click', function(e) {
+                e.preventDefault()
+                const newFilter = this.dataset.filter
+                window.history.replaceState({}, '', `?filter=${newFilter}`)
+                updateProjects(newFilter)
+            })
+        })
+
+        // Funzione di aggiornamento
+        function updateProjects(selectedFilter) {
+            // Aggiorna titolo
+            document.getElementById('dynamicTitle').textContent = titles[selectedFilter]
+            
+            // Aggiorna pulsanti
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.filter === selectedFilter)
+            })
+
+            // Filtra progetti
+            document.querySelectorAll('.project-card').forEach(card => {
+                const shouldShow = selectedFilter === 'tutti' || card.dataset.status === selectedFilter
+                card.classList.toggle('hidden', !shouldShow)
+            })
+        }
+
+        // Applica filtro iniziale
+        updateProjects(filter)
+    })
+    </script>
+
 </body>
 </html>
