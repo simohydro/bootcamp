@@ -40,12 +40,6 @@
             padding: 80px 0;
         }
 
-        /* Card Team */
-        .card-img-top {
-            height: 300px;
-            object-fit: cover;
-        }
-
         /* Responsive Mobile */
         @media (max-width: 768px) {
             .hero-section {
@@ -57,6 +51,28 @@
                 font-size: 2.5rem;
             }
         }
+        #gruppo {
+    background: linear-gradient(to right, #f8f9fa 50%, white 50%);
+}
+
+#gruppo .list-unstyled i {
+    font-size: 1.2rem;
+}
+
+@media (max-width: 992px) {
+    #gruppo {
+        background: #f8f9fa; /* Sfondo unico su mobile */
+    }
+    
+    .ps-lg-4 {
+        padding-left: 0 !important;
+        text-align: center;
+    }
+    
+    #gruppo ul {
+        text-align: left;
+    }
+}
     </style>
 </head>
  
@@ -90,35 +106,45 @@
                 <div class="col-12 text-center text-white">
                     <h1 class="display-4 mb-4">Idrogeologia Applicata</h1>
                     <p class="lead mb-4">Falde, Faldine, Faldelle</p>
-                    <a href="team.html" class="btn btn-primary btn-lg" target="_blank">Scopri il Team</a> 
                 </div>
             </div>
         </div>
     </section>
     
-    <!-- Team Section -->
-    <section id="team" class="bg-white">
-        <div class="container">
-            <h2 class="text-center mb-5">Il Nostro Team</h2>
-            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-                <!-- Team Member 1 -->
-                <div class="col">
-                    <div class="card h-100 shadow">
-                        <img src="image/team/membersb.jpg" class="card-img-top" alt="Membro team">
-                        <div class="card-body">
-                            <h5 class="card-title">Dott. Simone Bruno</h5>
-                            <p class="card-subtitle mb-2 text-muted">Borsista di Ricerca</p>
-                            <p class="card-text">Specializzato in stronzate </p>
-                            <a href="mailto:simone.bruno@unimib.it" class="btn btn-outline-primary">
-                                <i class="bi bi-envelope"></i> Contatta
-                            </a>
-                        </div>
+<!-- Sezione Gruppo -->
+<section id="gruppo" class="py-5">
+    <div class="container">
+        <div class="row align-items-center g-5">
+            <!-- Foto di Gruppo (Sinistra) -->
+            <div class="col-lg-6">
+                <img src="image/team/foto-gruppo.jpg" 
+                     alt="Il nostro gruppo di ricerca" 
+                     class="img-fluid rounded-3 shadow-lg"
+                     loading="lazy">
+            </div>
+            
+            <!-- Descrizione e Pulsante (Destra) -->
+            <div class="col-lg-6">
+                <div class="ps-lg-4">
+                    <h2 class="display-5 mb-4">Il Nostro Team di Ricerca</h2>
+                    <p class="lead mb-4">
+                        Un team multidisciplinare composto da 15 ricercatori dedicati, specializzati in:
+                    </p>
+                    <ul class="list-unstyled mb-4">
+                        <li class="mb-3"><i class="bi bi-arrow-right-circle text-primary me-2"></i>AAAAAAAAAA</li>
+                        <li class="mb-3"><i class="bi bi-arrow-right-circle text-primary me-2"></i>C'è la papessa</li>
+                        <li class="mb-3"><i class="bi bi-arrow-right-circle text-primary me-2"></i>non siamo umili</li>
+                    </ul>
+                    <div class="d-grid gap-2 d-md-block">
+                        <a href="team.html" class="btn btn-primary btn-lg" target="_blank">
+                            <i class="bi bi-people-fill me-2"></i>Scopri Tutti i Membri
+                        </a>
                     </div>
                 </div>
-                <!-- Aggiungi altri membri qui -->
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
     <!-- Pubblicazioni Section -->
     <section id="pubblicazioni" class="bg-light">
