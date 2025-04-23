@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <!-- Intestazione identica alle altre pagine -->
+    <style>
+        .project-card {
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .project-card img {
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .project-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            z-index: 2;
+        }
+    </style>
+</head>
+<body>
+    <main class="container py-5 mt-5">
+        <h1 class="text-center mb-5">I Nostri Progetti</h1>
+        
+        <!-- Filtri -->
+        <div class="row mb-4">
+            <div class="col text-center">
+                <div class="btn-group">
+                    <a href="progetti.html?filter=attivi" class="btn btn-outline-primary active">Attivi</a>
+                    <a href="progetti.html?filter=conclusi" class="btn btn-outline-primary">Conclusi</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Griglia Progetti -->
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+            <!-- Progetto 1 -->
+            <div class="col">
+                <a href="progetto-simulazioni.html" class="text-decoration-none">
+                    <div class="card project-card h-100 shadow">
+                        <span class="project-badge badge bg-success">In Corso</span>
+                        <img src="images/progetti/simulazioni.jpg" class="card-img-top" alt="Simulazioni Idrodinamiche">
+                        <div class="card-body">
+                            <h5 class="card-title">Simulazioni Idrodinamiche 3D</h5>
+                            <p class="card-text">Sviluppo di modelli predittivi per flussi complessi...</p>
+                            <div class="btn btn-sm btn-primary">Vedi Dettagli</div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Progetto 2 -->
+            <div class="col">
+                <a href="progetto-falde.html" class="text-decoration-none">
+                    <div class="card project-card h-100 shadow">
+                        <span class="project-badge badge bg-secondary">Concluso</span>
+                        <img src="images/progetti/falde.jpg" class="card-img-top" alt="Monitoraggio Falde">
+                        <div class="card-body">
+                            <h5 class="card-title">Monitoraggio Falde 2020-2022</h5>
+                            <p class="card-text">Analisi quantitativa delle risorse idriche sotterranee...</p>
+                            <div class="btn btn-sm btn-primary">Vedi Dettagli</div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <!-- Aggiungi altri progetti -->
+        </div>
+    </main>
+</body>
+</html>
