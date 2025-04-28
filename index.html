@@ -14,26 +14,26 @@
     
     <!-- Custom CSS -->
     <style>
-        /* Hero Section con Immagine di Sfondo */
-        .hero-section {
-            position: relative;
-            height: 100vh;
-            min-height: 600px;
-            background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
-                        url('image/logo/falda.jpg') center/cover fixed;
-            display: flex;
-            align-items: center;
-            margin-top: 56px; /* Compensa la navbar fissa */
-        }
+.hero-section {
+    position: relative;
+    height: 60vh; /* Ridotto da 100vh a 60vh */
+    min-height: 400px; /* Ridotto da 600px */
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+                url('image/logo/falda.jpg') center/cover; /* Rimosso 'fixed' */
+    display: flex;
+    align-items: center;
+    margin-top: 56px;
+    margin-bottom: 40px; /* Aggiunto spazio sotto */
+}
 
-        .hero-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.2);
-        }
+/* Aggiungi media query per dispositivi mobili */
+@media (max-width: 768px) {
+    .hero-section {
+        height: 50vh;
+        min-height: 300px;
+        background-attachment: scroll; /* Scroll normale su mobile */
+    }
+}
 
         /* Sezioni Generiche */
         section {
