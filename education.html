@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Education - Environmental Hydrogeology Research Group</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    
+    <style>
+        .education-card {
+            transition: all 0.3s ease;
+            min-height: 200px;
+            border: none;
+            background: #f8f9fa;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .education-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .education-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #0d6efd;
+        }
+
+        .education-section {
+            padding: 80px 0;
+            display: none; /* Nascondi le sezioni inizialmente */
+        }
+
+        .education-section.active {
+            display: block; /* Mostra solo la sezione attiva */
+        }
+
+        .nav-card {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar (usa la stessa navbar delle altre pagine) -->
+
+    <!-- Sezione Card Educazione -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">Education Resources</h2>
+            <div class="row g-4" id="educationNav">
+                <!-- Teaching -->
+                <div class="col-md-6 col-lg-4" data-target="#teaching">
+                    <div class="education-card card h-100 text-center p-4 nav-card">
+                        <i class="bi bi-mortarboard education-icon"></i>
+                        <h5>Teaching</h5>
+                        <p>Materiali didattici e programmi dei corsi</p>
+                    </div>
+                </div>
+
+                <!-- PhD Thesis -->
+                <div class="col-md-6 col-lg-4" data-target="#phdThesis">
+                    <div class="education-card card h-100 text-center p-4 nav-card">
+                        <i class="bi bi-file-earmark-richtext education-icon"></i>
+                        <h5>PhD Thesis</h5>
+                        <p>Archivio delle tesi di dottorato</p>
+                    </div>
+                </div>
+
+                <!-- Master Thesis -->
+                <div class="col-md-6 col-lg-4" data-target="#masterThesis">
+                    <div class="education-card card h-100 text-center p-4 nav-card">
+                        <i class="bi bi-journal-bookmark education-icon"></i>
+                        <h5>Master Thesis</h5>
+                        <p>Raccolta delle tesi magistrali</p>
+                    </div>
+                </div>
+
+                <!-- Bachelor Thesis -->
+                <div class="col-md-6 col-lg-4" data-target="#bachelorThesis">
+                    <div class="education-card card h-100 text-center p-4 nav-card">
+                        <i class="bi bi-journal-text education-icon"></i>
+                        <h5>Bachelor Thesis</h5>
+                        <p>Tesi triennali e progetti finali</p>
+                    </div>
+                </div>
+
+                <!-- Courses -->
+                <div class="col-md-6 col-lg-4" data-target="#courses">
+                    <div class="education-card card h-100 text-center p-4 nav-card">
+                        <i class="bi bi-collection education-icon"></i>
+                        <h5>Courses</h5>
+                        <p>Corsi disponibili e programmazione</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sezioni Contenuti -->
+    <div class="container">
+        <!-- Teaching Content -->
+        <section id="teaching" class="education-section">
+            <h2 class="mb-4">Teaching Materials</h2>
+            <!-- Inserisci contenuti specifici -->
+        </section>
+
+        <!-- PhD Thesis Content -->
+        <section id="phdThesis" class="education-section">
+            <h2 class="mb-4">PhD Thesis Archive</h2>
+            <!-- Inserisci contenuti specifici -->
+        </section>
+
+        <!-- Master Thesis Content -->
+        <section id="masterThesis" class="education-section">
+            <h2 class="mb-4">Master Thesis Collection</h2>
+            <!-- Inserisci contenuti specifici -->
+        </section>
+
+        <!-- Bachelor Thesis Content -->
+        <section id="bachelorThesis" class="education-section">
+            <h2 class="mb-4">Bachelor Thesis Projects</h2>
+            <!-- Inserisci contenuti specifici -->
+        </section>
+
+        <!-- Courses Content -->
+        <section id="courses" class="education-section">
+            <h2 class="mb-4">Available Courses</h2>
+            <!-- Inserisci contenuti specifici -->
+        </section>
+    </div>
+
+    <!-- Script per gestione sezioni -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const navCards = document.querySelectorAll('.nav-card');
+            const sections = document.querySelectorAll('.education-section');
+
+            // Mostra la prima sezione all'avvio
+            sections[0].classList.add('active');
+
+            navCards.forEach(card => {
+                card.addEventListener('click', function() {
+                    const targetId = this.parentElement.dataset.target;
+                    
+                    // Rimuovi active da tutte le sezioni
+                    sections.forEach(section => section.classList.remove('active'));
+                    
+                    // Aggiungi active alla sezione target
+                    document.querySelector(targetId).classList.add('active');
+                    
+                    // Scroll alla sezione
+                    document.querySelector(targetId).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
