@@ -518,6 +518,17 @@
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Disabilita l'apertura in nuove schede con il click centrale
+        document.querySelectorAll('a').forEach(link => {
+            link.addEventListener('auxclick', function(e) {
+                if (e.button === 1) { // 1 rappresenta il tasto centrale
+                    e.preventDefault();
+                }
+            });
+        });
+    });
+    </script>
 </body>
 </html>
