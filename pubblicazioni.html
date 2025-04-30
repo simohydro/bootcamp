@@ -74,7 +74,7 @@
         
         <!-- Filtri -->
 <div class="row mb-4">
-    <div class="col-md-4">
+    <div class="col-md-6">
         <div class="input-group">
             <label class="input-group-text" for="yearFilter">Filter by year:</label>
             <select class="form-select" id="yearFilter">
@@ -86,7 +86,14 @@
                 <option value="2021">2021</option>
                 <option value="2020">2020</option>
                 <option value="2019">2019</option>
+                <option value="2018">2018</option>
             </select>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="input-group">
+            <input type="text" class="form-control" id="keywordFilter" placeholder="Cerca per keyword...">
+            <button class="btn btn-outline-secondary" type="button" id="searchButton">Cerca</button>
         </div>
     </div>
 </div>
@@ -969,6 +976,63 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+</script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const searchInput = document.getElementById('keywordFilter');
+        const searchButton = document.getElementById('searchButton');
+        const publicationCards = document.querySelectorAll('.col-12[data-year]');
+
+        function filterPublications() {
+            const searchTerm = searchInput.value.toLowerCase().trim();
+
+            publicationCards.forEach(card => {
+                const keywords = Array.from(card.querySelectorAll('.badge'))
+                    .map(badge => badge.textContent.toLowerCase());
+
+                const matchesKeyword = keywords.some(keyword => keyword.includes(searchTerm));
+
+                if (matchesKeyword || searchTerm === '') {
+                    card.style.display = '';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        searchButton.addEventListener('click', filterPublications);
+        searchInput.addEventListener('keyup', function(event) {
+            if (event.key === 'Enter') {
+                filterPublications();
+            }
+        });
+
+        // Filtro per anno (mantieni la funzionalità esistente)
+        const yearFilter = document.getElementById('yearFilter');
+        yearFilter.addEventListener('change', function() {
+            const selectedYear = this.value;
+            publicationCards.forEach(card => {
+                const publicationYear = card.dataset.year;
+                if (selectedYear === 'all' || publicationYear === selectedYear) {
+                    card.style.display = '';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+            // Resetta anche il filtro per keyword quando si cambia l'anno
+            searchInput.value = '';
+            filterPublications();
+        });
+
+        // Inizializza la visualizzazione in base al filtro per anno all'avvio
+        const initialYear = yearFilter.value;
+        publicationCards.forEach(card => {
+            const publicationYear = card.dataset.year;
+            if (initialYear !== 'all' && publicationYear !== initialYear) {
+                card.style.display = 'none';
+            }
+        });
+    });
 </script>
 </body>
 </html>
