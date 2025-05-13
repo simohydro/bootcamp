@@ -71,7 +71,30 @@
                 transform: rotateY(180deg);
             }
         }
+
+        .flip-card a {
+    color: #00b4d8; /* Colore coordinato con la navbar */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.flip-card a:hover {
+    color: #0077b6; /* Colore più scuro al hover */
+    text-decoration: underline;
+}
+
+.project-link {
+    font-weight: 500;
+    position: relative;
+}
+
+.project-link:hover::after {
+    content: " (apre sito esterno)";
+    font-size: 0.8em;
+    color: #6c757d;
+}
     </style>
+    
 
 </head>
 <body>
@@ -169,7 +192,7 @@
                                     <div>
                                         <h5 class="mb-3">Progetti e responsabilità</h5>
                                         <ul class="list-unstyled">
-                                            <li class="mb-2">• AMBRA </li>
+                                            <li class="mb-2">• <a href="https://sites.google.com/unimib.it/ambra/home-page?authuser=0" target="_blank" class="project-link">AMBRA</a></li>
                                             <li class="mb-2">• Attività di campo </li>
                                             <li class="mb-2">• MidAS-Po: Ricostruzione idrogeologica della pianura padana</li>
                                         </ul>
