@@ -73,113 +73,88 @@
                 <i class="bi bi-tools me-3"></i>FieldKit
             </h1>
 
-            <!-- Filtri Categorie - Versione corretta -->
-            <div class="row mb-4 g-3 justify-content-center">
+               <!-- Filtri Categorie - Versione corretta -->
+            <div class="row mb-4 g-3 justify-content-center" id="filter-buttons">
                 <div class="col-auto">
-                    <button class="btn btn-outline-primary filter-btn active" data-category="all">
+                    <button class="btn btn-outline-primary active" data-category="all">
                         Tutti
                     </button>
                 </div>
                 <div class="col-auto">
-                    <button class="btn btn-outline-primary filter-btn" data-category="acquisizione">
+                    <button class="btn btn-outline-primary" data-category="acquisizione">
                         Acquisizione Dati
                     </button>
                 </div>
                 <div class="col-auto">
-                    <button class="btn btn-outline-primary filter-btn" data-category="laboratorio">
+                    <button class="btn btn-outline-primary" data-category="laboratorio">
                         Analisi Laboratorio
                     </button>
                 </div>
             </div>
 
             <!-- Grid Strumenti -->
-            <div class="row g-4">
+            <div class="row g-4" id="strumenti-container">
                 <!-- Strumento 1 -->
-                <div class="col-lg-4 col-md-6" data-category="acquisizione">
-                    <div class="card h-100 shadow-sm hover-effect">
-                        <div class="card-header bg-light">
-                            <i class="bi bi-thermometer-sun float-end fs-4 text-primary"></i>
-                        </div>
-                        <img src="images/sonda-termica.jpg" class="card-img-top" alt="Sonda termica">
-                        <div class="card-body">
-                            <h5 class="card-title">
-                                <i class="bi bi-speedometer2 me-2"></i>Sonda Multiparametrica
-                            </h5>
-                            <ul class="list-unstyled">
-                                <li class="mb-2">
-                                    <i class="bi bi-check2-circle text-success me-2"></i>
-                                    Misura pH, conducibilità, temperatura
-                                </li>
-                                <li class="mb-2">
-                                    <i class="bi bi-clock-history text-info me-2"></i>
-                                    Registrazione continua 24/7
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="card-footer bg-transparent">
-                            <small class="text-muted">Modello: XT-2024 Pro</small>
+                <div class="col-lg-4 col-md-6 strumento" data-category="acquisizione">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body text-center">
+                            <i class="bi bi-thermometer-sun display-4 text-primary mb-3"></i>
+                            <h5 class="card-title">Sonda Multiparametrica</h5>
+                            <div class="card-text">
+                                <p class="text-muted">Misurazione parametri idrogeologici</p>
+                                <hr>
+                                <small>Modello: XT-2024 Pro</small>
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Strumento 2 -->
-                <div class="col-lg-4 col-md-6" data-category="laboratorio">
-                    <div class="card h-100 shadow-sm hover-effect">
-                        <div class="card-header bg-light">
-                            <i class="bi bi-droplet-half float-end fs-4 text-primary"></i>
-                        </div>
-                        <img src="images/spectrometer.jpg" class="card-img-top" alt="Spettrometro">
-                        <div class="card-body">
-                            <h5 class="card-title">
-                                <i class="bi bi-graph-up me-2"></i>Spettrometro Portatile
-                            </h5>
-                            <ul class="list-unstyled">
-                                <li class="mb-2">
-                                    <i class="bi bi-lightning-charge text-warning me-2"></i>
-                                    Analisi elementi in situ
-                                </li>
-                                <li class="mb-2">
-                                    <i class="bi bi-battery-full text-success me-2"></i>
-                                    Autonomia 8 ore
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="card-footer bg-transparent">
-                            <small class="text-muted">Modello: GeoSpec Pro</small>
+                <div class="col-lg-4 col-md-6 strumento" data-category="laboratorio">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body text-center">
+                            <i class="bi bi-droplet-half display-4 text-primary mb-3"></i>
+                            <h5 class="card-title">Spettrometro Portatile</h5>
+                            <div class="card-text">
+                                <p class="text-muted">Analisi composizione chimica</p>
+                                <hr>
+                                <small>Modello: GeoSpec Pro</small>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-
+        </div>
     </section>
 
-
-    <!-- Script per i filtri corretto -->
+    <!-- Script funzionante -->
     <script>
     document.addEventListener('DOMContentLoaded', () => {
-        const filterBtns = document.querySelectorAll('.filter-btn');
-        const items = document.querySelectorAll('[data-category]');
+        const buttons = document.querySelectorAll('#filter-buttons button');
+        const strumenti = document.querySelectorAll('.strumento');
 
-        filterBtns.forEach(btn => {
-            btn.addEventListener('click', function() {
-                // Rimuovi active da tutti i pulsanti
-                filterBtns.forEach(b => b.classList.remove('active'));
+        buttons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Resetta tutti i pulsanti
+                buttons.forEach(b => b.classList.remove('active'));
                 
-                // Aggiungi active al pulsante cliccato
-                this.classList.add('active');
+                // Imposta lo stato attivo
+                button.classList.add('active');
                 
-                const category = this.dataset.category;
+                const category = button.dataset.category;
                 
-                // Mostra/nascondi elementi
-                items.forEach(item => {
-                    item.style.display = (category === 'all' || item.dataset.category === category) 
-                        ? 'block' 
-                        : 'none';
+                // Filtra gli strumenti
+                strumenti.forEach(strumento => {
+                    const show = category === 'all' || 
+                                strumento.dataset.category === category;
+                    
+                    strumento.style.display = show ? 'block' : 'none';
                 });
             });
         });
     });
     </script>
+
 
 </body>
 </html>
