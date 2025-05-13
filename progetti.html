@@ -9,30 +9,49 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
     <!-- Intestazione identica alle altre pagine -->
-    <style>
-        /* Stili esistenti + nuove transizioni */
+   <style>
+        /* Transizioni modificate */
         .project-card {
-            transition: all 0.3s ease;
+            transition: opacity 0.2s ease-in-out;
             opacity: 1;
-            transform: translateY(0);
         }
         
         .project-card.hidden {
             opacity: 0;
-            transform: translateY(20px);
-            pointer-events: none;
-            position: absolute;
-            width: 100%;
-            visibility: hidden;
+            height: 0;
+            overflow: hidden;
+            margin: 0;
+            padding: 0;
+            transition: all 0.3s ease;
         }
 
         .filter-btn.active {
             background-color: #0d6efd !important;
             color: white !important;
         }
-    </style>
-  
+
+        /* Nuovo layout card */
+        .project-card .card {
+            border: none;
+            border-bottom: 1px solid #eee;
+            border-radius: 0;
+        }
+
+        .project-card .card-img-left {
+            width: 300px;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        @media (max-width: 768px) {
+            .project-card .card-img-left {
+                width: 100%;
+                height: 200px;
+            }
+        }
+    </style> 
 </head>
+    
 <body>
      <!-- Navbar (identica alla homepage) -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
@@ -65,12 +84,10 @@
         </div>
     </nav>
 
-  <!-- Sezione Principale Modificata -->
-    <main class="container py-5 mt-5">
-        <!-- Titolo Dinamico -->
+ <main class="container py-5 mt-5">
         <h1 class="text-center mb-5" id="dynamicTitle">Progetti di Ricerca</h1>
         
-        <!-- Filtri Aggiornati -->
+        <!-- Filtri -->
         <div class="row mb-4">
             <div class="col text-center">
                 <div class="btn-group">
@@ -87,40 +104,55 @@
             </div>
         </div>
 
-        <!-- Griglia Progetti con Data Attributes -->
-        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4" id="projectsGrid">
+        <!-- Lista Progetti -->
+        <div class="row g-4" id="projectsGrid">
             <!-- Progetto 1 - Attivo -->
-            <div class="col project-card" data-status="attivi">
-                <a href="progetto-1.html" class="text-decoration-none">
-                    <div class="card h-100 shadow">
-                        <div class="position-relative">
-                            <img src="images/progetti/1.jpg" class="card-img-top" alt="...">
-                            <span class="position-absolute top-0 end-0 m-2 badge bg-success">Attivo</span>
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title">Gestione Risorse Idriche</h5>
-                            <p class="card-text">Sviluppo di nuovi modelli predittivi...</p>
+            <div class="col-12 project-card" data-status="attivi">
+                <a href="progetto-1.html" class="text-decoration-none text-dark">
+                    <div class="card h-100">
+                        <div class="row g-0">
+                            <div class="col-md-4">
+                                <img src="images/progetti/1.jpg" class="card-img-left h-100" alt="...">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <span class="badge bg-success float-end">Attivo</span>
+                                    <h5 class="card-title mb-3">Gestione Risorse Idriche</h5>
+                                    <p class="card-text">Sviluppo di nuovi modelli predittivi per la gestione sostenibile delle risorse idriche sotterranee...</p>
+                                    <div class="mt-4">
+                                        <span class="text-muted small">Durata: 2022-2024</span>
+                                        <span class="text-muted small ms-3">Budget: €250.000</span>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </a>
             </div>
 
             <!-- Progetto 2 - Concluso -->
-            <div class="col project-card" data-status="conclusi">
-                <a href="progetto-2.html" class="text-decoration-none">
-                    <div class="card h-100 shadow">
-                        <div class="position-relative">
-                            <img src="images/progetti/2.jpg" class="card-img-top" alt="...">
-                            <span class="position-absolute top-0 end-0 m-2 badge bg-secondary">Concluso</span>
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title">Monitoraggio Falde 2020-2022</h5>
-                            <p class="card-text">Analisi quantitativa delle risorse...</p>
+            <div class="col-12 project-card" data-status="conclusi">
+                <a href="progetto-2.html" class="text-decoration-none text-dark">
+                    <div class="card h-100">
+                        <div class="row g-0">
+                            <div class="col-md-4">
+                                <img src="images/progetti/2.jpg" class="card-img-left h-100" alt="...">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <span class="badge bg-secondary float-end">Concluso</span>
+                                    <h5 class="card-title mb-3">Monitoraggio Falde 2020-2022</h5>
+                                    <p class="card-text">Analisi quantitativa delle risorse idriche sotterranee nel bacino padano...</p>
+                                    <div class="mt-4">
+                                        <span class="text-muted small">Durata: 2020-2022</span>
+                                        <span class="text-muted small ms-3">Budget: €150.000</span>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </a>
             </div>
-            <!-- Aggiungi altri progetti -->
         </div>
     </main>
         <!-- Footer (identico alla homepage) -->
@@ -141,7 +173,6 @@
     <!-- Script Integrato -->
     <script>
     document.addEventListener('DOMContentLoaded', function() {
-        // Configurazione iniziale
         const urlParams = new URLSearchParams(window.location.search)
         const filter = urlParams.get('filter') || 'tutti'
         const titles = {
@@ -149,6 +180,7 @@
             'conclusi': 'Progetti Conclusi',
             'tutti': 'Tutti i Progetti di Ricerca'
         }
+
         // Aggiorna titolo
         document.getElementById('dynamicTitle').textContent = titles[filter]
 
@@ -164,24 +196,25 @@
             })
         })
 
-        // Funzione di aggiornamento
+        // Funzione di aggiornamento migliorata
         function updateProjects(selectedFilter) {
-            // Aggiorna titolo
             document.getElementById('dynamicTitle').textContent = titles[selectedFilter]
             
-            // Aggiorna pulsanti
             document.querySelectorAll('.filter-btn').forEach(btn => {
                 btn.classList.toggle('active', btn.dataset.filter === selectedFilter)
             })
 
-            // Filtra progetti
             document.querySelectorAll('.project-card').forEach(card => {
                 const shouldShow = selectedFilter === 'tutti' || card.dataset.status === selectedFilter
-                card.classList.toggle('hidden', !shouldShow)
+                if(shouldShow) {
+                    card.classList.remove('hidden')
+                } else {
+                    card.classList.add('hidden')
+                }
             })
         }
 
-        // Applica filtro iniziale
+        // Inizializzazione
         updateProjects(filter)
     })
     </script>
