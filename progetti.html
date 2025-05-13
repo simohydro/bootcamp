@@ -49,6 +49,22 @@
                 height: 200px;
             }
         }
+       /* Aggiungi alla sezione CSS */
+.object-fit-cover {
+    object-fit: cover;
+    object-position: center;
+}
+
+.img-container {
+    height: 250px; /* Altezza fissa per mobile */
+}
+
+@media (min-width: 768px) {
+    .img-container {
+        height: 100%; /* Altezza piena su desktop */
+        min-height: 300px;
+    }
+}
     </style> 
 </head>
     
@@ -111,8 +127,10 @@
                 <a href="progetto-1.html" class="text-decoration-none text-dark">
                     <div class="card h-100">
                         <div class="row g-0">
-                            <div class="col-md-4">
-                                <img src="image/logo/midaspo.jpg" class="card-img-left h-100" alt="...">
+                            <div class="col-md-4 img-container">
+                                <div class="position-relative h-100 overflow-hidden">
+                                <img src="image/logo/midaspo.jpg" class="img-fluid w-100 h-100 object-fit-cover" alt="...">
+                                </div>
                             </div>
                             <div class="col-md-8">
                                 <div class="card-body">
