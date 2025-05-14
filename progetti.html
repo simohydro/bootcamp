@@ -8,7 +8,6 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
 <style>
-  <style>
     /* Transizioni */
     .project-card {
         opacity: 1;
@@ -31,42 +30,42 @@
         color: white !important;
     }
 
-    /* Layout Card */
+    /* Layout Card Fixato */
     .project-card .card {
         border: none;
         border-bottom: 1px solid #eee;
         border-radius: 0;
         height: 100%;
+        overflow: hidden;
     }
 
     /* Riga Principale - Fix Critico */
     .project-card .row {
         display: flex !important;
-        flex-wrap: nowrap !important;
+        flex-wrap: nowrap;
         align-items: stretch;
-        margin-left: 0;
-        margin-right: 0;
+        margin: 0;
         height: 100%;
-        min-width: 100% !important; /* Fix per overflow orizzontale */
+        min-width: 100%;
     }
 
-    /* Colonna Immagine */
+    /* Colonna Immagine (25%) */
     .project-card .col-sm-4 {
         flex: 0 0 25% !important;
         max-width: 25% !important;
-        padding-right: 30px !important;
+        padding-right: 30px;
         height: 150px;
         display: flex;
         align-items: center;
-        min-width: 0 !important; /* Fix fondamentale */
+        min-width: 0;
     }
 
-    /* Colonna Testo - Fix Definitivo */
+    /* Colonna Testo (75%) - Fix Definitivo */
     .project-card .col-sm-8 {
-        flex: 1 1 75% !important;
-        min-width: 0 !important; /* Fix obbligatorio per flexbox */
-        padding-left: 15px !important;
-        width: auto !important;
+        flex: 1 !important;
+        min-width: 0 !important;
+        padding-left: 15px;
+        width: auto;
         word-break: normal !important;
         white-space: normal !important;
     }
@@ -75,50 +74,59 @@
     .image-container {
         width: 100%;
         height: 100%;
-        display: flex !important;
+        display: flex;
         align-items: center;
-        justify-content: flex-start; /* Allineamento a sinistra */
+        justify-content: flex-start;
         background: #f8f9fa;
         padding: 15px;
         border-radius: 4px;
     }
 
-    /* Immagine */
+    /* Immagine Responsive */
     .project-card img {
         max-width: 100%;
         max-height: 100%;
-        width: auto !important;
-        height: auto !important;
+        width: auto;
+        height: auto;
         object-fit: contain;
-        object-position: left center; /* Allineamento sinistro */
+        object-position: left center;
     }
 
-    /* Fix Testo - Priorità Massima */
+    /* Titolo - Fix Finale */
     .card-title {
-        font-size: 1.4rem !important;
-        line-height: 1.4 !important;
+        font-size: 1.4rem;
+        line-height: 1.3;
         margin-bottom: 0.75rem;
         white-space: normal !important;
-        word-break: normal !important;
-        word-wrap: normal !important;
+        word-break: break-word !important;
         hyphens: none !important;
         width: 100% !important;
-        max-width: 100% !important;
+        overflow-wrap: anywhere !important;
+        display: block !important;
+        color: #333;
     }
 
+    /* Corpo Testo */
     .card-text {
         flex-grow: 1;
         overflow: auto;
         margin-bottom: 1rem;
-        white-space: normal !important;
-        word-break: normal !important;
-        hyphens: none !important;
         font-size: 0.95em;
         line-height: 1.6;
         letter-spacing: 0.03em;
+        white-space: normal !important;
+        word-break: normal !important;
+        hyphens: none !important;
     }
 
-    /* Responsive Mobile - Ottimizzato */
+    /* Footer Card */
+    .card-footer-content {
+        margin-top: auto;
+        padding-top: 1rem;
+        border-top: 1px solid rgba(0,0,0,0.1);
+    }
+
+    /* Mobile Fix Definitivo */
     @media (max-width: 768px) {
         .project-card .row {
             flex-wrap: wrap !important;
@@ -129,7 +137,7 @@
             flex: 0 0 100% !important;
             max-width: 100% !important;
             height: 120px;
-            padding-right: 0 !important;
+            padding-right: 0;
             margin-bottom: 1.5rem;
             justify-content: center;
         }
@@ -140,24 +148,33 @@
         }
         
         .project-card img {
-            max-width: 250px !important;
-            object-position: center center;
+            max-width: 220px !important;
+            object-position: center;
         }
         
         .card-title {
-            font-size: 1.25rem !important;
-            text-align: left !important;
+            font-size: 1.2rem !important;
+            line-height: 1.4 !important;
+        }
+        
+        .card-text {
+            font-size: 0.9em;
         }
     }
 
-    /* Scrollbar Testo */
+    /* Scrollbar Personalizzata */
     .card-text::-webkit-scrollbar {
         width: 5px;
     }
 
     .card-text::-webkit-scrollbar-thumb {
-        background: #ddd;
+        background: #ccc;
         border-radius: 10px;
+    }
+
+    /* Fix Specifico per Titoli Lunghi */
+    .card-title br {
+        display: none !important;
     }
 </style>
 </head>
