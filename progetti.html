@@ -8,6 +8,7 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
 <style>
+  <style>
     /* Transizioni */
     .project-card {
         opacity: 1;
@@ -38,7 +39,7 @@
         height: 100%;
     }
 
-    /* Riga Principale */
+    /* Riga Principale - Fix Critico */
     .project-card .row {
         display: flex !important;
         flex-wrap: nowrap !important;
@@ -46,9 +47,10 @@
         margin-left: 0;
         margin-right: 0;
         height: 100%;
+        min-width: 100% !important; /* Fix per overflow orizzontale */
     }
 
-    /* Colonna Immagine (25% width) */
+    /* Colonna Immagine */
     .project-card .col-sm-4 {
         flex: 0 0 25% !important;
         max-width: 25% !important;
@@ -56,55 +58,52 @@
         height: 150px;
         display: flex;
         align-items: center;
+        min-width: 0 !important; /* Fix fondamentale */
     }
 
-    /* Colonna Testo (75% width) - MODIFICATA */
+    /* Colonna Testo - Fix Definitivo */
     .project-card .col-sm-8 {
-        flex: 1 1 75% !important; /* Base esplicita */
-        width: 100% !important;
-        min-width: unset !important; /* Fix fondamentale */
+        flex: 1 1 75% !important;
+        min-width: 0 !important; /* Fix obbligatorio per flexbox */
         padding-left: 15px !important;
+        width: auto !important;
+        word-break: normal !important;
+        white-space: normal !important;
     }
 
-    /* Container Immagine Adattivo */
+    /* Container Immagine */
     .image-container {
         width: 100%;
         height: 100%;
         display: flex !important;
         align-items: center;
-        justify-content: center;
+        justify-content: flex-start; /* Allineamento a sinistra */
         background: #f8f9fa;
         padding: 15px;
         border-radius: 4px;
     }
 
-    /* Immagine Responsive */
+    /* Immagine */
     .project-card img {
         max-width: 100%;
         max-height: 100%;
         width: auto !important;
         height: auto !important;
         object-fit: contain;
-        object-position: center center;
+        object-position: left center; /* Allineamento sinistro */
     }
 
-    /* Corpo Testo - MODIFICATO */
-    .card-body {
-        padding: 1rem 0 !important;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        overflow: visible !important;
-    }
-
+    /* Fix Testo - Priorità Massima */
     .card-title {
-        font-size: 1.5rem;
-        margin-bottom: 1rem;
-        line-height: 1.3 !important;
-        max-width: 95%; /* Previene overflow estremi */
+        font-size: 1.4rem !important;
+        line-height: 1.4 !important;
+        margin-bottom: 0.75rem;
         white-space: normal !important;
-        word-break: break-word !important; /* Nuovo */
-        hyphens: auto !important; /* Nuovo */
+        word-break: normal !important;
+        word-wrap: normal !important;
+        hyphens: none !important;
+        width: 100% !important;
+        max-width: 100% !important;
     }
 
     .card-text {
@@ -112,21 +111,18 @@
         overflow: auto;
         margin-bottom: 1rem;
         white-space: normal !important;
-        word-break: break-word !important; /* Modificato */
-        hyphens: auto !important; /* Modificato */
-        width: 100% !important;
+        word-break: normal !important;
+        hyphens: none !important;
+        font-size: 0.95em;
+        line-height: 1.6;
+        letter-spacing: 0.03em;
     }
 
-    .card-footer-content {
-        margin-top: auto;
-        padding-top: 1rem;
-        border-top: 1px solid rgba(0,0,0,0.1);
-    }
-
-    /* Responsive Mobile - MODIFICATO */
+    /* Responsive Mobile - Ottimizzato */
     @media (max-width: 768px) {
         .project-card .row {
             flex-wrap: wrap !important;
+            flex-direction: column !important;
         }
         
         .project-card .col-sm-4 {
@@ -135,20 +131,22 @@
             height: 120px;
             padding-right: 0 !important;
             margin-bottom: 1.5rem;
+            justify-content: center;
         }
         
         .project-card .col-sm-8 {
             padding-left: 0 !important;
-            flex: 1 1 100% !important;
+            flex: 0 0 100% !important;
         }
         
         .project-card img {
-            max-width: 70%;
+            max-width: 250px !important;
+            object-position: center center;
         }
         
         .card-title {
-            font-size: 1.35rem !important; /* Riduzione mobile */
-            max-width: 100%;
+            font-size: 1.25rem !important;
+            text-align: left !important;
         }
     }
 
