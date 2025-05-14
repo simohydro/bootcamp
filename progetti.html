@@ -30,15 +30,16 @@
             color: white !important;
         }
 
-    /* AGGIORNA QUESTA SEZIONE CSS */
+<style>
     .project-card .card {
         border: none;
         border-bottom: 1px solid #eee;
         border-radius: 0;
+        min-height: 300px; /* Altezza minima card */
     }
 
     .image-container {
-        height: 300px; /* Altezza fissa per desktop */
+        height: 100%;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -52,13 +53,6 @@
         width: auto;
         height: auto;
         object-fit: contain;
-    }
-
-    @media (max-width: 768px) {
-        .image-container {
-            height: 200px; /* Altezza ridotta per mobile */
-            padding: 10px;
-        }
     }
 
     .text-content {
@@ -75,8 +69,12 @@
 
     .card-text {
         flex-grow: 1;
-        overflow: hidden;
-        text-overflow: ellipsis;
+        overflow: auto;
+    }
+
+    .card-footer-content {
+        margin-top: auto;
+        padding-top: 1rem;
     }
     </style> 
 </head>
@@ -153,7 +151,7 @@
                                 <span class="badge bg-success float-end">Attivo</span>
                                 <h5 class="card-title mb-3">MidAS-Po: Modello idrogeologico delle Acque Sotterranee del distretto idrografico del fiume Po</h5>
                                 <p class="card-text">Scopo del progetto è di aumentare il livello di conoscenza dello stato di salute delle acque sotterranee della pianura padana dal punto di vista qualitativo e quantitativo, in un contesto attuale caratterizzato da frequenti eventi di scarsità idrica. Il sottosuolo della Pianura Padana, che ospita potenti acquiferi nei suoi depositi alluvionali, diventa sempre più una risorsa strategica nella valutazione del bilancio idrico, in ragione della rilevante quota di approvvigionamento idrico che supporta il settore civile, industriale e agricolo.</p>
-                                <div class="mt-auto">
+                                <div class="card-footer-content">
                                     <span class="text-muted small">Durata: 2022-2025</span>
                                     <a href="https://www.adbpo.it/la-tutela-delle-acque-parte-dalla-conoscenza-avvio-del-progetto-midas-po/" 
                                        target="_blank" 
