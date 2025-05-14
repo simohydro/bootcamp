@@ -1,257 +1,266 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Tutti i progetti - Idrogeologia Ambientale</title>
-    
-    <!-- Aggiungi gli stessi stili della homepage -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
-    <!-- Intestazione identica alle altre pagine -->
-   <style>
-        /* Transizioni modificate */
-        .project-card {
-            transition: opacity 0.2s ease-in-out;
-            opacity: 1;
-        }
-        
-        .project-card.hidden {
-            opacity: 0;
-            height: 0;
-            overflow: hidden;
-            margin: 0;
-            padding: 0;
-            transition: all 0.3s ease;
-        }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tutti i progetti - Idrogeologia Ambientale</title>
+    
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    
+       <style>
+        /* Transizioni modificate */
+        .project-card {
+            transition: opacity 0.2s ease-in-out;
+            opacity: 1;
+            /* Assicurati che la card nascosta non occupi spazio */
+            transition: opacity 0.3s ease-in-out, height 0.3s ease-in-out, margin 0.3s ease-in-out, padding 0.3s ease-in-out;
+        }
+        
+        .project-card.hidden {
+            opacity: 0;
+            height: 0 !important; /* Usa !important per garantire che venga applicato */
+            overflow: hidden;
+            margin: 0 !important; /* Rimuovi margini */
+            padding: 0 !important; /* Rimuovi padding */
+            border: none !important; /* Rimuovi bordo se presente */
+            visibility: hidden; /* Nasconde completamente l'elemento */
+            /* Rimuovi la transizione 'all' che potrebbe interferire, mantieni le transizioni specifiche */
+        }
 
-        .filter-btn.active {
-            background-color: #0d6efd !important;
-            color: white !important;
-        }
+        .filter-btn.active {
+            background-color: #0d6efd !important;
+            color: white !important;
+        }
 
-<style>
-    .project-card .card {
-        border: none;
-        border-bottom: 1px solid #eee;
-        border-radius: 0;
-        min-height: 300px; /* Altezza minima card */
-    }
+        .project-card .card {
+            border: none;
+            border-bottom: 1px solid #eee;
+            border-radius: 0;
+            /* Altezza minima card - Potrebbe essere necessario regolarla o rimuoverla */
+            /* min-height: 300px; */
+        }
 
-    .image-container {
-        height: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background: #f8f9fa;
-        padding: 20px;
-    }
+        .image-container {
+            height: 100%; /* Fa sì che il contenitore immagine prenda l'altezza della colonna */
+            display: flex;
+            align-items: center; /* Centra verticalmente l'immagine */
+            justify-content: center; /* Centra orizzontalmente l'immagine */
+            background: #f8f9fa;
+            padding: 20px; /* Aggiunge un po' di spazio intorno all'immagine */
+        }
 
-    .responsive-image {
-        max-width: 100%;
-        max-height: 100%;
-        width: auto;
-        height: auto;
-        object-fit: contain;
-    }
+        .responsive-image {
+            max-width: 100%;
+            max-height: 100%;
+            width: auto;
+            height: auto;
+            object-fit: contain; /* Assicura che l'immagine sia contenuta senza deformarsi */
+        }
 
-    .text-content {
-        padding: 2rem;
-        display: flex;
-        flex-direction: column;
-        height: 100%;
-    }
+        /* Applica flexbox al card-body per gestire l'allineamento verticale del testo e del footer-content */
+        .card-body {
+            display: flex;
+            flex-direction: column;
+            height: 100%; /* Fa sì che il card-body prenda l'altezza della colonna */
+        }
 
-    .card-title {
-        font-size: 1.5rem;
-        margin-bottom: 1rem;
-    }
+        .card-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
 
-    .card-text {
-        flex-grow: 1;
-        overflow: auto;
-    }
+        /* Fa in modo che il testo si espanda e spinga in basso il footer-content */
+        .card-text {
+            flex-grow: 1;
+            overflow: auto; /* Rimuovi se non vuoi scrollbar nel testo */
+        }
 
-    .card-footer-content {
-        margin-top: auto;
-        padding-top: 1rem;
-    }
-    </style> 
+        /* Spinge questo contenuto in fondo al card-body */
+        .card-footer-content {
+            margin-top: auto; /* Cruciale con flexbox per spingere in basso */
+            padding-top: 1rem;
+        }
+    </style> 
 </head>
-    
+    
 <body>
-     <!-- Navbar (identica alla homepage) -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-        <div class="container">
-            <a class="navbar-brand" href="index.html">
-                <i class="bi bi-droplet animate-pulse" style="color: #00b4d8; font-size: 1.25rem;"></i> Environmental Hydrogeology Research Group
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="team.html">Team</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="#">Teaching</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="pubblicazioni.html">Publications</a></li>
-                     <li class="nav-item dropdown active">
-                    <a class="nav-link dropdown-toggle" href="progetti.html?filter=attivi" role="button" 
-                       data-bs-toggle="dropdown" aria-expanded="false">
-                        Projects
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="progetti.html?filter=attivi">Active</a></li>
-                        <li><a class="dropdown-item" href="progetti.html?filter=conclusi">Concluded</a></li>
-                    </ul>
-                </li>
-                    <li class="nav-item"><a class="nav-link active" href="#contatti">Contacts</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="bi bi-droplet animate-pulse" style="color: #00b4d8; font-size: 1.25rem;"></i> Environmental Hydrogeology Research Group
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                                        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="team.html">Team</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Teaching</a></li>
+                    <li class="nav-item"><a class="nav-link" href="pubblicazioni.html">Publications</a></li>
+                                        <li class="nav-item dropdown active">
+                    <a class="nav-link dropdown-toggle" href="progetti.html?filter=attivi" role="button" 
+                       data-bs-toggle="dropdown" aria-expanded="false">
+                        Projects
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="progetti.html?filter=attivi">Active</a></li>
+                        <li><a class="dropdown-item" href="progetti.html?filter=conclusi">Concluded</a></li>
+                    </ul>
+                </li>
+                    <li class="nav-item"><a class="nav-link" href="#contatti">Contacts</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
- <main class="container py-5 mt-5">
-        <h1 class="text-center mb-5" id="dynamicTitle">Progetti di Ricerca</h1>
-        
-        <!-- Filtri -->
-        <div class="row mb-4">
-            <div class="col text-center">
-                <div class="btn-group">
-                    <a href="?filter=tutti" 
-                       class="btn btn-outline-primary filter-btn" 
-                       data-filter="tutti">Tutti</a>
-                    <a href="?filter=attivi" 
-                       class="btn btn-outline-primary filter-btn" 
-                       data-filter="attivi">Attivi</a>
-                    <a href="?filter=conclusi" 
-                       class="btn btn-outline-primary filter-btn" 
-                       data-filter="conclusi">Conclusi</a>
-                </div>
-            </div>
-        </div>
+ <main class="container py-5 mt-5">
+        <h1 class="text-center mb-5" id="dynamicTitle">Progetti di Ricerca</h1>
+        
+                <div class="row mb-4">
+            <div class="col text-center">
+                <div class="btn-group">
+                    <a href="?filter=tutti" 
+                       class="btn btn-outline-primary filter-btn" 
+                       data-filter="tutti">Tutti</a>
+                    <a href="?filter=attivi" 
+                       class="btn btn-outline-primary filter-btn" 
+                       data-filter="attivi">Attivi</a>
+                    <a href="?filter=conclusi" 
+                       class="btn btn-outline-primary filter-btn" 
+                       data-filter="conclusi">Conclusi</a>
+                </div>
+            </div>
+        </div>
 
-        <!-- Lista Progetti -->
-        <div class="row g-4" id="projectsGrid">
-            <!-- Progetto 1 - Attivo -->
-           <!-- MODIFICA LA SEZIONE DEL PROGETTO COSÌ -->
-            <div class="col-12 project-card" data-status="attivi">
-                <a href="#" class="text-decoration-none text-dark">
-                    <div class="card h-100">
-                        <div class="row g-0 h-100">
-                            <!-- Contenitore immagine -->
-                            <div class="col-md-4 image-container">
-                                <img src="image/logo/midaspo.jpg" 
-                                     class="responsive-image" 
-                                     alt="MidAS-Po project">
-                            </div>
-                            
-                            <!-- Contenuto testuale -->
-                            <div class="col-md-8 text-content">
-                                <span class="badge bg-success float-end">Attivo</span>
-                                <h5 class="card-title mb-3">MidAS-Po: Modello idrogeologico delle Acque Sotterranee del distretto idrografico del fiume Po</h5>
-                                <p class="card-text">Scopo del progetto è di aumentare il livello di conoscenza dello stato di salute delle acque sotterranee della pianura padana dal punto di vista qualitativo e quantitativo, in un contesto attuale caratterizzato da frequenti eventi di scarsità idrica. Il sottosuolo della Pianura Padana, che ospita potenti acquiferi nei suoi depositi alluvionali, diventa sempre più una risorsa strategica nella valutazione del bilancio idrico, in ragione della rilevante quota di approvvigionamento idrico che supporta il settore civile, industriale e agricolo.</p>
-                                <div class="card-footer-content">
-                                    <span class="text-muted small">Durata: 2022-2025</span>
-                                    <a href="https://www.adbpo.it/la-tutela-delle-acque-parte-dalla-conoscenza-avvio-del-progetto-midas-po/" 
-                                       target="_blank" 
-                                       class="btn btn-outline-primary btn-sm ms-3">
-                                        <i class="bi bi-box-arrow-up-right me-1"></i> Website
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <!-- Progetto 2 - Concluso -->
-            <div class="col-12 project-card" data-status="conclusi">
-                <a href="progetto-2.html" class="text-decoration-none text-dark">
-                    <div class="card h-100">
-                        <div class="row g-0">
-                            <div class="col-md-4">
-                                <img src="images/progetti/2.jpg" class="card-img-left h-100" alt="...">
-                            </div>
-                            <div class="col-md-8">
-                                <div class="card-body">
-                                    <span class="badge bg-secondary float-end">Concluso</span>
-                                    <h5 class="card-title mb-3">Monitoraggio Falde 2020-2022</h5>
-                                    <p class="card-text">Analisi quantitativa delle risorse idriche sotterranee nel bacino padano...</p>
-                                    <div class="mt-4">
-                                        <span class="text-muted small">Durata: 2020-2022</span>
-                                        <span class="text-muted small ms-3">Budget: €150.000</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
-        </div>
-    </main>
-        <!-- Footer (identico alla homepage) -->
-    <footer class="bg-black text-white py-4">
-        <div class="container text-center">
-            <div class="mb-3">
-                <a href="#" class="text-white me-3"><i class="bi bi-twitter"></i></a>
-                <a href="#" class="text-white me-3"><i class="bi bi-linkedin"></i></a>
-                <a href="#" class="text-white me-3"><i class="bi bi-google"></i></a>
-            </div>
-            <p class="mb-0">&copy; 2025 Gruppo di Ricerca Idrogeologia Ambientale - Università degli Studi di Milano-Bicocca</p>
-        </div>
-    </footer>
+                <div class="row g-4" id="projectsGrid">
+                    <div class="col-12 project-card" data-status="attivi">
+                        <a href="#" class="text-decoration-none text-dark">
+                                <div class="card h-100">
+                                     <div class="row g-0 h-100">
+                                        <div class="col-md-4 image-container">
+                                <img src="image/logo/midaspo.jpg" 
+                                     class="responsive-image" 
+                                     alt="Logo progetto MidAS-Po">                           
+                                        </div>
+                            
+                                    <div class="col-md-8">
+                                        <div class="card-body">
+                                    <span class="badge bg-success float-end">Attivo</span>
+                                    <h5 class="card-title mb-3">MidAS-Po: Modello idrogeologico delle Acque Sotterranee del distretto idrografico del fiume Po</h5>
+                                    <p class="card-text">Scopo del progetto è di aumentare il livello di conoscenza dello stato di salute delle acque sotterranee della pianura padana dal punto di vista qualitativo e quantitativo, in un contesto attuale caratterizzato da frequenti eventi di scarsità idrica. Il sottosuolo della Pianura Padana, che ospita potenti acquiferi nei suoi depositi alluvionali, diventa sempre più una risorsa strategica nella valutazione del bilancio idrico, in ragione della rilevante quota di approvvigionamento idrico che supporta il settore civile, industriale e agricolo.</p>
+                                        <div class="card-footer-content">
+                                        <span class="text-muted small">Durata: 2022-2025</span>
+                                        <a href="https://www.adbpo.it/la-tutela-delle-acque-parte-dalla-conoscenza-avvio-del-progetto-midas-po/" 
+                                           target="_blank" 
+                                           class="btn btn-outline-primary btn-sm ms-md-3"> 
+                                            <i class="bi bi-box-arrow-up-right me-1"></i> Website
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            
+                        <div class="col-12 project-card" data-status="conclusi">
+                <a href="progetto-2.html" class="text-decoration-none text-dark">
+                    <div class="card h-100">
+                                                <div class="row g-0 h-100">
+                                                        <div class="col-md-4 image-container">
+                                                                <img src="images/progetti/2.jpg" 
+                                     class="responsive-image" 
+                                     alt="Immagine progetto Monitoraggio Falde">                             </div>
+                            
+                                                        <div class="col-md-8">
+                                <div class="card-body">
+                                    <span class="badge bg-secondary float-end">Concluso</span>
+                                    <h5 class="card-title mb-3">Monitoraggio Falde 2020-2022</h5>
+                                    <p class="card-text">Analisi quantitativa delle risorse idriche sotterranee nel bacino padano...</p>
+                                                                        <div class="card-footer-content">
+                                        <span class="text-muted small">Durata: 2020-2022</span>
+                                        <span class="text-muted small ms-3">Budget: €150.000</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            
+                        
+        </div>
+    </main>
+    
+        <footer class="bg-black text-white py-4">
+        <div class="container text-center">
+            <div class="mb-3">
+                <a href="#" class="text-white me-3"><i class="bi bi-twitter"></i></a>
+                <a href="#" class="text-white me-3"><i class="bi bi-linkedin"></i></a>
+                <a href="#" class="text-white me-3"><i class="bi bi-google"></i></a>
+            </div>
+            <p class="mb-0">&copy; 2025 Gruppo di Ricerca Idrogeologia Ambientale - Università degli Studi di Milano-Bicocca</p>
+        </div>
+    </footer>
 
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Script Integrato -->
-    <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const urlParams = new URLSearchParams(window.location.search)
-        const filter = urlParams.get('filter') || 'tutti'
-        const titles = {
-            'attivi': 'Progetti Attivi in Corso',
-            'conclusi': 'Progetti Conclusi',
-            'tutti': 'Tutti i Progetti di Ricerca'
-        }
+        <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const urlParams = new URLSearchParams(window.location.search)
+        const filter = urlParams.get('filter') || 'tutti'
+        const titles = {
+            'attivi': 'Progetti Attivi in Corso',
+            'conclusi': 'Progetti Conclusi',
+            'tutti': 'Tutti i Progetti di Ricerca'
+        }
 
-        // Aggiorna titolo
-        document.getElementById('dynamicTitle').textContent = titles[filter]
+        // Aggiorna titolo
+        document.getElementById('dynamicTitle').textContent = titles[filter]
 
-        // Gestione filtri
-        document.querySelectorAll('.filter-btn').forEach(btn => {
-            btn.classList.toggle('active', btn.dataset.filter === filter)
-            
-            btn.addEventListener('click', function(e) {
-                e.preventDefault()
-                const newFilter = this.dataset.filter
-                window.history.replaceState({}, '', `?filter=${newFilter}`)
-                updateProjects(newFilter)
-            })
-        })
+        // Gestione filtri
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.classList.toggle('active', btn.dataset.filter === filter)
+            
+            btn.addEventListener('click', function(e) {
+                e.preventDefault()
+                const newFilter = this.dataset.filter
+                // Cambia l'URL senza ricaricare la pagina
+                window.history.replaceState({}, '', `?filter=${newFilter}`)
+                updateProjects(newFilter)
+            })
+        })
 
-        // Funzione di aggiornamento migliorata
-        function updateProjects(selectedFilter) {
-            document.getElementById('dynamicTitle').textContent = titles[selectedFilter]
-            
-            document.querySelectorAll('.filter-btn').forEach(btn => {
-                btn.classList.toggle('active', btn.dataset.filter === selectedFilter)
-            })
+        // Funzione di aggiornamento migliorata
+        function updateProjects(selectedFilter) {
+            document.getElementById('dynamicTitle').textContent = titles[selectedFilter]
+            
+            // Aggiorna lo stato attivo dei bottoni
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.filter === selectedFilter)
+            })
 
-            document.querySelectorAll('.project-card').forEach(card => {
-                const shouldShow = selectedFilter === 'tutti' || card.dataset.status === selectedFilter
-                if(shouldShow) {
-                    card.classList.remove('hidden')
-                } else {
-                    card.classList.add('hidden')
-                }
-            })
-        }
+            // Mostra/Nascondi le card con transizione
+            document.querySelectorAll('.project-card').forEach(card => {
+                const shouldShow = selectedFilter === 'tutti' || card.dataset.status === selectedFilter
+                
+                if(shouldShow) {
+                    // Per la transizione di altezza, rimuovi hidden prima di impostare l'altezza automatica
+                    card.classList.remove('hidden');
+                    // Potrebbe essere necessario forzare il reflow qui in casi complessi
+                    // card.offsetHeight; // Esempio di forzatura reflow
+                } else {
+                    card.classList.add('hidden');
+                }
+            })
+        }
 
-        // Inizializzazione
-        updateProjects(filter)
-    })
-    </script>
+        // Inizializzazione al caricamento della pagina
+        updateProjects(filter)
+    })
+    </script>
 
 </body>
 </html>
