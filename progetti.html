@@ -58,12 +58,12 @@
         align-items: center;
     }
 
-    /* Colonna Testo (75% width) */
+    /* Colonna Testo (75% width) - MODIFICATA */
     .project-card .col-sm-8 {
-        flex: 1 1 auto !important;
-        min-width: 0 !important;
+        flex: 1 1 75% !important; /* Base esplicita */
+        width: 100% !important;
+        min-width: unset !important; /* Fix fondamentale */
         padding-left: 15px !important;
-        width: auto !important;
     }
 
     /* Container Immagine Adattivo */
@@ -88,7 +88,7 @@
         object-position: center center;
     }
 
-    /* Corpo Testo */
+    /* Corpo Testo - MODIFICATO */
     .card-body {
         padding: 1rem 0 !important;
         height: 100%;
@@ -100,7 +100,11 @@
     .card-title {
         font-size: 1.5rem;
         margin-bottom: 1rem;
-        word-break: normal !important;
+        line-height: 1.3 !important;
+        max-width: 95%; /* Previene overflow estremi */
+        white-space: normal !important;
+        word-break: break-word !important; /* Nuovo */
+        hyphens: auto !important; /* Nuovo */
     }
 
     .card-text {
@@ -108,8 +112,8 @@
         overflow: auto;
         margin-bottom: 1rem;
         white-space: normal !important;
-        word-break: normal !important;
-        hyphens: manual !important;
+        word-break: break-word !important; /* Modificato */
+        hyphens: auto !important; /* Modificato */
         width: 100% !important;
     }
 
@@ -119,7 +123,7 @@
         border-top: 1px solid rgba(0,0,0,0.1);
     }
 
-    /* Responsive Mobile */
+    /* Responsive Mobile - MODIFICATO */
     @media (max-width: 768px) {
         .project-card .row {
             flex-wrap: wrap !important;
@@ -135,7 +139,7 @@
         
         .project-card .col-sm-8 {
             padding-left: 0 !important;
-            flex: 0 0 100% !important;
+            flex: 1 1 100% !important;
         }
         
         .project-card img {
@@ -143,7 +147,8 @@
         }
         
         .card-title {
-            font-size: 1.25rem;
+            font-size: 1.35rem !important; /* Riduzione mobile */
+            max-width: 100%;
         }
     }
 
@@ -236,7 +241,11 @@
                                 <div class="col-sm-8">
                         <div class="card-body h-100 d-flex flex-column">
                             <span class="badge bg-success float-end">Attivo</span>
-                                    <h5 class="card-title mb-2 text-wrap fs-5 fs-md-4 lh-sm">MidAS-Po: Modello idrogeologico delle Acque Sotterranee del distretto idrografico del fiume Po</h5>
+                                    <h5 class="card-title mb-3 
+           fs-3 fs-lg-4 fs-md-5 fs-sm-6 
+           text-wrap lh-base 
+           hyphens-auto">
+    MidAS-Po: Modello idrogeologico delle Acque Sotterranee del distretto idrografico del fiume Po</h5>
                                     <p class="card-text">Scopo del progetto è di aumentare il livello di conoscenza dello stato di salute delle acque sotterranee della pianura padana dal punto di vista qualitativo e quantitativo, in un contesto attuale caratterizzato da frequenti eventi di scarsità idrica. Il sottosuolo della Pianura Padana, che ospita potenti acquiferi nei suoi depositi alluvionali, diventa sempre più una risorsa strategica nella valutazione del bilancio idrico, in ragione della rilevante quota di approvvigionamento idrico che supporta il settore civile, industriale e agricolo.</p>
                                     <div class="card-footer-content">
                                         <span class="text-muted small">Durata: 2022-2025</span>
