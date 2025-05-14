@@ -1,273 +1,168 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Tutti i progetti - Idrogeologia Ambientale</title>
-    
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
-<style>
-    /* Transizioni */
-    .project-card {
-        opacity: 1;
-        transition: opacity 0.3s ease-in-out, height 0.3s ease-in-out, margin 0.3s ease-in-out, padding 0.3s ease-in-out;
-    }
-    
-    .project-card.hidden {
-        opacity: 0;
-        height: 0 !important;
-        overflow: hidden;
-        margin: 0 !important;
-        padding: 0 !important;
-        border: none !important;
-        visibility: hidden;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tutti i progetti - Idrogeologia Ambientale</title>
 
-    /* Filtri */
-    .filter-btn.active {
-        background-color: #0d6efd !important;
-        color: white !important;
-    }
-
-    /* Layout Card Fixato */
-    .project-card .card {
-        border: none;
-        border-bottom: 1px solid #eee;
-        border-radius: 0;
-        height: 100%;
-        overflow: hidden;
-    }
-
-    /* Riga Principale - Fix Critico */
-    .project-card .row {
-        display: flex !important;
-        flex-wrap: nowrap;
-        align-items: stretch;
-        margin: 0;
-        height: 100%;
-        min-width: 100%;
-    }
-
-    /* Colonna Immagine (25%) */
-    .project-card .col-sm-4 {
-        flex: 0 0 25% !important;
-        max-width: 25% !important;
-        padding-right: 30px;
-        height: 150px;
-        display: flex;
-        align-items: center;
-        min-width: 0;
-    }
-
-    /* Colonna Testo (75%) - Fix Definitivo */
-    .project-card .col-sm-8 {
-        flex: 1 !important;
-        min-width: 0 !important;
-        padding-left: 15px;
-        width: auto;
-        word-break: normal !important;
-        white-space: normal !important;
-    }
-
-    /* Container Immagine */
-    .image-container {
-        width: 100%;
-        height: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: flex-start;
-        background: #f8f9fa;
-        padding: 15px;
-        border-radius: 4px;
-    }
-
-    /* Immagine Responsive */
-    .project-card img {
-        max-width: 100%;
-        max-height: 100%;
-        width: auto;
-        height: auto;
-        object-fit: contain;
-        object-position: left center;
-    }
-
-    /* Titolo - Fix Finale */
-    .card-title {
-        font-size: 1.4rem;
-        line-height: 1.3;
-        margin-bottom: 0.75rem;
-        white-space: normal !important;
-        word-break: break-word !important;
-        hyphens: none !important;
-        width: 100% !important;
-        overflow-wrap: anywhere !important;
-        display: block !important;
-        color: #333;
-    }
-
-    /* Corpo Testo */
-    .card-text {
-        flex-grow: 1;
-        overflow: auto;
-        margin-bottom: 1rem;
-        font-size: 0.95em;
-        line-height: 1.6;
-        letter-spacing: 0.03em;
-        white-space: normal !important;
-        word-break: normal !important;
-        hyphens: none !important;
-    }
-
-    /* Footer Card */
-    .card-footer-content {
-        margin-top: auto;
-        padding-top: 1rem;
-        border-top: 1px solid rgba(0,0,0,0.1);
-    }
-
-    /* Mobile Fix Definitivo */
-    @media (max-width: 768px) {
-        .project-card .row {
-            flex-wrap: wrap !important;
-            flex-direction: column !important;
+    <!-- Aggiungi gli stessi stili della homepage -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <!-- Intestazione identica alle altre pagine -->
+   <style>
+        /* Transizioni modificate */
+        .project-card {
+            transition: opacity 0.2s ease-in-out;
+            opacity: 1;
         }
-        
-        .project-card .col-sm-4 {
-            flex: 0 0 100% !important;
-            max-width: 100% !important;
-            height: 120px;
-            padding-right: 0;
-            margin-bottom: 1.5rem;
-            justify-content: center;
-        }
-        
-        .project-card .col-sm-8 {
-            padding-left: 0 !important;
-            flex: 0 0 100% !important;
-        }
-        
-        .project-card img {
-            max-width: 220px !important;
-            object-position: center;
-        }
-        
-        .card-title {
-            font-size: 1.2rem !important;
-            line-height: 1.4 !important;
-        }
-        
-        .card-text {
-            font-size: 0.9em;
-        }
-    }
 
-    /* Scrollbar Personalizzata */
-    .card-text::-webkit-scrollbar {
-        width: 5px;
-    }
+        .project-card.hidden {
+            opacity: 0;
+            height: 0;
+            overflow: hidden;
+            margin: 0;
+            padding: 0;
+            transition: all 0.3s ease;
+        }
 
-    .card-text::-webkit-scrollbar-thumb {
-        background: #ccc;
-        border-radius: 10px;
-    }
+        .filter-btn.active {
+            background-color: #0d6efd !important;
+            color: white !important;
+        }
 
-    /* Fix Specifico per Titoli Lunghi */
-    .card-title br {
-        display: none !important;
+        /* Nuovo layout card */
+        .project-card .card {
+            border: none;
+            border-bottom: 1px solid #eee;
+            border-radius: 0;
+        }
+
+        .project-card .card-img-left {
+            width: 300px;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        @media (max-width: 768px) {
+            .project-card .card-img-left {
+                width: 100%;
+                height: 200px;
+            }
+        }
+       /* Aggiungi alla sezione CSS */
+.object-fit-cover {
+    object-fit: cover;
+    object-position: center;
+.image-wrapper {
+    height: 250px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f8f9fa;
+    padding: 15px;
+}
+
+.img-container {
+    height: 250px; /* Altezza fissa per mobile */
+}
+
+@media (min-width: 768px) {
+    .img-container {
+        height: 100%; /* Altezza piena su desktop */
+        min-height: 300px;
     }
-</style>
+.responsive-image {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+}
+    </style> 
 </head>
-  
-     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+
+<body>
+     <!-- Navbar (identica alla homepage) -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="#">
-              <i class="bi bi-droplet animate-pulse" style="color: #00b4d8; font-size: 1.25rem;"></i> Environmental Hydrogeology Research Group
+            <a class="navbar-brand" href="index.html">
+                <i class="bi bi-droplet animate-pulse" style="color: #00b4d8; font-size: 1.25rem;"></i> Environmental Hydrogeology Research Group
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                 <ul class="navbar-nav ms-auto">
-                 <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
-                 <li class="nav-item"><a class="nav-link active" href="team.html">Team</a></li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link active d-flex align-items-center" href="education.html" id="navbarDropdownMenuLink">
-                            Education
-                            <i class="bi bi-caret-down-fill ms-1"></i> </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <li><a class="dropdown-item" href="#">Teaching</a></li>
-                            <li><a class="dropdown-item" href="#">PhD Thesis</a></li>
-                            <li><a class="dropdown-item" href="#">Master Thesis</a></li>
-                            <li><a class="dropdown-item" href="#">Bachelor Thesis</a></li>
-                            <li><a class="dropdown-item" href="#">Courses</a></li>
-                        </ul>
-                    </li>
-                     <li class="nav-item"><a class="nav-link active" href="pubblicazioni.html">Publications</a></li>
-                          <li class="nav-item dropdown">
-                        <a class="nav-link active d-flex align-items-center" href="progetti.html?filter=tutti" id="navbarDropdownMenuLink">
-                            Projects
-                            <i class="bi bi-caret-down-fill ms-1"></i> </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                             <li><a class="dropdown-item" href="progetti.html?filter=attivi">Active</a></li>
-                             <li><a class="dropdown-item" href="progetti.html?filter=conclusi">Concluded</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item"><a class="nav-link active" href="fieldkit.html">Field Tools</a></li>
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="team.html">Team</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="#">Teaching</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="pubblicazioni.html">Publications</a></li>
+                     <li class="nav-item dropdown active">
+                    <a class="nav-link dropdown-toggle" href="progetti.html?filter=attivi" role="button" 
+                       data-bs-toggle="dropdown" aria-expanded="false">
+                        Projects
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="progetti.html?filter=attivi">Active</a></li>
+                        <li><a class="dropdown-item" href="progetti.html?filter=conclusi">Concluded</a></li>
+                    </ul>
+                </li>
                     <li class="nav-item"><a class="nav-link active" href="#contatti">Contacts</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
-<body>
-  <main class="container py-5 mt-5">
+ <main class="container py-5 mt-5">
         <h1 class="text-center mb-5" id="dynamicTitle">Progetti di Ricerca</h1>
-        
+
+        <!-- Filtri -->
         <div class="row mb-4">
             <div class="col text-center">
                 <div class="btn-group">
-                    <a href="?filter=tutti"    
-                        class="btn btn-outline-primary filter-btn"    
-                        data-filter="tutti">Tutti</a>
-                    <a href="?filter=attivi"    
-                        class="btn btn-outline-primary filter-btn"    
-                        data-filter="attivi">Attivi</a>
-                    <a href="?filter=conclusi"    
-                        class="btn btn-outline-primary filter-btn"    
-                        data-filter="conclusi">Conclusi</a>
+                    <a href="?filter=tutti" 
+                       class="btn btn-outline-primary filter-btn" 
+                       data-filter="tutti">Tutti</a>
+                    <a href="?filter=attivi" 
+                       class="btn btn-outline-primary filter-btn" 
+                       data-filter="attivi">Attivi</a>
+                    <a href="?filter=conclusi" 
+                       class="btn btn-outline-primary filter-btn" 
+                       data-filter="conclusi">Conclusi</a>
                 </div>
             </div>
         </div>
 
+        <!-- Lista Progetti -->
         <div class="row g-4" id="projectsGrid">
-            
+            <!-- Progetto 1 - Attivo -->
             <div class="col-12 project-card" data-status="attivi">
-                <a href="#" class="text-decoration-none text-dark">
+                <a href="progetto-1.html" class="text-decoration-none text-dark">
                     <div class="card h-100">
-                        <div class="row g-0 h-100">
-                             <div class="col-sm-4 image-container">
-                                <img src="image/logo/midaspo.jpg" 
-                                     class="img-fluid" 
-                                     alt="Logo progetto MidAS-Po"
-                                    >
+                        <div class="row g-0">
+                            <div class="col-md-4 img-container">
+                                <div class="position-relative h-100 overflow-hidden">
+                                <img src="image/logo/midaspo.jpg" class="img-fluid w-100 h-100 object-fit-cover" alt="...">
+                                </div>
+                            <div class="col-md-4 d-flex align-items-center justify-content-center bg-light p-3">
+    <img src="image/logo/midaspo.jpg"
+         class="img-fluid mw-100 mh-100" 
+         style="object-fit: contain; max-height: 250px;"
+         alt="Descrizione progetto">
+</div>
                             </div>
-                         
-                                <div class="col-sm-8">
-                        <div class="card-body h-100 d-flex flex-column">
-                            <span class="badge bg-success float-end">Attivo</span>
-                                    <h5 class="card-title mb-3 
-           fs-3 fs-lg-4 fs-md-5 fs-sm-6 
-           text-wrap lh-base 
-           hyphens-auto">
-    MidAS-Po: Modello idrogeologico delle Acque Sotterranee del distretto idrografico del fiume Po</h5>
-                                    <p class="card-text">Scopo del progetto è di aumentare il livello di conoscenza dello stato di salute delle acque sotterranee della pianura padana dal punto di vista qualitativo e quantitativo, in un contesto attuale caratterizzato da frequenti eventi di scarsità idrica. Il sottosuolo della Pianura Padana, che ospita potenti acquiferi nei suoi depositi alluvionali, diventa sempre più una risorsa strategica nella valutazione del bilancio idrico, in ragione della rilevante quota di approvvigionamento idrico che supporta il settore civile, industriale e agricolo.</p>
-                                    <div class="card-footer-content">
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <span class="badge bg-success float-end">Attivo</span>
+                                    <h5 class="card-title mb-3">MidAS-Po: Modello idrogeologico delle Acque Sotterranee del distretto idrografico del fiume Po</h5>
+                                    <p class="card-text">Scopo del progetto è di aumentare il livello di conoscenza dello stato di salute  delle acque sotterranee della pianura padana dal punto di vista qualitativo e quantitativo, in un contesto attuale caratterizzato da frequenti eventi di scarsità idrica. Il sottosuolo della Pianura Padana, che ospita potenti acquiferi nei suoi depositi alluvionali, diventa sempre più una risorsa strategica nella valutazione del bilancio idrico, in ragione della rilevante quota di approvvigionamento idrico che supporta il settore civile, industriale e agricolo.</p>
+                                    <div class="mt-4">
                                         <span class="text-muted small">Durata: 2022-2025</span>
-                                        <a href="https://www.adbpo.it/la-tutela-delle-acque-parte-dalla-conoscenza-avvio-del-progetto-midas-po/"    
-                                            target="_blank"    
-                                            class="btn btn-outline-primary btn-sm ms-md-3">                                                
-                                            <i class="bi bi-box-arrow-up-right me-1"></i> Website
+                                                <a href="https://www.adbpo.it/la-tutela-delle-acque-parte-dalla-conoscenza-avvio-del-progetto-midas-po/" 
+                                                   target="_blank" 
+                                                   class="btn btn-outline-primary btn-sm ms-3">
+                                                <i class="bi bi-box-arrow-up-right me-1"></i> Website
                                         </a>
                                     </div>
                                 </div>
@@ -276,31 +171,23 @@
                     </div>
                 </a>
             </div>
-            
+
+            <!-- Progetto 2 - Concluso -->
             <div class="col-12 project-card" data-status="conclusi">
                 <a href="progetto-2.html" class="text-decoration-none text-dark">
                     <div class="card h-100">
-                        <div class="row g-0 h-100">
-                               <div class="col-sm-4">
-                                <div class="image-container">
-                                    <img src="image/logo/midaspo.jpg" 
-                                         class="img-fluid" 
-                                         alt="Logo progetto MidAS-Po">
-                                </div>
+                        <div class="row g-0">
+                            <div class="col-md-4">
+                                <img src="images/progetti/2.jpg" class="card-img-left h-100" alt="...">
                             </div>
-                                        
-                            <div class="col-sm-8"> 
+                            <div class="col-md-8">
                                 <div class="card-body">
                                     <span class="badge bg-secondary float-end">Concluso</span>
-                                    <h5 class="card-title mb-3">MidAS-Po: Modello idrogeologico delle Acque Sotterranee del distretto idrografico del fiume Po</h5>
-                                    <p class="card-text">Scopo del progetto è di aumentare il livello di conoscenza dello stato di salute delle acque sotterranee della pianura padana dal punto di vista qualitativo e quantitativo, in un contesto attuale caratterizzato da frequenti eventi di scarsità idrica. Il sottosuolo della Pianura Padana, che ospita potenti acquiferi nei suoi depositi alluvionali, diventa sempre più una risorsa strategica nella valutazione del bilancio idrico, in ragione della rilevante quota di approvvigionamento idrico che supporta il settore civile, industriale e agricolo.</p>
-                                    <div class="card-footer-content">
+                                    <h5 class="card-title mb-3">Monitoraggio Falde 2020-2022</h5>
+                                    <p class="card-text">Analisi quantitativa delle risorse idriche sotterranee nel bacino padano...</p>
+                                    <div class="mt-4">
                                         <span class="text-muted small">Durata: 2020-2022</span>
-                                            <a href="https://www.adbpo.it/la-tutela-delle-acque-parte-dalla-conoscenza-avvio-del-progetto-midas-po/"    
-                                            target="_blank"    
-                                            class="btn btn-outline-primary btn-sm ms-md-3">                                                
-                                            <i class="bi bi-box-arrow-up-right me-1"></i> Website
-                                        </a>
+                                        <span class="text-muted small ms-3">Budget: €150.000</span>
                                     </div>
                                 </div>
                             </div>
@@ -308,11 +195,9 @@
                     </div>
                 </a>
             </div>
-            
-            
         </div>
     </main>
-    
+        <!-- Footer (identico alla homepage) -->
     <footer class="bg-black text-white py-4">
         <div class="container text-center">
             <div class="mb-3">
@@ -324,8 +209,10 @@
         </div>
     </footer>
 
+    <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
+    <!-- Script Integrato -->
     <script>
     document.addEventListener('DOMContentLoaded', function() {
         const urlParams = new URLSearchParams(window.location.search)
@@ -336,11 +223,13 @@
             'tutti': 'Tutti i Progetti di Ricerca'
         }
 
+        // Aggiorna titolo
         document.getElementById('dynamicTitle').textContent = titles[filter]
 
+        // Gestione filtri
         document.querySelectorAll('.filter-btn').forEach(btn => {
             btn.classList.toggle('active', btn.dataset.filter === filter)
-            
+
             btn.addEventListener('click', function(e) {
                 e.preventDefault()
                 const newFilter = this.dataset.filter
@@ -349,24 +238,25 @@
             })
         })
 
+        // Funzione di aggiornamento migliorata
         function updateProjects(selectedFilter) {
             document.getElementById('dynamicTitle').textContent = titles[selectedFilter]
-            
+
             document.querySelectorAll('.filter-btn').forEach(btn => {
                 btn.classList.toggle('active', btn.dataset.filter === selectedFilter)
             })
 
             document.querySelectorAll('.project-card').forEach(card => {
                 const shouldShow = selectedFilter === 'tutti' || card.dataset.status === selectedFilter
-                
                 if(shouldShow) {
-                    card.classList.remove('hidden');
+                    card.classList.remove('hidden')
                 } else {
-                    card.classList.add('hidden');
+                    card.classList.add('hidden')
                 }
             })
         }
 
+        // Inizializzazione
         updateProjects(filter)
     })
     </script>
