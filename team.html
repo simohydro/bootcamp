@@ -121,8 +121,8 @@
 <body data-bs-spy="scroll" data-bs-target="#main-nav">
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-         <div class="container">
-            <a class="navbar-brand" href="index.html">
+<div class="container">
+            <a class="navbar-brand" href="#">
               <i class="bi bi-droplet animate-pulse" style="color: #00b4d8; font-size: 1.25rem;"></i> Environmental Hydrogeology Research Group
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -130,22 +130,12 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                  <ul class="navbar-nav ms-auto">
-                 <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
-                 <li class="nav-item"><a class="nav-link active" href="#team">Team</a></li>
-                   <li class="nav-item dropdown">
-                <div class="d-flex align-items-center">
-                    <!-- Link principale -->
-                            <a class="nav-link active" href="education.html">Education</a>
-        
-        <!-- Toggle per il dropdown (solo la freccia) -->
-                        <a class="nav-link dropdown-toggle p-0" 
-                           href="#" 
-                           id="navbarDropdownEducation" 
-                           role="button" 
-                           data-bs-toggle="dropdown" 
-                           aria-expanded="false">
-                        </a>
-                    </div>
+                 <li class="nav-item"><a class="nav-link active" href="#home">Home</a></li>
+                 <li class="nav-item"><a class="nav-link active" href="team.html">Team</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link active d-flex align-items-center" href="education.html" id="navbarDropdownEducation">
+                            Education
+                            <i class="bi bi-caret-down-fill ms-1"></i> </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownEducation">
                             <li><a class="dropdown-item" href="#">Teaching</a></li>
                             <li><a class="dropdown-item" href="#">PhD Thesis</a></li>
@@ -156,10 +146,10 @@
                     </li>
                      <li class="nav-item"><a class="nav-link active" href="pubblicazioni.html">Publications</a></li>
                           <li class="nav-item dropdown">
-                        <a class="nav-link active d-flex align-items-center" href="progetti.html?filter=tutti" id="navbarDropdownMenuLink">
+                        <a class="nav-link active d-flex align-items-center" href="progetti.html?filter=tutti" id="navbarDropdownProjects">
                             Projects
                             <i class="bi bi-caret-down-fill ms-1"></i> </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownProjects">
                              <li><a class="dropdown-item" href="progetti.html?filter=attivi">Active</a></li>
                              <li><a class="dropdown-item" href="progetti.html?filter=conclusi">Concluded</a></li>
                         </ul>
