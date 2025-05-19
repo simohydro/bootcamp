@@ -22,6 +22,34 @@
         box-shadow: 0 10px 20px rgba(0,0,0,0.15);
     }
     .filter-btn { transition: all 0.3s; }
+
+.navbar-nav .nav-item.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.navbar-nav .nav-item.dropdown:hover .nav-link {
+   /* Puoi aggiungere stili specifici per il link Education al hover se lo desideri */
+}
+        .navbar-nav .nav-item.dropdown > .nav-link .bi {
+    transform: scale(0.7);
+    display: inline-block;
+}
+
+.dropdown-menu[aria-labelledby="navbarDropdownMenuLink"] {
+    margin-top: 0; /* Evita il "salto" visivo */
+}
+        .nav-item.dropdown .dropdown-toggle {
+    display: flex !important;
+    align-items: center;
+    padding: 0 0.5rem;
+}
+
+/* Mantieni hover sulla sezione completa */
+.nav-item.dropdown:hover .dropdown-menu {
+    display: block;
+}
+ 
+    </style>
     </style>
 </head>
     <!-- Navbar -->
