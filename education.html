@@ -172,8 +172,8 @@
             <div class="row mb-4">
                     <div class="col-md-6">
                         <div class="input-group">
-                            <label class="input-group-text" for="yearFilter">Filter by year:</label>
-                            <select class="form-select" id="yearFilter">
+                            <label class="input-group-text" for="phdYearFilter">Filter by year:</label>
+                            <select class="form-select" id="phdYearFilter">
                                 <option value="all">Tutte</option>
                                 <option value="2025">in corso</option>
                                 <option value="2023">2023</option>
@@ -185,7 +185,7 @@
                             </select>
                         </div>
                     </div>
-    <div id="thesisCardsContainer" class="container my-4">
+    <div id="phdThesisCardsContainer" class="container my-4">
 <div class="card w-100 mb-3" data-year="2025">
     <div class="card-body">
         <h5 class="card-title">Climate change effect on groundwater budget at regional and basin scales</h5>
@@ -257,8 +257,8 @@
             <div class="row mb-4">
                  <div class="col-md-6">
                         <div class="input-group">
-                            <label class="input-group-text" for="yearFilter">Filter by year:</label>
-                            <select class="form-select" id="yearFilter">
+                            <label class="input-group-text" for="MScYearFilter">Filter by year:</label>
+                            <select class="form-select" id="MScYearFilter">
                                 <option value="all">Tutte</option>
                                 <option value="2025">2025</option>
                                 <option value="2024">2024</option>
@@ -288,7 +288,7 @@
                         </div>
                     </div>
                  
-    <div id="thesisCardsContainer" class="container my-4">
+    <div id="MScThesisCardsContainer" class="container my-4">
   <div class="card w-100 mb-3" data-year="2025">
                 <div class="card-body">
                     <h5 class="card-title">titolo...</h5>
@@ -699,8 +699,8 @@
             <div class="row mb-4">
                  <div class="col-md-6">
                         <div class="input-group">
-                            <label class="input-group-text" for="yearFilter">Filter by year:</label>
-                            <select class="form-select" id="yearFilter">
+                            <label class="input-group-text" for="BScYearFilter">Filter by year:</label>
+                            <select class="form-select" id="BScYearFilter">
                                 <option value="all">Tutte</option>
                                 <option value="2025">2025</option>
                                 <option value="2024">2024</option>
@@ -730,7 +730,7 @@
                         </div>
                     </div>
                  
- <div id="thesisCardsContainer" class="container my-4">
+ <div id="BScThesisCardsContainer" class="container my-4">
      <div class="card w-100 mb-3" data-year="2021">
                 <div class="card-body">
                     <h5 class="card-title">Caratterizzazione idrochimica di acquiferi soggetti a condizioni riducenti nella bassa Pianura Bresciana</h5>
@@ -831,25 +831,35 @@
             });
         });
     </script>
-                <script>
+<script>
     document.addEventListener('DOMContentLoaded', function() {
-        const yearFilter = document.getElementById('yearFilter');
-        const thesisCardsContainer = document.getElementById('thesisCardsContainer');
-        const thesisCards = thesisCardsContainer.querySelectorAll('.card');
+        // Funzione generica per applicare il filtro
+        function applyFilter(yearFilterId, cardsContainerId) {
+            const yearFilter = document.getElementById(yearFilterId);
+            const thesisCardsContainer = document.getElementById(cardsContainerId);
+            const thesisCards = thesisCardsContainer.querySelectorAll('.card');
 
-        yearFilter.addEventListener('change', function() {
-            const selectedYear = this.value;
+            if (yearFilter && thesisCardsContainer) { // Assicurati che gli elementi esistano
+                yearFilter.addEventListener('change', function() {
+                    const selectedYear = this.value;
 
-            thesisCards.forEach(card => {
-                const cardYear = card.getAttribute('data-year');
+                    thesisCards.forEach(card => {
+                        const cardYear = card.getAttribute('data-year');
 
-                if (selectedYear === 'all' || cardYear === selectedYear) {
-                    card.style.display = 'block'; // Mostra la card
-                } else {
-                    card.style.display = 'none'; // Nascondi la card
-                }
-            });
-        });
+                        if (selectedYear === 'all' || cardYear === selectedYear) {
+                            card.style.display = 'block'; // Mostra la card
+                        } else {
+                            card.style.display = 'none'; // Nascondi la card
+                        }
+                    });
+                });
+            }
+        }
+
+        // Inizializza i filtri per ciascuna sezione
+        applyFilter('phdYearFilter', 'phdThesisCardsContainer');
+        applyFilter('MScYearFilter', 'MScThesisCardsContainer');
+        applyFilter('BScYearFilter', 'BScThesisCardsContainer');
     });
 </script>
 
