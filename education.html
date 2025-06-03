@@ -175,17 +175,88 @@
                             <label class="input-group-text" for="yearFilter">Filter by year:</label>
                             <select class="form-select" id="yearFilter">
                                 <option value="all">Tutte</option>
-                                <option value="2025">2025</option>
-                                <option value="2024">2024</option>
+                                <option value="2025">in corso</option>
                                 <option value="2023">2023</option>
-                                <option value="2022">2022</option>
-                                <option value="2021">2021</option>
                                 <option value="2020">2020</option>
-                                <option value="2019">2019</option>
                                 <option value="2018">2018</option>
+                                <option value="2012">2012</option>
+                                <option value="2010">2010</option>
+                                <option value="2016">2006</option>
                             </select>
                         </div>
                     </div>
+    <div id="thesisCardsContainer" class="container my-4">
+        <div class="card w-100 mb-3" data-year="2025">
+            <div class="card-body">
+                <h5 class="card-title">Agnese Redaelli</h5>
+                <h6 class="card-subtitle mb-2 text-muted">Climate change effect on groundwater budget at regional and basin scales</h6>
+                <p class="card-text">In corso - XXXVIII</p>
+            </div>
+        </div>
+        <div id="thesisCardsContainer" class="container my-4">
+        <div class="card w-100 mb-3" data-year="2023">
+            <div class="card-body">
+                <h5 class="card-title">Davide Sartirana</h5>
+                <h6 class="card-subtitle mb-2 text-muted">Integrating numerical modelling and 3D Open Data databases or groundwater management in Milan Metropolitan City</h6>
+                <p class="card-text">2023 - XXXIV</p>
+            </div>
+        </div>
+          <div id="thesisCardsContainer" class="container my-4">
+        <div class="card w-100 mb-3" data-year="2020">
+            <div class="card-body">
+                <h5 class="card-title">Chiara Zanotti</h5>
+                <h6 class="card-subtitle mb-2 text-muted">Data driven approach to deal with different hydrogeological issues</h6>
+                <p class="card-text">2020 - XXXII</p>
+            </div>
+        </div>
+          <div id="thesisCardsContainer" class="container my-4">
+        <div class="card w-100 mb-3" data-year="2020">
+            <div class="card-body">
+                <h5 class="card-title">Chiara Zanotti</h5>
+                <h6 class="card-subtitle mb-2 text-muted">Data driven approach to deal with different hydrogeological issues</h6>
+                <p class="card-text">2020 - XXXII</p>
+            </div>
+        </div>
+ <div id="thesisCardsContainer" class="container my-4">
+        <div class="card w-100 mb-3" data-year="2018">
+            <div class="card-body">
+                <h5 class="card-title">Alberto Stefania</h5>
+                <h6 class="card-subtitle mb-2 text-muted">Hydrogeological modeling to support the management of groundwater resources in alpine valleys</h6>
+                <p class="card-text">2018 - XXX</p>
+            </div>
+        </div>
+      <div id="thesisCardsContainer" class="container my-4">
+        <div class="card w-100 mb-3" data-year="2012">
+            <div class="card-body">
+                <h5 class="card-title">Marco Rotiroti</h5>
+                <h6 class="card-subtitle mb-2 text-muted">Modelli matematici di flusso e trasporto reattivo per lo studio idrogeologico ed idrochimico del sistema acquifero multistrato, in alcune zone della pianura padana</h6>
+                <p class="card-text">2012 - XXV</p>
+            </div>
+        </div>
+                <div id="thesisCardsContainer" class="container my-4">
+        <div class="card w-100 mb-3" data-year="2010">
+            <div class="card-body">
+                <h5 class="card-title">Paola Canepa</h5>
+                <h6 class="card-subtitle mb-2 text-muted">Bilancio delle acque sotterranee nella pianura lombarda in relazione agli effetti del cambiamento climatico</h6>
+                <p class="card-text">2010 - XXII</p>
+            </div>
+        </div>
+  <div id="thesisCardsContainer" class="container my-4">
+        <div class="card w-100 mb-3" data-year="2010">
+            <div class="card-body">
+                <h5 class="card-title">Francesca Del Rosso</h5>
+                <h6 class="card-subtitle mb-2 text-muted">Ricostruzione tridimensionale delle caratteristiche idrogeologiche della pianura lombarda, finalizzata all’applicazione di modelli di flusso e di trasporto</h6>
+                <p class="card-text">2010 - XXII</p>
+            </div>
+        </div>
+       <div id="thesisCardsContainer" class="container my-4">
+        <div class="card w-100 mb-3" data-year="2006">
+            <div class="card-body">
+                <h5 class="card-title">Roberta Bellini</h5>
+                <h6 class="card-subtitle mb-2 text-muted">Sviluppo di metodologie e tecniche informatiche applicate allo studio e alla gestione delle risorse idriche sotterranee</h6>
+                <p class="card-text">2006 - XIX</p>
+            </div>
+        </div>
             </section>
 
         <section id="masterThesis" class="education-section">
@@ -272,6 +343,27 @@
             });
         });
     </script>
+                <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const yearFilter = document.getElementById('yearFilter');
+        const thesisCardsContainer = document.getElementById('thesisCardsContainer');
+        const thesisCards = thesisCardsContainer.querySelectorAll('.card');
+
+        yearFilter.addEventListener('change', function() {
+            const selectedYear = this.value;
+
+            thesisCards.forEach(card => {
+                const cardYear = card.getAttribute('data-year');
+
+                if (selectedYear === 'all' || cardYear === selectedYear) {
+                    card.style.display = 'block'; // Mostra la card
+                } else {
+                    card.style.display = 'none'; // Nascondi la card
+                }
+            });
+        });
+    });
+</script>
 
 </body>
 </html>
