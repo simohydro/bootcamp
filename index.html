@@ -257,64 +257,29 @@
 </section>
 
 <!-- Sezione Pubblicazioni -->
-<section id="pubblicazioni" class="bg-white py-5">
-    <div class="container">
-        <div class="row mb-4">
-            <div class="col">
+<section id="pubblicazioni-recenti" class="py-5">
+  <div class="container">
+    <div class="row mb-4">
+      <div class="col text-center">
                 <h2 class="text-center">Pubblicazioni Recenti</h2>
                 <p class="text-center text-muted">Le nostre ultime ricerche scientifiche</p>
             </div>
         </div>
 
         <!-- Lista Pubblicazioni -->
-        <div class="row g-4">
-            <!-- Pub 1 -->
-            <div class="col-md-6 col-lg-4">
-                <div class="card h-100 shadow-sm">
-                    <div class="card-body">
-                        <h5 class="card-title">Modelli predittivi per alluvioni</h5>
-                        <p class="card-subtitle mb-2 text-muted">Rossi et al. (2023)</p>
-                        <p class="card-text">Sviluppo di un nuovo modello machine learning per la previsione...</p>
-                        <a href="#" class="btn btn-sm btn-outline-primary">Dettagli</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Pub 2 -->
-            <div class="col-md-6 col-lg-4">
-                <div class="card h-100 shadow-sm">
-                    <div class="card-body">
-                        <h5 class="card-title">Analisi sedimenti fluviali</h5>
-                        <p class="card-subtitle mb-2 text-muted">Bianchi et al. (2023)</p>
-                        <p class="card-text">Studio quantitativo sui sedimenti nel bacino del fiume Po...</p>
-                        <a href="#" class="btn btn-sm btn-outline-primary">Dettagli</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Pub 3 -->
-            <div class="col-md-6 col-lg-4">
-                <div class="card h-100 shadow-sm">
-                    <div class="card-body">
-                        <h5 class="card-title">Impatto climatico su falde</h5>
-                        <p class="card-subtitle mb-2 text-muted">Verdi et al. (2023)</p>
-                        <p class="card-text">Analisi multivariata su 20 anni di dati idrogeologici...</p>
-                        <a href="#" class="btn btn-sm btn-outline-primary">Dettagli</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Pulsante Read More -->
-        <div class="row mt-5">
-            <div class="col text-center">
-                <a href="pubblicazioni.html"
-                   class="btn btn-primary px-4">
-                   Vedi Tutte le Pubblicazioni <i class="bi bi-arrow-right"></i>
-                </a>
-            </div>
-        </div>
+    <div id="recent-publications" class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+      <!-- Le card verranno inserite qui dinamicamente -->
     </div>
+
+    <!-- Pulsante per tutte le pubblicazioni -->
+    <div class="row mt-5">
+      <div class="col text-center">
+        <a href="pubblicazioni.html" class="btn btn-primary px-4">
+          Vedi Tutte le Pubblicazioni <i class="bi bi-arrow-right"></i>
+        </a>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- Sezione News -->
@@ -533,6 +498,42 @@
             <p class="mb-0">&copy; 2025 Gruppo di Ricerca Idrogeologia Ambientale - Università degli Studi di Milano-Bicocca</p>
         </div>
     </footer>
+    <script>
+fetch('pubblicazioni.json')
+  .then(response => response.json())
+  .then(data => {
+    const container = document.getElementById('recent-publications');
+
+    // Prendi le prime 3 pubblicazioni (supponendo che siano già ordinate per data decrescente)
+    const recent = data.slice(0, 3);
+
+    recent.forEach(pub => {
+      const card = document.createElement('div');
+      card.className = 'col';
+
+      card.innerHTML = `
+        <div class="card h-100 shadow-sm border-0">
+          <div class="card-body">
+            <h6 class="card-title fw-semibold">${pub.titolo}</h6>
+            <p class="card-subtitle text-muted small">${pub.autori} (${pub.anno})</p>
+            <p class="text-secondary fst-italic small mb-2">${pub.rivista}</p>
+            <p class="card-text small">${pub.abstract_short}</p>
+          </div>
+          <div class="card-footer bg-white border-0">
+            <a href="${pub.link}" target="_blank" class="btn btn-sm btn-outline-primary">
+              <i class="bi bi-link-45deg"></i> Link
+            </a>
+          </div>
+        </div>
+      `;
+
+      container.appendChild(card);
+    });
+  })
+  .catch(error => {
+    console.error('Errore nel caricamento delle pubblicazioni:', error);
+  });
+</script>
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
