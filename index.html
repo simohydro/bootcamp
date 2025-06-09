@@ -25,6 +25,9 @@
     margin-top: 56px;
     margin-bottom: 40px; /* Aggiunto spazio sotto */
 }
+        .bg-lightblue {
+    background-color: #dbefff; /* Azzurro tenue */
+}
 
 /* Aggiungi media query per dispositivi mobili */
 @media (max-width: 768px) {
@@ -217,12 +220,14 @@
     <div class="container">
         <div class="row align-items-center g-5">
             <!-- Foto di Gruppo (Sinistra) -->
-            <div class="col-lg-6">
-                <img src="image/team/foto-gruppo.jpg" 
-                     alt="Il nostro gruppo di ricerca" 
-                     class="img-fluid rounded-3 shadow-lg"
-                     loading="lazy">
-            </div>
+                <div class="col-lg-6">
+                    <div class="p-3 rounded-3 shadow-lg bg-lightblue">
+                        <img src="image/team/foto-gruppo.jpg" 
+                             alt="Il nostro gruppo di ricerca" 
+                             class="img-fluid rounded-3"
+                             loading="lazy">
+                    </div>
+                </div>
             
             <!-- Descrizione e Pulsante (Destra) -->
             <div class="col-lg-6">
