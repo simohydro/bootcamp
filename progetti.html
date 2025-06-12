@@ -64,21 +64,27 @@
 }
 
 .img-container {
-    height: 250px; /* Altezza fissa per mobile */
+    width: 300px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f8f9fa;
 }
 
-@media (min-width: 768px) {
-    .img-container {
-        height: 100%; /* Altezza piena su desktop */
-        min-height: 300px;
-    }
-.responsive-image {
+.img-container img {
     max-width: 100%;
     max-height: 100%;
-    width: auto;
-    height: auto;
     object-fit: contain;
+    display: block;
 }
+
+@media (max-width: 768px) {
+    .img-container {
+        width: 100%;
+        height: 200px;
+    }
+}    
     .navbar-nav .nav-item.dropdown:hover .dropdown-menu {
     display: block;
 }
@@ -181,16 +187,7 @@
                     <div class="card h-100">
                         <div class="row g-0">
                             <div class="col-md-4 img-container">
-                                            <div class="position-relative h-100 overflow-hidden">
-              <div class="h-100 d-flex align-items-center justify-content-center"> <!-- Aggiungi questo div wrapper -->
-                <img 
-                  src="image/logo/midaspo.jpg" 
-                  class="img-fluid w-auto h-auto object-fit-contain" 
-                  alt="Logo"
-                  style="max-width: 90%; max-height: 90%;"
-                >
-              </div>
-            </div>
+                <img src="image/logo/midaspo.jpg" alt="Logo">
                             </div>
                             <div class="col-md-8">
                                 <div class="card-body">
@@ -216,17 +213,8 @@
                     <div class="card h-100">
                         <div class="row g-0">
                             <div class="col-md-4 img-container">
-                                            <div class="position-relative h-100 overflow-hidden">
-              <div class="h-100 d-flex align-items-center justify-content-center"> <!-- Aggiungi questo div wrapper -->
-                <img 
-                  src="image/logo/ambra.jpg" 
-                  class="img-fluid w-auto h-auto object-fit-contain" 
-                  alt="Logo"
-                  style="max-width: 90%; max-height: 90%;"
-                >
-              </div>
-            </div>
-                            </div>
+                <img src="image/logo/ambra.jpg" alt="Logo">
+             </div>
                             <div class="col-md-8">
                                 <div class="card-body">
                                     <span class="badge bg-success float-end">Attivo</span>
