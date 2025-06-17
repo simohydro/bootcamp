@@ -6,136 +6,181 @@
     <title>Il Nostro Team - Idrogeologia Ambientale</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
 
     <style>
-        .card-img-top {
-            height: 300px;
-            object-fit: cover;
-        }
         section {
             padding: 80px 0;
         }
-        .flip-card {
-            perspective: 1000px;
-            min-height: 400px; /* Altezza minima in base al contenuto */
-        }
-
-        .flip-card-inner {
-            position: relative;
+        .identity-card-container {
+            perspective: 1200px;
             width: 100%;
-            height: 100%;
+            max-width: 800px;
+            margin: 2rem auto;
+        }
+        .identity-card {
+            width: 100%;
+            min-height: 260px;
+            display: flex;
+            align-items: stretch;
             transition: transform 0.6s;
             transform-style: preserve-3d;
+            position: relative;
         }
-
-        .flip-card:hover .flip-card-inner {
-            transform: rotateY(180deg);
-        }
-
-        .flip-card-front,
-        .flip-card-back {
-            position: absolute;
+        .identity-card-inner {
             width: 100%;
-            height: 100%;
-            backface-visibility: hidden;
-            -webkit-backface-visibility: hidden;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            display: flex; /* Aggiungiamo flexbox per il layout interno */
-            flex-direction: column; /* Disponiamo gli elementi verticalmente */
+            display: flex;
+            min-height: 260px;
+            transform-style: preserve-3d;
+            transition: transform 0.6s cubic-bezier(0.4,0.2,0.2,1);
+            position: relative;
         }
-
-        .flip-card-back {
+        .identity-card-container:hover .identity-card-inner,
+        .identity-card-container:focus-within .identity-card-inner {
             transform: rotateY(180deg);
-            background-color: white; /* Imposta lo sfondo bianco */
-            color: black
         }
-
-        .flip-card-back .card-body {
-            flex-grow: 1; /* Permette al corpo della carta di espandersi e spingere i bottoni in basso */
+        .identity-card-front, .identity-card-back {
+            width: 100%;
+            min-height: 260px;
+            background: #fff;
+            box-shadow: 0 2px 16px #0001;
+            border-radius: 12px;
+            position: absolute;
+            top: 0; left: 0;
+            display: flex;
+            align-items: stretch;
+            backface-visibility: hidden;
+        }
+        .identity-card-front {
+            z-index: 2;
+        }
+        .identity-photo {
+            width: 200px;
+            min-width: 200px;
+            height: 260px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f2f2f2;
+            border-radius: 12px 0 0 12px;
+            overflow: hidden;
+        }
+        .identity-photo img {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+        .identity-content {
+            flex: 1;
+            padding: 32px 24px;
             display: flex;
             flex-direction: column;
-            justify-content: center; /* Centra verticalmente il contenuto principale */
+            justify-content: center;
         }
-
-        .flip-card-back .card-footer {
-            padding: 1rem;
-            background-color: transparent; /* Rende trasparente lo sfondo del footer */
-            border-top: none; /* Rimuove il bordo superiore del footer */
+        .identity-title {
+            font-size: 1.5rem;
+            font-weight: 600;
         }
-
-        /* Mobile: Flip al click invece che hover */
+        .identity-role {
+            font-size: 1rem;
+            color: #0d6efd;
+            margin-bottom: 8px;
+        }
+        .identity-desc {
+            font-size: 1rem;
+            color: #333;
+        }
+        .identity-card-back {
+            transform: rotateY(180deg);
+            z-index: 3;
+            background: #f9fafb;
+            flex-direction: column;
+            border-radius: 12px;
+            padding: 32px;
+            justify-content: center;
+            align-items: flex-start;
+        }
+        .identity-back-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #0d6efd;
+        }
+        .identity-back-desc {
+            font-size: 1rem;
+            color: #333;
+        }
+        .identity-back-contacts {
+            margin-top: 1.5rem;
+        }
+        .identity-back-contacts a {
+            margin-right: 8px;
+            color: #0d6efd;
+            font-size: 1.4rem;
+        }
         @media (max-width: 768px) {
-            .flip-card.active .flip-card-inner {
-                transform: rotateY(180deg);
+            .identity-card-front, .identity-card-back,
+            .identity-card, .identity-card-inner, .identity-card-container {
+                min-height: 0;
+                max-width: 100%;
+                flex-direction: column;
+            }
+            .identity-photo {
+                width: 100%;
+                min-width: 0;
+                height: 140px;
+                border-radius: 12px 12px 0 0;
+            }
+            .identity-photo img {
+                height: 120px;
+            }
+            .identity-content, .identity-card-back {
+                padding: 18px;
+            }
+            .identity-card-back {
+                align-items: flex-start;
             }
         }
-
-        .flip-card a {
-    color: #000000; 
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.project-link {
-    font-weight: 500;
-    position: relative;
-}
-
-.project-link:hover::after 
-    font-size: 0.8em;
-    color: #000000;
-}
-        }      
-.navbar-nav .nav-item.dropdown:hover .dropdown-menu {
-    display: block;
-}
-
-.navbar-nav .nav-item.dropdown:hover .nav-link {
-   /* Puoi aggiungere stili specifici per il link Education al hover se lo desideri */
-}
+        .navbar-nav .nav-item.dropdown:hover .dropdown-menu {
+            display: block;
+        }
+        .navbar-nav .nav-item.dropdown .dropdown-toggle {
+            display: flex !important;
+            align-items: center;
+            padding: 0 0.5rem;
+        }
         .navbar-nav .nav-item.dropdown > .nav-link .bi {
-    transform: scale(0.7);
-    display: inline-block;
-}
-
-.dropdown-menu[aria-labelledby="navbarDropdownMenuLink"] {
-    margin-top: 0; /* Evita il "salto" visivo */
-}
-        .nav-item.dropdown .dropdown-toggle {
-    display: flex !important;
-    align-items: center;
-    padding: 0 0.5rem;
-}
-
-/* Mantieni hover sulla sezione completa */
-.nav-item.dropdown:hover .dropdown-menu {
-    display: block;
-}
- 
+            transform: scale(0.7);
+            display: inline-block;
+        }
+        .dropdown-menu[aria-labelledby="navbarDropdownMenuLink"] {
+            margin-top: 0;
+        }
+        /* Gestione flip via classe JS */
+        .identity-card-inner.flipped {
+            transform: rotateY(180deg) !important;
+        }
     </style>
-    
-
 </head>
 <body data-bs-spy="scroll" data-bs-target="#main-nav">
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-<div class="container">
+        <div class="container">
             <a class="navbar-brand" href="#">
-              <i class="bi bi-droplet animate-pulse" style="color: #00b4d8; font-size: 1.25rem;"></i> Environmental Hydrogeology Research Group
+                <i class="bi bi-droplet animate-pulse" style="color: #00b4d8; font-size: 1.25rem;"></i> Environmental Hydrogeology Research Group
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                 <ul class="navbar-nav ms-auto">
-                 <li class="nav-item"><a class="nav-link active" href="#home">Home</a></li>
-                 <li class="nav-item"><a class="nav-link active" href="team.html">Team</a></li>
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="team.html">Team</a></li>
                     <li class="nav-item dropdown">
                         <a class="nav-link active d-flex align-items-center" href="education.html" id="navbarDropdownEducation">
-                            Education
-                            <i class="bi bi-caret-down-fill ms-1"></i> </a>
+                            Education <i class="bi bi-caret-down-fill ms-1"></i>
+                        </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownEducation">
                             <li><a class="dropdown-item" href="#">Teaching</a></li>
                             <li><a class="dropdown-item" href="#">PhD Thesis</a></li>
@@ -144,14 +189,14 @@
                             <li><a class="dropdown-item" href="#">Courses</a></li>
                         </ul>
                     </li>
-                     <li class="nav-item"><a class="nav-link active" href="pubblicazioni.html">Publications</a></li>
-                          <li class="nav-item dropdown">
+                    <li class="nav-item"><a class="nav-link active" href="pubblicazioni.html">Publications</a></li>
+                    <li class="nav-item dropdown">
                         <a class="nav-link active d-flex align-items-center" href="progetti.html?filter=tutti" id="navbarDropdownProjects">
-                            Projects
-                            <i class="bi bi-caret-down-fill ms-1"></i> </a>
+                            Projects <i class="bi bi-caret-down-fill ms-1"></i>
+                        </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownProjects">
-                             <li><a class="dropdown-item" href="progetti.html?filter=attivi">Active</a></li>
-                             <li><a class="dropdown-item" href="progetti.html?filter=conclusi">Concluded</a></li>
+                            <li><a class="dropdown-item" href="progetti.html?filter=attivi">Active</a></li>
+                            <li><a class="dropdown-item" href="progetti.html?filter=conclusi">Concluded</a></li>
                         </ul>
                     </li>
                     <li class="nav-item"><a class="nav-link active" href="fieldkit.html">Field Tools</a></li>
@@ -161,200 +206,155 @@
         </div>
     </nav>
 
-
     <section class="pt-5 mt-5" id="team">
         <div class="container">
             <h2 class="text-center mb-5">Research Members</h2>
-            <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-4 team-category">
-                <div class="col">
-                    <div class="flip-card">
-                        <div class="flip-card-inner">
-                            <div class="flip-card-front">
-                                <div class="card h-100 shadow">
-                                    <img src="image/team/membersb.jpg" class="card-img-top" alt="Membro team">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Dott. Simone Bruno</h5>
-                                        <p class="card-subtitle mb-2 text-muted">Borsista di Ricerca</p>
-                                        <p class="card-text">Creatore del sito</p>
-                                    </div>
-                                </div>
+            <!-- Simone Bruno -->
+            <div class="identity-card-container my-4">
+                <div class="identity-card-inner">
+                    <div class="identity-card-front identity-card">
+                        <div class="identity-photo">
+                            <img src="image/team/membersb.jpg" alt="Dott. Simone Bruno">
+                        </div>
+                        <div class="identity-content">
+                            <div class="identity-title">Dott. Simone Bruno</div>
+                            <div class="identity-role">Borsista di Ricerca</div>
+                            <div class="identity-desc">
+                                Creatore del sito.<br>
+                                Dipartimento di Scienze della Terra e dell'Ambiente, Università degli Studi di Milano-Bicocca.
                             </div>
-                            <div class="flip-card-back">
-                                <div class="card-body d-flex flex-column justify-content-between h-100">
-                                    <div>
-                                        <h5 class="mb-3">Progetti</h5>
-                                        <ul class="list-unstyled">
-                                            <li class="mb-2">• MidAS-Po: Ricostruzione idrogeologica della pianura padana</li>
-                                            <li class="mb-2">• GIS </li>
-                                            <li class="mb-2">• Modellazione 3D</li>
-                                        </ul>
-                                        <hr>
-                                    </div>
-                                     <div class="card-footer">
-                                        <div class="d-flex gap-2 justify-content-center mt-3">
-                                            <a href="mailto:simone.bruno@unimib.it" class="btn btn-outline-black btn-sm">
-                                                <i class="bi bi-envelope"></i>
-                                            </a>
-                                            <a href="#" class="btn btn-outline-black btn-sm">
-                                                <i class="bi bi-linkedin"></i>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
+                        </div>
+                    </div>
+                    <div class="identity-card-back identity-card">
+                        <div>
+                            <div class="identity-back-title">Progetti</div>
+                            <div class="identity-back-desc">
+                                • MidAS-Po: Ricostruzione idrogeologica della pianura padana<br>
+                                • GIS<br>
+                                • Modellazione 3D
+                            </div>
+                            <div class="identity-back-contacts mt-3">
+                                <a href="mailto:simone.bruno@unimib.it" title="Email"><i class="bi bi-envelope"></i></a>
+                                <a href="#" title="LinkedIn"><i class="bi bi-linkedin"></i></a>
                             </div>
                         </div>
                     </div>
                 </div>
-
-                <div class="col">
-                    <div class="flip-card">
-                        <div class="flip-card-inner">
-                            <div class="flip-card-front">
-                                <div class="card h-100 shadow">
-                                    <img src="image/team/membermr.jpg" class="card-img-top" alt="Dott. Marco Rotiroti">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Dott. Marco Rotiroti</h5>
-                                        <p class="card-subtitle mb-2 text-muted">Ricercatore a tempo determinato</p>
-                                        <p class="card-text">MISTER</p>
-                                    </div>
-                                </div>
+            </div>
+            <!-- Marco Rotiroti -->
+            <div class="identity-card-container my-4">
+                <div class="identity-card-inner">
+                    <div class="identity-card-front identity-card">
+                        <div class="identity-photo">
+                            <img src="image/team/membermr.jpg" alt="Dott. Marco Rotiroti">
+                        </div>
+                        <div class="identity-content">
+                            <div class="identity-title">Dott. Marco Rotiroti</div>
+                            <div class="identity-role">Ricercatore a tempo determinato</div>
+                            <div class="identity-desc">
+                                MISTER.<br>
+                                Esperto di idrogeologia, attività di campo e modellazione.
                             </div>
-                            <div class="flip-card-back">
-                                <div class="card-body d-flex flex-column justify-content-between h-100">
-                                    <div>
-                                        <h5 class="mb-3">Progetti e responsabilità</h5>
-                                        <ul class="list-unstyled">
-                                            <li class="mb-2">• <a href="https://sites.google.com/unimib.it/ambra/home-page?authuser=0" target="_blank" class="project-link">AMBRA</a></li>
-                                            <li class="mb-2">• Attività di campo </li>
-                                            <li class="mb-2">• MidAS-Po: Ricostruzione idrogeologica della pianura padana</li>
-                                        </ul>
-                                        </ul>
-                                        <hr>
-                                    </div>
-                                    <div class="card-footer">
-                                        <div class="d-flex gap-2 justify-content-center mt-3">
-                                            <a href="mailto:marco.rotiroti@unimib.it" class="btn btn-outline-black btn-sm">
-                                                <i class="bi bi-envelope"></i>
-                                            </a>
-                                            <a href="#" class="btn btn-outline-black btn-sm">
-                                                <i class="bi bi-linkedin"></i>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
+                        </div>
+                    </div>
+                    <div class="identity-card-back identity-card">
+                        <div>
+                            <div class="identity-back-title">Progetti e responsabilità</div>
+                            <div class="identity-back-desc">
+                                • <a href="https://sites.google.com/unimib.it/ambra/home-page?authuser=0" target="_blank">AMBRA</a><br>
+                                • Attività di campo <br>
+                                • MidAS-Po: Ricostruzione idrogeologica della pianura padana
+                            </div>
+                            <div class="identity-back-contacts mt-3">
+                                <a href="mailto:marco.rotiroti@unimib.it" title="Email"><i class="bi bi-envelope"></i></a>
+                                <a href="#" title="LinkedIn"><i class="bi bi-linkedin"></i></a>
                             </div>
                         </div>
                     </div>
                 </div>
-
-                <div class="col">
-                    <div class="flip-card">
-                        <div class="flip-card-inner">
-                            <div class="flip-card-front">
-                                <div class="card h-100 shadow">
-                                    <img src="image/team/memberds.jpg" class="card-img-top" alt="Dott. Davide Sartirana">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Dott. Davide Sartirana</h5>
-                                        <p class="card-subtitle mb-2 text-muted">Assegnista di ricerca</p>
-                                        <p class="card-text">Inguaribile interista, devoto al Capitano</p>
-                                    </div>
-                                </div>
+            </div>
+            <!-- Davide Sartirana -->
+            <div class="identity-card-container my-4">
+                <div class="identity-card-inner">
+                    <div class="identity-card-front identity-card">
+                        <div class="identity-photo">
+                            <img src="image/team/memberds.jpg" alt="Dott. Davide Sartirana">
+                        </div>
+                        <div class="identity-content">
+                            <div class="identity-title">Dott. Davide Sartirana</div>
+                            <div class="identity-role">Assegnista di ricerca</div>
+                            <div class="identity-desc">
+                                Inguaribile interista, devoto al Capitano.<br>
                             </div>
-                            <div class="flip-card-back">
-                                <div class="card-body d-flex flex-column justify-content-between h-100">
-                                    <div>
-                                        <h5 class="mb-3">Contatti</h5>
-                                        <ul class="list-unstyled">
-                                            <li class="mb-2"><i class="bi bi-envelope me-2"></i> davide.sartirana@unimib.it</li>
-                                        </ul>
-                                        <hr>
-                                    </div>
-                                    <div class="card-footer">
-                                        <div class="d-flex gap-2 justify-content-center mt-3">
-                                            <a href="mailto:davide.sartirana@unimib.it" class="btn btn-outline-black btn-sm">
-                                                <i class="bi bi-envelope"></i>
-                                            </a>
-                                            <a href="#" class="btn btn-outline-black btn-sm">
-                                                <i class="bi bi-linkedin"></i>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
+                        </div>
+                    </div>
+                    <div class="identity-card-back identity-card">
+                        <div>
+                            <div class="identity-back-title">Contatti</div>
+                            <div class="identity-back-desc">
+                                <i class="bi bi-envelope me-2"></i> davide.sartirana@unimib.it
+                            </div>
+                            <div class="identity-back-contacts mt-3">
+                                <a href="mailto:davide.sartirana@unimib.it" title="Email"><i class="bi bi-envelope"></i></a>
+                                <a href="#" title="LinkedIn"><i class="bi bi-linkedin"></i></a>
                             </div>
                         </div>
                     </div>
                 </div>
-
-                <div class="col">
-                    <div class="flip-card">
-                        <div class="flip-card-inner">
-                            <div class="flip-card-front">
-                                <div class="card h-100 shadow">
-                                    <img src="image/team/memberap.jpg" class="card-img-top" alt="Dott.ssa Alice Palazzi">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Dott.ssa Alice Palazzi</h5>
-                                        <p class="card-subtitle mb-2 text-muted">Assegnista di ricerca</p>
-                                        <p class="card-text">Saggia</p>
-                                    </div>
-                                </div>
+            </div>
+            <!-- Alice Palazzi -->
+            <div class="identity-card-container my-4">
+                <div class="identity-card-inner">
+                    <div class="identity-card-front identity-card">
+                        <div class="identity-photo">
+                            <img src="image/team/memberap.jpg" alt="Dott.ssa Alice Palazzi">
+                        </div>
+                        <div class="identity-content">
+                            <div class="identity-title">Dott.ssa Alice Palazzi</div>
+                            <div class="identity-role">Assegnista di ricerca</div>
+                            <div class="identity-desc">
+                                Saggia<br>
                             </div>
-                            <div class="flip-card-back">
-                                <div class="card-body d-flex flex-column justify-content-between h-100">
-                                    <div>
-                                        <h5 class="mb-3">Contatti</h5>
-                                        <ul class="list-unstyled">
-                                            <li class="mb-2"><i class="bi bi-envelope me-2"></i> alice.palazzi@unimib.it</li>
-                                        </ul>
-                                        <hr>
-                                    </div>
-                                    <div class="card-footer">
-                                        <div class="d-flex gap-2 justify-content-center mt-3">
-                                            <a href="mailto:alice.palazzi@unimib.it" class="btn btn-outline-black btn-sm">
-                                                <i class="bi bi-envelope"></i>
-                                            </a>
-                                            <a href="#" class="btn btn-outline-black btn-sm">
-                                                <i class="bi bi-linkedin"></i>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
+                        </div>
+                    </div>
+                    <div class="identity-card-back identity-card">
+                        <div>
+                            <div class="identity-back-title">Contatti</div>
+                            <div class="identity-back-desc">
+                                <i class="bi bi-envelope me-2"></i> alice.palazzi@unimib.it
+                            </div>
+                            <div class="identity-back-contacts mt-3">
+                                <a href="mailto:alice.palazzi@unimib.it" title="Email"><i class="bi bi-envelope"></i></a>
+                                <a href="#" title="LinkedIn"><i class="bi bi-linkedin"></i></a>
                             </div>
                         </div>
                     </div>
                 </div>
-              <div class="col">
-                    <div class="flip-card">
-                        <div class="flip-card-inner">
-                            <div class="flip-card-front">
-                                <div class="card h-100 shadow">
-                                    <img src="image/team/memberar.jpg" class="card-img-top" alt="Dott.ssa Agnese Redaelli">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Dott.ssa Agnese Redaelli</h5>
-                                        <p class="card-subtitle mb-2 text-muted">Dottoranda di ricerca</p>
-                                        <p class="card-text">Tagliente</p>
-                                    </div>
-                                </div>
+            </div>
+            <!-- Agnese Redaelli -->
+            <div class="identity-card-container my-4">
+                <div class="identity-card-inner">
+                    <div class="identity-card-front identity-card">
+                        <div class="identity-photo">
+                            <img src="image/team/memberar.jpg" alt="Dott.ssa Agnese Redaelli">
+                        </div>
+                        <div class="identity-content">
+                            <div class="identity-title">Dott.ssa Agnese Redaelli</div>
+                            <div class="identity-role">Dottoranda di ricerca</div>
+                            <div class="identity-desc">
+                                Tagliente.<br>
                             </div>
-                            <div class="flip-card-back">
-                                <div class="card-body d-flex flex-column justify-content-between h-100">
-                                    <div>
-                                        <h5 class="mb-3">Contatti</h5>
-                                        <ul class="list-unstyled">
-                                            <li class="mb-2"><i class="bi bi-envelope me-2"></i> a.redaelli33@campus.unimib.it</li>
-                                        </ul>
-                                        <hr>
-                                    </div>
-                                    <div class="card-footer">
-                                        <div class="d-flex gap-2 justify-content-center mt-3">
-                                            <a href="mailto:a.redaelli33@campus.unimib.it" class="btn btn-outline-black btn-sm">
-                                                <i class="bi bi-envelope"></i>
-                                            </a>
-                                            <a href="#" class="btn btn-outline-black btn-sm">
-                                                <i class="bi bi-linkedin"></i>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
+                        </div>
+                    </div>
+                    <div class="identity-card-back identity-card">
+                        <div>
+                            <div class="identity-back-title">Contatti</div>
+                            <div class="identity-back-desc">
+                                <i class="bi bi-envelope me-2"></i> a.redaelli33@campus.unimib.it
+                            </div>
+                            <div class="identity-back-contacts mt-3">
+                                <a href="mailto:a.redaelli33@campus.unimib.it" title="Email"><i class="bi bi-envelope"></i></a>
+                                <a href="#" title="LinkedIn"><i class="bi bi-linkedin"></i></a>
                             </div>
                         </div>
                     </div>
@@ -385,7 +385,8 @@
                         </div>
                     </div>
                 </div>
-                </div>
+                <!-- Altri studenti... -->
+            </div>
         </div>
     </section>
 
@@ -401,15 +402,28 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-           <script>
-// Abilita flip al click su mobile
-document.querySelectorAll('.flip-card').forEach(card => {
-    card.addEventListener('click', function() {
-        if(window.innerWidth <= 768) {
-            this.classList.toggle('active')
-        }
+    <script>
+    // Flip su mobile
+    document.querySelectorAll('.identity-card-container').forEach(card => {
+        card.addEventListener('click', function(e) {
+            if(window.innerWidth <= 768) {
+                this.querySelector('.identity-card-inner').classList.toggle('flipped')
+            }
+        })
     })
-})
-</script>
+    // Flip su hover (desktop)
+    document.querySelectorAll('.identity-card-container').forEach(card => {
+        card.addEventListener('mouseover', function(e) {
+            if(window.innerWidth > 768) {
+                this.querySelector('.identity-card-inner').classList.add('flipped')
+            }
+        })
+        card.addEventListener('mouseout', function(e) {
+            if(window.innerWidth > 768) {
+                this.querySelector('.identity-card-inner').classList.remove('flipped')
+            }
+        })
+    })
+    </script>
 </body>
 </html>
