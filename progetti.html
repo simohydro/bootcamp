@@ -5,136 +5,97 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Tutti i progetti - Idrogeologia Ambientale</title>
 
-    <!-- Aggiungi gli stessi stili della homepage -->
+    <!-- Bootstrap & Bootstrap Icons -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
-    <!-- Intestazione identica alle altre pagine -->
-   <style>
-        /* Transizioni modificate */
-        .project-card {
-            transition: opacity 0.2s ease-in-out;
-            opacity: 1;
-        }
 
+    <style>
+        /* Transizioni card */
+        .project-card {
+            transition: opacity 0.2s, max-height 0.3s, margin 0.3s, padding 0.3s;
+            opacity: 1;
+            max-height: 1000px;
+        }
         .project-card.hidden {
             opacity: 0;
-            height: 0;
+            max-height: 0;
             overflow: hidden;
             margin: 0;
             padding: 0;
-            transition: all 0.3s ease;
         }
-
         .filter-btn.active {
             background-color: #0d6efd !important;
             color: white !important;
         }
-
-        /* Nuovo layout card */
+        /* Card layout */
         .project-card .card {
             border: none;
             border-bottom: 1px solid #eee;
             border-radius: 0;
+            box-shadow: none;
         }
-
-        .project-card .card-img-left {
-            width: 300px;
+        /* Logo progetti: dimensione uniforme, centrato */
+        .project-logo-wrapper {
+            width: 100%;
             height: 200px;
-            object-fit: cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f8f9fa;
+            padding: 15px;
         }
-
+        .project-logo {
+            width: 100%;
+            height: 170px;
+            object-fit: contain;
+            display: block;
+        }
         @media (max-width: 768px) {
-            .project-card .card-img-left {
-                width: 100%;
-                height: 200px;
+            .project-logo-wrapper {
+                height: 160px;
+                padding: 10px;
+            }
+            .project-logo {
+                height: 120px;
             }
         }
-       /* Aggiungi alla sezione CSS */
-.object-fit-cover {
-    object-fit: cover;
-    object-position: center;
-.image-wrapper {
-    height: 250px;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: #f8f9fa;
-    padding: 15px;
-}
-
-.img-container {
-    width: 300px;
-    height: 200px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: #f8f9fa;
-}
-
-.img-container img {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;
-    display: block;
-}
-
-@media (max-width: 768px) {
-    .img-container {
-        width: 100%;
-        height: 200px;
-    }
-}    
-    .navbar-nav .nav-item.dropdown:hover .dropdown-menu {
-    display: block;
-}
-
-.navbar-nav .nav-item.dropdown:hover .nav-link {
-   /* Puoi aggiungere stili specifici per il link Education al hover se lo desideri */
-}
+        /* Navbar dropdown hover */
+        .navbar-nav .nav-item.dropdown:hover .dropdown-menu {
+            display: block;
+        }
+        .navbar-nav .nav-item.dropdown .dropdown-toggle {
+            display: flex !important;
+            align-items: center;
+            padding: 0 0.5rem;
+        }
         .navbar-nav .nav-item.dropdown > .nav-link .bi {
-    transform: scale(0.7);
-    display: inline-block;
-}
-
-.dropdown-menu[aria-labelledby="navbarDropdownMenuLink"] {
-    margin-top: 0; 
-    /* Evita il "salto" visivo */
-}
-        .nav-item.dropdown .dropdown-toggle {
-    display: flex !important;
-    align-items: center;
-    padding: 0 0.5rem;
-}
-
-/* Mantieni hover sulla sezione completa */
-.nav-item.dropdown:hover .dropdown-menu {
-    display: block;
-}
- 
+            transform: scale(0.7);
+            display: inline-block;
+        }
+        .dropdown-menu[aria-labelledby="navbarDropdownMenuLink"] {
+            margin-top: 0;
+        }
     </style>
-    </style> 
-    
 </head>
 
 <body>
-     <!-- Navbar (identica alla homepage) -->
+    <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-         <div class="container">
+        <div class="container">
             <a class="navbar-brand" href="index.html">
-              <i class="bi bi-droplet animate-pulse" style="color: #00b4d8; font-size: 1.25rem;"></i> Environmental Hydrogeology Research Group
+                <i class="bi bi-droplet animate-pulse" style="color: #00b4d8; font-size: 1.25rem;"></i> Environmental Hydrogeology Research Group
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                 <ul class="navbar-nav ms-auto">
-                 <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
-                 <li class="nav-item"><a class="nav-link active" href="team.html">Team</a></li>
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="team.html">Team</a></li>
                     <li class="nav-item dropdown">
                         <a class="nav-link active d-flex align-items-center" href="education.html" id="navbarDropdownMenuLink">
-                            Education
-                            <i class="bi bi-caret-down-fill ms-1"></i> </a>
+                            Education <i class="bi bi-caret-down-fill ms-1"></i>
+                        </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                             <li><a class="dropdown-item" href="#">Teaching</a></li>
                             <li><a class="dropdown-item" href="#">PhD Thesis</a></li>
@@ -143,14 +104,14 @@
                             <li><a class="dropdown-item" href="#">Courses</a></li>
                         </ul>
                     </li>
-                     <li class="nav-item"><a class="nav-link active" href="pubblicazioni.html">Publications</a></li>
-                          <li class="nav-item dropdown">
+                    <li class="nav-item"><a class="nav-link active" href="pubblicazioni.html">Publications</a></li>
+                    <li class="nav-item dropdown">
                         <a class="nav-link active d-flex align-items-center" href="progetti.html?filter=tutti" id="navbarDropdownMenuLink">
-                            Projects
-                            <i class="bi bi-caret-down-fill ms-1"></i> </a>
+                            Projects <i class="bi bi-caret-down-fill ms-1"></i>
+                        </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                             <li><a class="dropdown-item" href="progetti.html?filter=attivi">Active</a></li>
-                             <li><a class="dropdown-item" href="progetti.html?filter=conclusi">Concluded</a></li>
+                            <li><a class="dropdown-item" href="progetti.html?filter=attivi">Active</a></li>
+                            <li><a class="dropdown-item" href="progetti.html?filter=conclusi">Concluded</a></li>
                         </ul>
                     </li>
                     <li class="nav-item"><a class="nav-link active" href="fieldkit.html">Field Tools</a></li>
@@ -160,22 +121,16 @@
         </div>
     </nav>
 
- <main class="container py-5 mt-5">
+    <main class="container py-5 mt-5">
         <h1 class="text-center mb-5" id="dynamicTitle">Progetti di Ricerca</h1>
 
         <!-- Filtri -->
         <div class="row mb-4">
             <div class="col text-center">
                 <div class="btn-group">
-                    <a href="?filter=tutti" 
-                       class="btn btn-outline-primary filter-btn" 
-                       data-filter="tutti">Tutti</a>
-                    <a href="?filter=attivi" 
-                       class="btn btn-outline-primary filter-btn" 
-                       data-filter="attivi">Attivi</a>
-                    <a href="?filter=conclusi" 
-                       class="btn btn-outline-primary filter-btn" 
-                       data-filter="conclusi">Conclusi</a>
+                    <a href="?filter=tutti" class="btn btn-outline-primary filter-btn" data-filter="tutti">Tutti</a>
+                    <a href="?filter=attivi" class="btn btn-outline-primary filter-btn" data-filter="attivi">Attivi</a>
+                    <a href="?filter=conclusi" class="btn btn-outline-primary filter-btn" data-filter="conclusi">Conclusi</a>
                 </div>
             </div>
         </div>
@@ -184,65 +139,91 @@
         <div class="row g-4" id="projectsGrid">
             <!-- Progetto 1 - Attivo -->
             <div class="col-12 project-card" data-status="attivi">
-                    <div class="card h-100">
-                        <div class="row g-0">
-                            <div class="col-md-4 img-container">
-                <img src="image/logo/midaspo.jpg" alt="Logo">
+                <div class="card h-100">
+                    <div class="row g-0 align-items-center">
+                        <div class="col-md-4">
+                            <div class="project-logo-wrapper">
+                                <img src="image/logo/midaspo.jpg" alt="Logo MidAS-Po" class="project-logo">
                             </div>
-                            <div class="col-md-8">
-                                <div class="card-body">
-                                    <span class="badge bg-success float-end">Attivo</span>
-                                    <h5 class="card-title mb-3">MidAS-Po: Modello idrogeologico delle Acque Sotterranee del distretto idrografico del fiume Po</h5>
-                                    <p class="card-text">Scopo del progetto è di aumentare il livello di conoscenza dello stato di salute  delle acque sotterranee della pianura padana dal punto di vista qualitativo e quantitativo, in un contesto attuale caratterizzato da frequenti eventi di scarsità idrica. Il sottosuolo della Pianura Padana, che ospita potenti acquiferi nei suoi depositi alluvionali, diventa sempre più una risorsa strategica nella valutazione del bilancio idrico, in ragione della rilevante quota di approvvigionamento idrico che supporta il settore civile, industriale e agricolo.</p>
-                                    <div class="mt-4">
-                                        <span class="text-muted small">Durata: 2022-2025</span>
-                                                <a href="https://www.adbpo.it/la-tutela-delle-acque-parte-dalla-conoscenza-avvio-del-progetto-midas-po/" 
-                                                   target="_blank" 
-                                                   class="btn btn-outline-primary btn-sm ms-3">
-                                                <i class="bi bi-box-arrow-up-right me-1"></i> Website
-                                        </a>
-                                    </div>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <span class="badge bg-success float-end">Attivo</span>
+                                <h5 class="card-title mb-3">MidAS-Po: Modello idrogeologico delle Acque Sotterranee del distretto idrografico del fiume Po</h5>
+                                <p class="card-text">Scopo del progetto è di aumentare il livello di conoscenza dello stato di salute delle acque sotterranee della pianura padana dal punto di vista quantitativo e qualitativo, fornendo strumenti innovativi per la gestione delle risorse idriche sotterranee.</p>
+                                <div class="mt-4">
+                                    <span class="text-muted small">Durata: 2022-2025</span>
+                                    <a href="https://www.adbpo.it/la-tutela-delle-acque-parte-dalla-conoscenza-avvio-del-progetto-midas-po/" target="_blank" class="btn btn-outline-primary btn-sm ms-3">
+                                        <i class="bi bi-box-arrow-up-right me-1"></i> Website
+                                    </a>
                                 </div>
                             </div>
                         </div>
                     </div>
+                </div>
             </div>
 
-            <!-- Progetto 2 - Concluso -->
+            <!-- Progetto 2 - Attivo -->
             <div class="col-12 project-card" data-status="attivi">
-                    <div class="card h-100">
-                        <div class="row g-0">
-                            <div class="col-md-4 img-container">
-                <img src="image/logo/ambra.jpg" alt="Logo">
-             </div>
-                            <div class="col-md-8">
-                                <div class="card-body">
-                                    <span class="badge bg-success float-end">Attivo</span>
-                                    <h5 class="card-title mb-3">AMBRA: Assessing alpine and apennine Mountain-front recharge to po plain alluvial aquifers:
-an essential for supporting sustainaBle management of gRoundwAter resources</h5>
-                                    <p class="card-text">The AMBRA project addresses threats to groundwater sustainability in Northern Italy’s Po Plain, a vital drinking water source increasingly stressed by climate change. It focuses on mountain-front recharge (MFR), where Alpine and Apennine water replenishes plains’ aquifers via three pathways: (1) surface MFR (infiltration from mountain-sourced rivers), (2) subsurface flow from mountain bedrock, and (3) local rainfall. Using stable isotopes (δ²H, δ¹⁸O) and chloride-bromide ratios as tracers, combined with stream discharge monitoring, the project quantifies these components via mixing models to reveal recharge dynamics.
-
-Two pilot areas—Alpine moraines and Apennine carbonate-alluvial systems—represent diverse geological settings, enabling analysis of how geology and land use affect recharge. A key focus is the role of mountain-derived river water (sMFR) in transporting nitrate pollution from upland agriculture into plains’ groundwater, worsening water quality.
-
-By clarifying recharge processes and pollution pathways, AMBRA provides actionable data for Italian authorities to protect critical recharge zones, regulate extraction, and mitigate contamination. Its methods and insights are scalable to other regions reliant on mountain-front aquifers, offering a global framework for balancing water security and climate resilience. The project highlights the urgent need to integrate mountain and plains hydrology in sustainable groundwater management.
-
-</p>
-                                    <div class="mt-4">
-                                        <span class="text-muted small">Durata: 2023-2025</span>
-                                                <a href="https://sites.google.com/unimib.it/ambra/home-page?authuser=0" 
-                                                   target="_blank" 
-                                                   class="btn btn-outline-primary btn-sm ms-3">
-                                                <i class="bi bi-box-arrow-up-right me-1"></i> Website
-                                        </a>
-                                    </div>
+                <div class="card h-100">
+                    <div class="row g-0 align-items-center">
+                        <div class="col-md-4">
+                            <div class="project-logo-wrapper">
+                                <img src="image/logo/ambra.jpg" alt="Logo AMBRA" class="project-logo">
+                            </div>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <span class="badge bg-success float-end">Attivo</span>
+                                <h5 class="card-title mb-3">AMBRA: Assessing alpine and apennine Mountain-front recharge to Po plain alluvial aquifers</h5>
+                                <p class="card-text">
+                                    Il progetto AMBRA affronta le minacce alla sostenibilità delle acque sotterranee nella Pianura Padana, fonte essenziale di acqua potabile sempre più compromessa da sovrasfruttamento e contaminazione.<br>
+                                    Due aree pilota—morene alpine e sistemi carbonatico-alluvionali appenninici—permettono di analizzare come geologia e uso del suolo influenzino la ricarica. Un focus chiave è il ruolo delle fasce di ricarica nella protezione della risorsa.<br>
+                                    Chiarendo processi di ricarica e vie di contaminazione, AMBRA fornisce dati utili alle autorità italiane per tutelare le zone critiche, regolare l’estrazione e mitigare l’inquinamento.
+                                </p>
+                                <div class="mt-4">
+                                    <span class="text-muted small">Durata: 2023-2025</span>
+                                    <a href="https://sites.google.com/unimib.it/ambra/home-page?authuser=0" target="_blank" class="btn btn-outline-primary btn-sm ms-3">
+                                        <i class="bi bi-box-arrow-up-right me-1"></i> Website
+                                    </a>
                                 </div>
                             </div>
                         </div>
                     </div>
+                </div>
             </div>
+
+            <!-- Esempio di progetto concluso (aggiungi altri progetti duplicando lo schema) -->
+            <!--
+            <div class="col-12 project-card" data-status="conclusi">
+                <div class="card h-100">
+                    <div class="row g-0 align-items-center">
+                        <div class="col-md-4">
+                            <div class="project-logo-wrapper">
+                                <img src="image/logo/esempio.jpg" alt="Logo Progetto Esempio" class="project-logo">
+                            </div>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <span class="badge bg-secondary float-end">Concluso</span>
+                                <h5 class="card-title mb-3">Nome Progetto Concluso</h5>
+                                <p class="card-text">Descrizione sintetica del progetto concluso.</p>
+                                <div class="mt-4">
+                                    <span class="text-muted small">Durata: 2020-2022</span>
+                                    <a href="#" target="_blank" class="btn btn-outline-primary btn-sm ms-3">
+                                        <i class="bi bi-box-arrow-up-right me-1"></i> Website
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            -->
         </div>
     </main>
-        <!-- Footer (identico alla homepage) -->
+
+    <!-- Footer -->
     <footer class="bg-black text-white py-4">
         <div class="container text-center">
             <div class="mb-3">
@@ -257,7 +238,7 @@ By clarifying recharge processes and pollution pathways, AMBRA provides actionab
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Script Integrato -->
+    <!-- Script di filtro -->
     <script>
     document.addEventListener('DOMContentLoaded', function() {
         const urlParams = new URLSearchParams(window.location.search)
@@ -266,45 +247,39 @@ By clarifying recharge processes and pollution pathways, AMBRA provides actionab
             'attivi': 'Progetti Attivi in Corso',
             'conclusi': 'Progetti Conclusi',
             'tutti': 'Tutti i Progetti di Ricerca'
-        }
+        };
 
         // Aggiorna titolo
-        document.getElementById('dynamicTitle').textContent = titles[filter]
+        document.getElementById('dynamicTitle').textContent = titles[filter];
 
         // Gestione filtri
         document.querySelectorAll('.filter-btn').forEach(btn => {
-            btn.classList.toggle('active', btn.dataset.filter === filter)
+            btn.classList.toggle('active', btn.dataset.filter === filter);
 
             btn.addEventListener('click', function(e) {
-                e.preventDefault()
-                const newFilter = this.dataset.filter
-                window.history.replaceState({}, '', `?filter=${newFilter}`)
-                updateProjects(newFilter)
-            })
-        })
+                e.preventDefault();
+                const newFilter = this.dataset.filter;
+                window.history.replaceState({}, '', `?filter=${newFilter}`);
+                updateProjects(newFilter);
+            });
+        });
 
-        // Funzione di aggiornamento migliorata
         function updateProjects(selectedFilter) {
-            document.getElementById('dynamicTitle').textContent = titles[selectedFilter]
+            document.getElementById('dynamicTitle').textContent = titles[selectedFilter];
 
             document.querySelectorAll('.filter-btn').forEach(btn => {
-                btn.classList.toggle('active', btn.dataset.filter === selectedFilter)
-            })
+                btn.classList.toggle('active', btn.dataset.filter === selectedFilter);
+            });
 
             document.querySelectorAll('.project-card').forEach(card => {
-                const shouldShow = selectedFilter === 'tutti' || card.dataset.status === selectedFilter
-                if(shouldShow) {
-                    card.classList.remove('hidden')
-                } else {
-                    card.classList.add('hidden')
-                }
-            })
+                const shouldShow = selectedFilter === 'tutti' || card.dataset.status === selectedFilter;
+                card.classList.toggle('hidden', !shouldShow);
+            });
         }
 
         // Inizializzazione
-        updateProjects(filter)
-    })
+        updateProjects(filter);
+    });
     </script>
-
 </body>
 </html>
