@@ -15,7 +15,6 @@
         .identity-card-container {
             perspective: 1200px;
             width: 100%;
-            max-width: 800px;
             margin: 2rem auto;
         }
         .identity-card {
@@ -157,7 +156,6 @@
         .dropdown-menu[aria-labelledby="navbarDropdownMenuLink"] {
             margin-top: 0;
         }
-        /* Gestione flip via classe JS */
         .identity-card-inner.flipped {
             transform: rotateY(180deg) !important;
         }
@@ -209,156 +207,177 @@
     <section class="pt-5 mt-5" id="team">
         <div class="container">
             <h2 class="text-center mb-5">Research Members</h2>
-            <!-- Simone Bruno -->
-            <div class="identity-card-container my-4">
-                <div class="identity-card-inner">
-                    <div class="identity-card-front identity-card">
-                        <div class="identity-photo">
-                            <img src="image/team/membersb.jpg" alt="Dott. Simone Bruno">
-                        </div>
-                        <div class="identity-content">
-                            <div class="identity-title">Dott. Simone Bruno</div>
-                            <div class="identity-role">Borsista di Ricerca</div>
-                            <div class="identity-desc">
-                                Creatore del sito.<br>
-                                Dipartimento di Scienze della Terra e dell'Ambiente, Università degli Studi di Milano-Bicocca.
+            <!-- Prima riga di 2 card -->
+            <div class="row">
+                <div class="col-12 col-md-6">
+                    <!-- Simone Bruno -->
+                    <div class="identity-card-container my-4">
+                        <div class="identity-card-inner">
+                            <div class="identity-card-front identity-card">
+                                <div class="identity-photo">
+                                    <img src="image/team/membersb.jpg" alt="Dott. Simone Bruno">
+                                </div>
+                                <div class="identity-content">
+                                    <div class="identity-title">Dott. Simone Bruno</div>
+                                    <div class="identity-role">Borsista di Ricerca</div>
+                                    <div class="identity-desc">
+                                        Creatore del sito.<br>
+                                        Dipartimento di Scienze della Terra e dell'Ambiente, Università degli Studi di Milano-Bicocca.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="identity-card-back identity-card">
+                                <div>
+                                    <div class="identity-back-title">Progetti</div>
+                                    <div class="identity-back-desc">
+                                        • MidAS-Po: Ricostruzione idrogeologica della pianura padana<br>
+                                        • GIS<br>
+                                        • Modellazione 3D
+                                    </div>
+                                    <div class="identity-back-contacts mt-3">
+                                        <a href="mailto:simone.bruno@unimib.it" title="Email"><i class="bi bi-envelope"></i></a>
+                                        <a href="#" title="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="identity-card-back identity-card">
-                        <div>
-                            <div class="identity-back-title">Progetti</div>
-                            <div class="identity-back-desc">
-                                • MidAS-Po: Ricostruzione idrogeologica della pianura padana<br>
-                                • GIS<br>
-                                • Modellazione 3D
+                </div>
+                <div class="col-12 col-md-6">
+                    <!-- Marco Rotiroti -->
+                    <div class="identity-card-container my-4">
+                        <div class="identity-card-inner">
+                            <div class="identity-card-front identity-card">
+                                <div class="identity-photo">
+                                    <img src="image/team/membermr.jpg" alt="Dott. Marco Rotiroti">
+                                </div>
+                                <div class="identity-content">
+                                    <div class="identity-title">Dott. Marco Rotiroti</div>
+                                    <div class="identity-role">Ricercatore a tempo determinato</div>
+                                    <div class="identity-desc">
+                                        MISTER.<br>
+                                        Esperto di idrogeologia, attività di campo e modellazione.
+                                    </div>
+                                </div>
                             </div>
-                            <div class="identity-back-contacts mt-3">
-                                <a href="mailto:simone.bruno@unimib.it" title="Email"><i class="bi bi-envelope"></i></a>
-                                <a href="#" title="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                            <div class="identity-card-back identity-card">
+                                <div>
+                                    <div class="identity-back-title">Progetti e responsabilità</div>
+                                    <div class="identity-back-desc">
+                                        • <a href="https://sites.google.com/unimib.it/ambra/home-page?authuser=0" target="_blank">AMBRA</a><br>
+                                        • Attività di campo <br>
+                                        • MidAS-Po: Ricostruzione idrogeologica della pianura padana
+                                    </div>
+                                    <div class="identity-back-contacts mt-3">
+                                        <a href="mailto:marco.rotiroti@unimib.it" title="Email"><i class="bi bi-envelope"></i></a>
+                                        <a href="#" title="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- Marco Rotiroti -->
-            <div class="identity-card-container my-4">
-                <div class="identity-card-inner">
-                    <div class="identity-card-front identity-card">
-                        <div class="identity-photo">
-                            <img src="image/team/membermr.jpg" alt="Dott. Marco Rotiroti">
-                        </div>
-                        <div class="identity-content">
-                            <div class="identity-title">Dott. Marco Rotiroti</div>
-                            <div class="identity-role">Ricercatore a tempo determinato</div>
-                            <div class="identity-desc">
-                                MISTER.<br>
-                                Esperto di idrogeologia, attività di campo e modellazione.
+            <!-- Seconda riga di 2 card -->
+            <div class="row">
+                <div class="col-12 col-md-6">
+                    <!-- Davide Sartirana -->
+                    <div class="identity-card-container my-4">
+                        <div class="identity-card-inner">
+                            <div class="identity-card-front identity-card">
+                                <div class="identity-photo">
+                                    <img src="image/team/memberds.jpg" alt="Dott. Davide Sartirana">
+                                </div>
+                                <div class="identity-content">
+                                    <div class="identity-title">Dott. Davide Sartirana</div>
+                                    <div class="identity-role">Assegnista di ricerca</div>
+                                    <div class="identity-desc">
+                                        Inguaribile interista, devoto al Capitano.<br>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="identity-card-back identity-card">
+                                <div>
+                                    <div class="identity-back-title">Contatti</div>
+                                    <div class="identity-back-desc">
+                                        <i class="bi bi-envelope me-2"></i> davide.sartirana@unimib.it
+                                    </div>
+                                    <div class="identity-back-contacts mt-3">
+                                        <a href="mailto:davide.sartirana@unimib.it" title="Email"><i class="bi bi-envelope"></i></a>
+                                        <a href="#" title="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="identity-card-back identity-card">
-                        <div>
-                            <div class="identity-back-title">Progetti e responsabilità</div>
-                            <div class="identity-back-desc">
-                                • <a href="https://sites.google.com/unimib.it/ambra/home-page?authuser=0" target="_blank">AMBRA</a><br>
-                                • Attività di campo <br>
-                                • MidAS-Po: Ricostruzione idrogeologica della pianura padana
+                </div>
+                <div class="col-12 col-md-6">
+                    <!-- Alice Palazzi -->
+                    <div class="identity-card-container my-4">
+                        <div class="identity-card-inner">
+                            <div class="identity-card-front identity-card">
+                                <div class="identity-photo">
+                                    <img src="image/team/memberap.jpg" alt="Dott.ssa Alice Palazzi">
+                                </div>
+                                <div class="identity-content">
+                                    <div class="identity-title">Dott.ssa Alice Palazzi</div>
+                                    <div class="identity-role">Assegnista di ricerca</div>
+                                    <div class="identity-desc">
+                                        Saggia<br>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="identity-back-contacts mt-3">
-                                <a href="mailto:marco.rotiroti@unimib.it" title="Email"><i class="bi bi-envelope"></i></a>
-                                <a href="#" title="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                            <div class="identity-card-back identity-card">
+                                <div>
+                                    <div class="identity-back-title">Contatti</div>
+                                    <div class="identity-back-desc">
+                                        <i class="bi bi-envelope me-2"></i> alice.palazzi@unimib.it
+                                    </div>
+                                    <div class="identity-back-contacts mt-3">
+                                        <a href="mailto:alice.palazzi@unimib.it" title="Email"><i class="bi bi-envelope"></i></a>
+                                        <a href="#" title="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- Davide Sartirana -->
-            <div class="identity-card-container my-4">
-                <div class="identity-card-inner">
-                    <div class="identity-card-front identity-card">
-                        <div class="identity-photo">
-                            <img src="image/team/memberds.jpg" alt="Dott. Davide Sartirana">
-                        </div>
-                        <div class="identity-content">
-                            <div class="identity-title">Dott. Davide Sartirana</div>
-                            <div class="identity-role">Assegnista di ricerca</div>
-                            <div class="identity-desc">
-                                Inguaribile interista, devoto al Capitano.<br>
+            <!-- Terza riga di 1 card (ultima rimasta) -->
+            <div class="row">
+                <div class="col-12 col-md-6">
+                    <!-- Agnese Redaelli -->
+                    <div class="identity-card-container my-4">
+                        <div class="identity-card-inner">
+                            <div class="identity-card-front identity-card">
+                                <div class="identity-photo">
+                                    <img src="image/team/memberar.jpg" alt="Dott.ssa Agnese Redaelli">
+                                </div>
+                                <div class="identity-content">
+                                    <div class="identity-title">Dott.ssa Agnese Redaelli</div>
+                                    <div class="identity-role">Dottoranda di ricerca</div>
+                                    <div class="identity-desc">
+                                        Tagliente.<br>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="identity-card-back identity-card">
-                        <div>
-                            <div class="identity-back-title">Contatti</div>
-                            <div class="identity-back-desc">
-                                <i class="bi bi-envelope me-2"></i> davide.sartirana@unimib.it
-                            </div>
-                            <div class="identity-back-contacts mt-3">
-                                <a href="mailto:davide.sartirana@unimib.it" title="Email"><i class="bi bi-envelope"></i></a>
-                                <a href="#" title="LinkedIn"><i class="bi bi-linkedin"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Alice Palazzi -->
-            <div class="identity-card-container my-4">
-                <div class="identity-card-inner">
-                    <div class="identity-card-front identity-card">
-                        <div class="identity-photo">
-                            <img src="image/team/memberap.jpg" alt="Dott.ssa Alice Palazzi">
-                        </div>
-                        <div class="identity-content">
-                            <div class="identity-title">Dott.ssa Alice Palazzi</div>
-                            <div class="identity-role">Assegnista di ricerca</div>
-                            <div class="identity-desc">
-                                Saggia<br>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="identity-card-back identity-card">
-                        <div>
-                            <div class="identity-back-title">Contatti</div>
-                            <div class="identity-back-desc">
-                                <i class="bi bi-envelope me-2"></i> alice.palazzi@unimib.it
-                            </div>
-                            <div class="identity-back-contacts mt-3">
-                                <a href="mailto:alice.palazzi@unimib.it" title="Email"><i class="bi bi-envelope"></i></a>
-                                <a href="#" title="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                            <div class="identity-card-back identity-card">
+                                <div>
+                                    <div class="identity-back-title">Contatti</div>
+                                    <div class="identity-back-desc">
+                                        <i class="bi bi-envelope me-2"></i> a.redaelli33@campus.unimib.it
+                                    </div>
+                                    <div class="identity-back-contacts mt-3">
+                                        <a href="mailto:a.redaelli33@campus.unimib.it" title="Email"><i class="bi bi-envelope"></i></a>
+                                        <a href="#" title="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <!-- Agnese Redaelli -->
-            <div class="identity-card-container my-4">
-                <div class="identity-card-inner">
-                    <div class="identity-card-front identity-card">
-                        <div class="identity-photo">
-                            <img src="image/team/memberar.jpg" alt="Dott.ssa Agnese Redaelli">
-                        </div>
-                        <div class="identity-content">
-                            <div class="identity-title">Dott.ssa Agnese Redaelli</div>
-                            <div class="identity-role">Dottoranda di ricerca</div>
-                            <div class="identity-desc">
-                                Tagliente.<br>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="identity-card-back identity-card">
-                        <div>
-                            <div class="identity-back-title">Contatti</div>
-                            <div class="identity-back-desc">
-                                <i class="bi bi-envelope me-2"></i> a.redaelli33@campus.unimib.it
-                            </div>
-                            <div class="identity-back-contacts mt-3">
-                                <a href="mailto:a.redaelli33@campus.unimib.it" title="Email"><i class="bi bi-envelope"></i></a>
-                                <a href="#" title="LinkedIn"><i class="bi bi-linkedin"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <!-- Lascia questa col vuota per centrare se dispari -->
+                <div class="col-12 col-md-6"></div>
             </div>
         </div>
     </section>
