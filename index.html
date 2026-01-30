@@ -204,7 +204,153 @@
         </div>
     </section>
 
-<!-- rest of file unchanged... -->
+   <!-- Lista Progetti -->
+        <div class="row g-4" id="projectsGrid">
+            <!-- Progetto 1 - Attivo -->
+            <div class="col-12 project-card" data-status="attivi">
+                <div class="card h-100">
+                    <div class="row g-0 align-items-center">
+                        <div class="col-md-4">
+                            <div class="project-logo-wrapper">
+                                <img src="image/logo/midaspo.jpg" alt="Logo MidAS-Po" class="project-logo">
+                            </div>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <span class="badge bg-success float-end">Attivo</span>
+                                <h5 class="card-title mb-3">MidAS-Po: Modello idrogeologico delle Acque Sotterranee del distretto idrografico del fiume Po</h5>
+                                <p class="card-text">Scopo del progetto è di aumentare il livello di conoscenza dello stato di salute delle acque sotterranee della pianura padana dal punto di vista quantitativo e qualitativo, fornendo strumenti innovativi per la gestione delle risorse idriche sotterranee.</p>
+                                <div class="mt-4">
+                                    <span class="text-muted small">Durata: 2022-2025</span>
+                                    <a href="https://www.adbpo.it/la-tutela-delle-acque-parte-dalla-conoscenza-avvio-del-progetto-midas-po/" target="_blank" class="btn btn-outline-primary btn-sm ms-3">
+                                        <i class="bi bi-box-arrow-up-right me-1"></i> Website
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Progetto 2 - Attivo -->
+            <div class="col-12 project-card" data-status="attivi">
+                <div class="card h-100">
+                    <div class="row g-0 align-items-center">
+                        <div class="col-md-4">
+                            <div class="project-logo-wrapper">
+                                <img src="image/logo/ambra.jpg" alt="Logo AMBRA" class="project-logo">
+                            </div>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <span class="badge bg-success float-end">Attivo</span>
+                                <h5 class="card-title mb-3">AMBRA: Assessing alpine and apennine Mountain-front recharge to Po plain alluvial aquifers</h5>
+                                <p class="card-text">
+                                    Il progetto AMBRA affronta le minacce alla sostenibilità delle acque sotterranee nella Pianura Padana, fonte essenziale di acqua potabile sempre più compromessa da sovrasfruttamento e contaminazione.<br>
+                                    Due aree pilota—morene alpine e sistemi carbonatico-alluvionali appenninici—permettono di analizzare come geologia e uso del suolo influenzino la ricarica. Un focus chiave è il ruolo delle fasce di ricarica nella protezione della risorsa.<br>
+                                    Chiarendo processi di ricarica e vie di contaminazione, AMBRA fornisce dati utili alle autorità italiane per tutelare le zone critiche, regolare l’estrazione e mitigare l’inquinamento.
+                                </p>
+                                <div class="mt-4">
+                                    <span class="text-muted small">Durata: 2023-2025</span>
+                                    <a href="https://sites.google.com/unimib.it/ambra/home-page?authuser=0" target="_blank" class="btn btn-outline-primary btn-sm ms-3">
+                                        <i class="bi bi-box-arrow-up-right me-1"></i> Website
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <!-- rest of file unchanged... -->
+
+            <!-- Esempio di progetto concluso (aggiungi altri progetti duplicando lo schema) -->
+            <!--
+            <div class="col-12 project-card" data-status="conclusi">
+                <div class="card h-100">
+                    <div class="row g-0 align-items-center">
+                        <div class="col-md-4">
+                            <div class="project-logo-wrapper">
+                                <img src="image/logo/esempio.jpg" alt="Logo Progetto Esempio" class="project-logo">
+                            </div>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <span class="badge bg-secondary float-end">Concluso</span>
+                                <h5 class="card-title mb-3">Nome Progetto Concluso</h5>
+                                <p class="card-text">Descrizione sintetica del progetto concluso.</p>
+                                <div class="mt-4">
+                                    <span class="text-muted small">Durata: 2020-2022</span>
+                                    <a href="#" target="_blank" class="btn btn-outline-primary btn-sm ms-3">
+                                        <i class="bi bi-box-arrow-up-right me-1"></i> Website
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            -->
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-black text-white py-4">
+        <div class="container text-center">
+            <div class="mb-3">
+                <a href="#" class="text-white me-3"><i class="bi bi-twitter"></i></a>
+                <a href="#" class="text-white me-3"><i class="bi bi-linkedin"></i></a>
+                <a href="#" class="text-white me-3"><i class="bi bi-google"></i></a>
+            </div>
+            <p class="mb-0">&copy; 2025 Gruppo di Ricerca Idrogeologia Ambientale - Università degli Studi di Milano-Bicocca</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Script di filtro -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const urlParams = new URLSearchParams(window.location.search)
+        const filter = urlParams.get('filter') || 'tutti'
+        const titles = {
+            'attivi': 'Progetti Attivi in Corso',
+            'conclusi': 'Progetti Conclusi',
+            'tutti': 'Tutti i Progetti di Ricerca'
+        };
+
+        // Aggiorna titolo
+        document.getElementById('dynamicTitle').textContent = titles[filter];
+
+        // Gestione filtri
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.classList.toggle('active', btn.dataset.filter === filter);
+
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                const newFilter = this.dataset.filter;
+                window.history.replaceState({}, '', `?filter=${newFilter}`);
+                updateProjects(newFilter);
+            });
+        });
+
+        function updateProjects(selectedFilter) {
+            document.getElementById('dynamicTitle').textContent = titles[selectedFilter];
+
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.filter === selectedFilter);
+            });
+
+            document.querySelectorAll('.project-card').forEach(card => {
+                const shouldShow = selectedFilter === 'tutti' || card.dataset.status === selectedFilter;
+                card.classList.toggle('hidden', !shouldShow);
+            });
+        }
+
+        // Inizializzazione
+        updateProjects(filter);
+    });
+    </script>
 
 </body>
 </html>
