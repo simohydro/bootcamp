@@ -1,0 +1,118 @@
+<!-- Pagina FieldKit.html -->
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Field Tools - Environmental Hydrogeology Research Group</title>
+    <meta name="description" content="Strumentazione e attrezzature da campo utilizzate dal Gruppo di Ricerca di Idrogeologia Ambientale.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:wght@600;700&display=swap" rel="stylesheet">
+
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <div id="navbar-placeholder"></div>
+
+    <section id="fieldkit" class="my-5 pt-5"> 
+        <div class="container">
+            <h1 class="text-center mb-5 display-4">
+                <i class="bi bi-tools me-3"></i>FieldKit
+            </h1>
+
+               <!-- Filtri Categorie - Versione corretta -->
+            <div class="row mb-4 g-3 justify-content-center" id="filter-buttons">
+                <div class="col-auto">
+                    <button class="btn btn-outline-primary active" data-category="all">
+                        Tutti
+                    </button>
+                </div>
+                <div class="col-auto">
+                    <button class="btn btn-outline-primary" data-category="acquisizione">
+                        Acquisizione Dati
+                    </button>
+                </div>
+                <div class="col-auto">
+                    <button class="btn btn-outline-primary" data-category="laboratorio">
+                        Analisi Laboratorio
+                    </button>
+                </div>
+            </div>
+
+            <!-- Grid Strumenti -->
+            <div class="row g-4" id="strumenti-container">
+                <!-- Strumento 1 -->
+                <div class="col-lg-4 col-md-6 strumento" data-category="acquisizione">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body text-center">
+                            <i class="bi bi-thermometer-sun display-4 text-primary mb-3"></i>
+                            <h5 class="card-title">Sonda Multiparametrica</h5>
+                            <div class="card-text">
+                                <p class="text-muted">Misurazione parametri idrogeologici</p>
+                                <hr>
+                                <small>Modello: XT-2024 Pro</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Strumento 2 -->
+                <div class="col-lg-4 col-md-6 strumento" data-category="laboratorio">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body text-center">
+                            <i class="bi bi-droplet-half display-4 text-primary mb-3"></i>
+                            <h5 class="card-title">Spettrometro Portatile</h5>
+                            <div class="card-text">
+                                <p class="text-muted">Analisi composizione chimica</p>
+                                <hr>
+                                <small>Modello: GeoSpec Pro</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Script funzionante -->
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const buttons = document.querySelectorAll('#filter-buttons button');
+        const strumenti = document.querySelectorAll('.strumento');
+
+        buttons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Resetta tutti i pulsanti
+                buttons.forEach(b => b.classList.remove('active'));
+                
+                // Imposta lo stato attivo
+                button.classList.add('active');
+                
+                const category = button.dataset.category;
+                
+                // Filtra gli strumenti
+                strumenti.forEach(strumento => {
+                    const show = category === 'all' || 
+                                strumento.dataset.category === category;
+                    
+                    strumento.style.display = show ? 'block' : 'none';
+                });
+            });
+        });
+    });
+    </script>
+
+
+    <div id="footer-placeholder"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/include.js"></script>
+</body>
+</html>
