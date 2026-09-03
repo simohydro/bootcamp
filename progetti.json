@@ -4,41 +4,64 @@
     "stato": "attivo",
     "logo": "image/logo/ambra.jpg",
     "descrizione": "Progetto di ricerca del gruppo, con attività di campo dedicate. Sostituisci questa descrizione con quella reale del progetto.",
-    "link": "https://sites.google.com/unimib.it/ambra/home-page?authuser=0"
+    "link": "https://sites.google.com/unimib.it/ambra/home-page?authuser=0",
+    "slug": "ambra",
+    "immagini": []
   },
   {
     "nome": "MidAS-Po",
     "stato": "attivo",
     "logo": "image/logo/midaspo.jpg",
     "descrizione": "Ricostruzione idrogeologica della pianura padana. Sostituisci questa descrizione con quella reale del progetto.",
-    "link": ""
+    "link": "",
+    "slug": "midaspo",
+    "immagini": [
+      "image/logo/midaspo.jpg",
+      "image/logo/collage.jpg"
+    ]
   },
   {
     "nome": "ESEMPIO - sostituisci con il nome reale",
     "stato": "concluso",
     "logo": "image/logo/delta.jpg",
-    "descrizione": "Questa è una voce di esempio: sostituisci nome, stato, logo, descrizione e link con i dati reali del progetto, oppure elimina questo blocco se il logo non corrisponde a nessun progetto.",
-    "link": ""
+    "descrizione": "Questa è una voce di esempio: sostituisci nome, stato, logo, descrizione e link con i dati reali del progetto, oppure elimina questo blocco se il logo non corrisponde a nessun progetto. Se non hai un link esterno, lascia \"link\" vuoto: verrà creata automaticamente una pagina di dettaglio interna usando lo \"slug\".",
+    "link": "",
+    "slug": "esempio-delta",
+    "immagini": [
+      "image/logo/delta.jpg"
+    ]
   },
   {
     "nome": "ESEMPIO - sostituisci con il nome reale",
     "stato": "concluso",
     "logo": "image/logo/falda.jpg",
     "descrizione": "Voce di esempio: sostituisci con i dati reali o elimina.",
-    "link": ""
+    "link": "",
+    "slug": "esempio-falda",
+    "immagini": [
+      "image/logo/falda.jpg"
+    ]
   },
   {
     "nome": "ESEMPIO - sostituisci con il nome reale",
     "stato": "attivo",
     "logo": "image/logo/puzzle.jpg",
     "descrizione": "Voce di esempio: sostituisci con i dati reali o elimina.",
-    "link": ""
+    "link": "",
+    "slug": "esempio-puzzle",
+    "immagini": [
+      "image/logo/puzzle.jpg"
+    ]
   },
   {
     "nome": "ESEMPIO - sostituisci con il nome reale",
     "stato": "attivo",
     "logo": "image/logo/u1.jpg",
     "descrizione": "Voce di esempio: sostituisci con i dati reali o elimina.",
-    "link": ""
+    "link": "",
+    "slug": "esempio-u1",
+    "immagini": [
+      "image/logo/u1.jpg"
+    ]
   }
 ]
