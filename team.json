@@ -10,6 +10,16 @@
       "email": " tullia.bonomi@unimib.it",
       "linkedin": "#"
     },
+        {
+      "nome": "Dott. Marco Rotiroti",
+      "ruolo": "Ricercatore a tempo determinato",
+      "foto": "image/team/membermr.jpg",
+      "descrizione": "MISTER.<br/> Esperto di idrogeologia, attività di campo e modellazione.",
+      "retro_titolo": "Progetti e responsabilità",
+      "retro_html": "• <a href=\"https://sites.google.com/unimib.it/ambra/home-page?authuser=0\" target=\"_blank\">AMBRA</a><br/> • Attività di campo <br/> • MidAS-Po: Ricostruzione idrogeologica della pianura padana",
+      "email": "marco.rotiroti@unimib.it",
+      "linkedin": "#"
+    },
     {
       "nome": "Dott. Simone Bruno",
       "ruolo": "Borsista di Ricerca",
@@ -21,13 +31,13 @@
       "linkedin": "#"
     },
     {
-      "nome": "Dott. Marco Rotiroti",
-      "ruolo": "Ricercatore a tempo determinato",
-      "foto": "image/team/membermr.jpg",
-      "descrizione": "MISTER.<br/> Esperto di idrogeologia, attività di campo e modellazione.",
-      "retro_titolo": "Progetti e responsabilità",
-      "retro_html": "• <a href=\"https://sites.google.com/unimib.it/ambra/home-page?authuser=0\" target=\"_blank\">AMBRA</a><br/> • Attività di campo <br/> • MidAS-Po: Ricostruzione idrogeologica della pianura padana",
-      "email": "marco.rotiroti@unimib.it",
+      "nome": "Dott.ssa Chiara Zanotti",
+      "ruolo": "Ricercatrice a tempo determinato",
+      "foto": "image/team/memberds.jpg",
+      "descrizione": "Prosopagnosica",
+      "retro_titolo": "Contatti",
+      "retro_html": "",
+      "email": " chiara.zanotti@unimib.it",
       "linkedin": "#"
     },
     {
