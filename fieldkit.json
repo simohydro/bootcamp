@@ -1,0 +1,16 @@
+[
+  {
+    "categoria": "acquisizione",
+    "icona": "bi-thermometer-sun",
+    "nome": "Sonda Multiparametrica",
+    "descrizione": "Misurazione parametri idrogeologici",
+    "modello": "XT-2024 Pro"
+  },
+  {
+    "categoria": "laboratorio",
+    "icona": "bi-droplet-half",
+    "nome": "Spettrometro Portatile",
+    "descrizione": "Analisi composizione chimica",
+    "modello": "GeoSpec Pro"
+  }
+]

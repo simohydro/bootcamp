@@ -1,0 +1,63 @@
+{
+  "membri": [
+    {
+      "nome": "Dott. Simone Bruno",
+      "ruolo": "Borsista di Ricerca",
+      "foto": "image/team/membersb.jpg",
+      "descrizione": "Creatore del sito.<br/> Dipartimento di Scienze della Terra e dell'Ambiente, Università degli Studi di Milano-Bicocca.",
+      "retro_titolo": "Progetti",
+      "retro_html": "• MidAS-Po: Ricostruzione idrogeologica della pianura padana<br/> • GIS<br/> • Modellazione 3D",
+      "email": "simone.bruno@unimib.it",
+      "linkedin": "#"
+    },
+    {
+      "nome": "Dott. Marco Rotiroti",
+      "ruolo": "Ricercatore a tempo determinato",
+      "foto": "image/team/membermr.jpg",
+      "descrizione": "MISTER.<br/> Esperto di idrogeologia, attività di campo e modellazione.",
+      "retro_titolo": "Progetti e responsabilità",
+      "retro_html": "• <a href=\"https://sites.google.com/unimib.it/ambra/home-page?authuser=0\" target=\"_blank\">AMBRA</a><br/> • Attività di campo <br/> • MidAS-Po: Ricostruzione idrogeologica della pianura padana",
+      "email": "marco.rotiroti@unimib.it",
+      "linkedin": "#"
+    },
+    {
+      "nome": "Dott. Davide Sartirana",
+      "ruolo": "Assegnista di ricerca",
+      "foto": "image/team/memberds.jpg",
+      "descrizione": "Inguaribile interista, devoto al Capitano.<br/>",
+      "retro_titolo": "Contatti",
+      "retro_html": "<i class=\"bi bi-envelope me-2\"></i> davide.sartirana@unimib.it",
+      "email": "davide.sartirana@unimib.it",
+      "linkedin": "#"
+    },
+    {
+      "nome": "Dott.ssa Alice Palazzi",
+      "ruolo": "Assegnista di ricerca",
+      "foto": "image/team/memberap.jpg",
+      "descrizione": "Saggia<br/>",
+      "retro_titolo": "Contatti",
+      "retro_html": "<i class=\"bi bi-envelope me-2\"></i> alice.palazzi@unimib.it",
+      "email": "alice.palazzi@unimib.it",
+      "linkedin": "#"
+    },
+    {
+      "nome": "Dott.ssa Agnese Redaelli",
+      "ruolo": "Dottoranda di ricerca",
+      "foto": "image/team/memberar.jpg",
+      "descrizione": "Tagliente.<br/>",
+      "retro_titolo": "Contatti",
+      "retro_html": "<i class=\"bi bi-envelope me-2\"></i> a.redaelli33@campus.unimib.it",
+      "email": "a.redaelli33@campus.unimib.it",
+      "linkedin": "#"
+    }
+  ],
+  "studenti": [
+    {
+      "nome": "Nome Studente",
+      "ruolo": "Laureando Magistrale",
+      "descrizione": "Descrizione dello studente",
+      "foto": "image/team/student-placeholder.jpg",
+      "email": "email@unimib.it"
+    }
+  ]
+}
