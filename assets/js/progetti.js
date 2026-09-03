@@ -1,29 +1,38 @@
 /**
- * Renderizza i progetti a partire da progetti.json.
- * Per aggiungere/modificare/rimuovere un progetto, modifica SOLO progetti.json.
+ * Renderizza i progetti a partire da progetti.json, divisi in due sezioni
+ * fisse: "Attivi" (in alto) e "Conclusi" (in basso). Per aggiungere,
+ * modificare o rimuovere un progetto, modifica SOLO progetti.json.
  *
  * Formato di ogni progetto:
  * {
  *   "nome": "Nome del progetto",
  *   "stato": "attivo" | "concluso",
  *   "logo": "image/logo/nome-file.png",
- *   "descrizione": "Breve descrizione del progetto",
- *   "link": "https://... (opzionale, pagina/sito del progetto)"
+ *   "descrizione": "Breve descrizione mostrata nella card",
+ *   "link": "https://... (opzionale: se presente, il bottone porta a questo URL esterno)",
+ *   "slug": "nome-breve-senza-spazi (usato per generare la pagina di dettaglio interna)",
+ *   "immagini": ["image/logo/foto1.jpg", "image/logo/foto2.jpg"] (opzionale, per il carosello nella pagina di dettaglio)
  * }
  *
- * Il filtro Attivi/Tutti e il titolo si basano sul parametro ?filter= nell'URL
- * (tutti | attivi | conclusi), esattamente come prima.
+ * Se "link" è vuoto/assente ma "slug" è presente, il bottone "Scopri di più"
+ * porta automaticamente a progetto.html?slug=<slug>, una pagina generica che
+ * mostra descrizione + carosello immagini per quel progetto.
  */
 (function () {
-  var container = document.getElementById('progetti-container');
-  var titleEl = document.getElementById('dynamicTitle');
-  if (!container) return;
+  var attiviContainer = document.getElementById('progetti-attivi');
+  var conclusiContainer = document.getElementById('progetti-conclusi');
+  if (!attiviContainer && !conclusiContainer) return;
 
-  var projects = [];
+  function projectLink(p) {
+    if (p.link) return { href: p.link, external: true };
+    if (p.slug) return { href: 'progetto.html?slug=' + encodeURIComponent(p.slug), external: false };
+    return null;
+  }
 
   function card(p) {
+    var link = projectLink(p);
     return (
-      '<div class="col-md-6 col-lg-4 project-card" data-status="' + p.stato + '">' +
+      '<div class="col-md-6 col-lg-4">' +
       '<div class="card h-100">' +
       (p.logo ? '<div class="project-logo-wrapper"><img src="' + p.logo + '" class="project-logo" alt="' + p.nome + '"></div>' : '') +
       '<div class="card-body">' +
@@ -31,51 +40,47 @@
       '<p class="badge ' + (p.stato === 'attivo' ? 'bg-success' : 'bg-secondary') + ' mb-2">' +
       (p.stato === 'attivo' ? 'Attivo' : 'Concluso') + '</p>' +
       '<p class="card-text">' + (p.descrizione || '') + '</p>' +
-      (p.link ? '<a href="' + p.link + '" class="btn btn-sm btn-outline-primary" target="_blank">Scopri di più</a>' : '') +
+      (link ? '<a href="' + link.href + '" class="btn btn-sm btn-outline-primary"' + (link.external ? ' target="_blank" rel="noopener"' : '') + '>Scopri di più</a>' : '') +
       '</div></div></div>'
     );
   }
 
-  function currentFilter() {
-    var params = new URLSearchParams(window.location.search);
-    return params.get('filter') || 'tutti';
-  }
-
-  function applyFilter(filter) {
-    document.querySelectorAll('.filter-btn').forEach(function (b) {
-      b.classList.toggle('active', b.dataset.filter === filter);
-    });
-    document.querySelectorAll('.project-card').forEach(function (el) {
-      var show = filter === 'tutti' ||
-        (filter === 'attivi' && el.dataset.status === 'attivo') ||
-        (filter === 'conclusi' && el.dataset.status === 'concluso');
-      el.classList.toggle('hidden', !show);
-    });
-    if (titleEl) {
-      titleEl.textContent = filter === 'attivi' ? 'Progetti Attivi' :
-        filter === 'conclusi' ? 'Progetti Conclusi' : 'Progetti di Ricerca';
-    }
+  function render(list, container, emptyMsg) {
+    if (!container) return;
+    container.innerHTML = list.map(card).join('') ||
+      '<p class="text-center text-muted">' + emptyMsg + '</p>';
   }
 
   fetch('progetti.json')
     .then(function (res) { return res.json(); })
     .then(function (data) {
-      projects = data;
-      container.innerHTML = projects.map(card).join('') ||
-        '<p class="text-center text-muted">Nessun progetto disponibile.</p>';
-      applyFilter(currentFilter());
+      var attivi = data.filter(function (p) { return p.stato === 'attivo'; });
+      var conclusi = data.filter(function (p) { return p.stato === 'concluso'; });
+      render(attivi, attiviContainer, 'Nessun progetto attivo al momento.');
+      render(conclusi, conclusiContainer, 'Nessun progetto concluso elencato.');
+
+      // Se la pagina è stata aperta con un'ancora (es. progetti.html#conclusi),
+      // scorri fino a quella sezione dopo che il contenuto è stato renderizzato.
+      if (window.location.hash) {
+        var target = document.querySelector(window.location.hash);
+        if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
     })
     .catch(function (err) {
       console.error(err);
-      container.innerHTML = '<p class="text-center text-danger">Errore nel caricamento dei progetti.</p>';
+      if (attiviContainer) attiviContainer.innerHTML = '<p class="text-center text-danger">Errore nel caricamento dei progetti.</p>';
+      if (conclusiContainer) conclusiContainer.innerHTML = '';
     });
 
-  document.querySelectorAll('.filter-btn').forEach(function (btn) {
+  // Pulsanti di navigazione rapida Tutti / Attivi / Conclusi: scorrono alla sezione
+  document.querySelectorAll('.filter-btn[data-target]').forEach(function (btn) {
     btn.addEventListener('click', function (e) {
       e.preventDefault();
-      var filter = btn.dataset.filter;
-      history.replaceState(null, '', '?filter=' + filter);
-      applyFilter(filter);
+      document.querySelectorAll('.filter-btn').forEach(function (b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+      var target = document.querySelector(btn.dataset.target);
+      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      history.replaceState(null, '', btn.dataset.target === '#top' ? window.location.pathname : btn.dataset.target);
     });
   });
 })();
