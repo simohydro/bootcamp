@@ -19,24 +19,33 @@
     <!-- Navbar -->
     <div id="navbar-placeholder"></div>
 
-    <main class="container py-5 mt-5">
-        <h1 class="text-center mb-5" id="dynamicTitle">Progetti di Ricerca</h1>
+    <main class="container py-5 mt-5" id="top">
+        <h1 class="text-center mb-5">Progetti di Ricerca</h1>
 
-        <!-- Filtri -->
-        <div class="row mb-4">
+        <!-- Navigazione rapida: scorre alla sezione, non filtra -->
+        <div class="row mb-5">
             <div class="col text-center">
                 <div class="btn-group">
-                    <a href="?filter=tutti" class="btn btn-outline-primary filter-btn active" data-filter="tutti">Tutti</a>
-                    <a href="?filter=attivi" class="btn btn-outline-primary filter-btn" data-filter="attivi">Attivi</a>
-                    <a href="?filter=conclusi" class="btn btn-outline-primary filter-btn" data-filter="conclusi">Conclusi</a>
+                    <a href="#top" class="btn btn-outline-primary filter-btn active" data-target="#top">Tutti</a>
+                    <a href="#attivi" class="btn btn-outline-primary filter-btn" data-target="#attivi">Attivi</a>
+                    <a href="#conclusi" class="btn btn-outline-primary filter-btn" data-target="#conclusi">Conclusi</a>
                 </div>
             </div>
         </div>
 
-        <!-- Griglia progetti, generata da progetti.json -->
-        <div class="row g-4" id="progetti-container">
-            <p class="text-center text-muted">Caricamento progetti...</p>
-        </div>
+        <section id="attivi" class="mb-5">
+            <h2 class="mb-4">Progetti Attivi</h2>
+            <div class="row g-4" id="progetti-attivi">
+                <p class="text-center text-muted">Caricamento progetti...</p>
+            </div>
+        </section>
+
+        <section id="conclusi">
+            <h2 class="mb-4">Progetti Conclusi</h2>
+            <div class="row g-4" id="progetti-conclusi">
+                <p class="text-center text-muted">Caricamento progetti...</p>
+            </div>
+        </section>
 
     </main>
 
