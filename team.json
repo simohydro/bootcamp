@@ -1,6 +1,16 @@
 {
   "membri": [
     {
+      "nome": "Prof.ssa Tullia Bonomi",
+      "ruolo": "Professoressa associata",
+      "foto": "image/team/membersb.jpg",
+      "descrizione": "",
+      "retro_titolo": "Progetti",
+      "retro_html": "",
+      "email": " tullia.bonomi@unimib.it",
+      "linkedin": "#"
+    },
+    {
       "nome": "Dott. Simone Bruno",
       "ruolo": "Borsista di Ricerca",
       "foto": "image/team/membersb.jpg",
