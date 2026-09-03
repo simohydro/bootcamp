@@ -12,7 +12,7 @@
     },
         {
       "nome": "Dott. Marco Rotiroti",
-      "ruolo": "Ricercatore a tempo determinato",
+      "ruolo": "Professore associato",
       "foto": "image/team/membermr.jpg",
       "descrizione": "MISTER.<br/> Esperto di idrogeologia, attività di campo e modellazione.",
       "retro_titolo": "Progetti e responsabilità",
@@ -22,7 +22,7 @@
     },
     {
       "nome": "Dott. Simone Bruno",
-      "ruolo": "Borsista di Ricerca",
+      "ruolo": "Dottoranda di ricerca",
       "foto": "image/team/membersb.jpg",
       "descrizione": "Creatore del sito.<br/> Dipartimento di Scienze della Terra e dell'Ambiente, Università degli Studi di Milano-Bicocca.",
       "retro_titolo": "Progetti",
@@ -37,12 +37,12 @@
       "descrizione": "Prosopagnosica",
       "retro_titolo": "Contatti",
       "retro_html": "",
-      "email": " chiara.zanotti@unimib.it",
+      "email": "chiara.zanotti@unimib.it",
       "linkedin": "#"
     },
     {
       "nome": "Dott. Davide Sartirana",
-      "ruolo": "Assegnista di ricerca",
+      "ruolo": "Tecnologo",
       "foto": "image/team/memberds.jpg",
       "descrizione": "Inguaribile interista, devoto al Capitano.<br/>",
       "retro_titolo": "Contatti",
@@ -52,7 +52,7 @@
     },
     {
       "nome": "Dott.ssa Alice Palazzi",
-      "ruolo": "Assegnista di ricerca",
+      "ruolo": "Dottoranda di ricerca",
       "foto": "image/team/memberap.jpg",
       "descrizione": "Saggia<br/>",
       "retro_titolo": "Contatti",
@@ -62,7 +62,7 @@
     },
     {
       "nome": "Dott.ssa Agnese Redaelli",
-      "ruolo": "Dottoranda di ricerca",
+      "ruolo": "Contrattista di ricerca",
       "foto": "image/team/memberar.jpg",
       "descrizione": "Tagliente.<br/>",
       "retro_titolo": "Contatti",
