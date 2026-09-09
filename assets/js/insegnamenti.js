@@ -31,9 +31,13 @@
       '<div class="course-meta"><i class="bi bi-person-badge"></i> ' + c.docente + '</div>' +
       '<div class="course-meta"><i class="bi bi-award"></i> ' + c.cfu + ' CFU</div>' +
       '<div class="course-meta"><i class="bi bi-mortarboard"></i> ' + c.corso_laurea + '</div>' +
-      (c.link ? '<a href="' + c.link + '" target="_blank" rel="noopener" class="btn btn-sm btn-outline-primary">Scopri di più</a>' : '') +
+      '<div class="course-card-footer">' +
+      (c.link ? '<a href="' + c.link + '" target="_blank" rel="noopener" class="btn btn-sm btn-outline-primary">Scopri di più</a>' : '<span></span>') +
+      '<button type="button" class="btn btn-sm btn-flip" aria-label="Mostra descrizione"><i class="bi bi-arrow-repeat"></i></button>' +
+      '</div>' +
       '</div>' +
       '<div class="course-card-back">' +
+      '<button type="button" class="btn btn-sm btn-flip btn-flip-back" aria-label="Torna indietro"><i class="bi bi-arrow-repeat"></i></button>' +
       '<div class="course-back-title">Descrizione del corso</div>' +
       '<div class="course-back-desc">' + (c.descrizione || '') + '</div>' +
       '</div>' +
@@ -74,10 +78,12 @@
 
   if (yearSelect) yearSelect.addEventListener('change', render);
 
-  // Flip su mobile (click) oltre a hover (desktop), come nella pagina Team
+  // Solo il pulsante con la freccetta gira la card (fronte o retro)
   container.addEventListener('click', function (e) {
-    if (window.innerWidth > 768) return;
-    var card = e.target.closest('.course-card-container');
+    var flipBtn = e.target.closest('.btn-flip');
+    if (!flipBtn) return;
+    var card = flipBtn.closest('.course-card-container');
     if (card) card.querySelector('.course-card-inner').classList.toggle('flipped');
   });
 })();
+
