@@ -25,5 +25,18 @@
     "corso_laurea": "Laurea Magistrale in Scienze Ambientali",
     "link": "",
     "descrizione": "Sostituisci con la descrizione reale del corso."
+  },
+    {
+    "anno_accademico": "2024/2025",
+    "titolo": "Principi di scienze della terra",
+    "docente": "Docente: Tullia Bonomi, Giovanni Vezzoli, Barbara Delmonte, Monica Onida",
+    "cfu": 12,
+    "corso_laurea": "Laurea di primo livello in Scienze e Tecnologie per l’Ambiente",
+    "link": "https://elearning.unimib.it/course/view.php?id=57442",
+    "descrizione": "L'insegnamento si propone di trasmettere allo studente di Scienze e Tecnologie per l’Ambiente, che per la prima volta si approccia alle tematiche geologiche:
+- la conoscenza dei principi di base della disciplina declinati su litosfera e idrosfera terrestri;
+- la capacità di riconoscere i principali fenomeni geologici e di classificarli;
+- la capacità di esprimere concetti scientifici complessi in forma semplice, con proprietà di linguaggio e pertinenza concettuale;
+- la capacità di apprendimento diretto, attraverso l'utilizzo di laboratori pratici su aspetti cartografici e petrografici"
   }
 ]
