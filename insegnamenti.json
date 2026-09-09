@@ -1,0 +1,29 @@
+[
+  {
+    "anno_accademico": "2025/2026",
+    "titolo": "ESEMPIO - Idrogeologia",
+    "docente": "Prof. Nome Cognome",
+    "cfu": 6,
+    "corso_laurea": "Laurea Magistrale in Scienze Ambientali",
+    "link": "https://elearning.unimib.it/",
+    "descrizione": "Sostituisci con la descrizione reale del corso: obiettivi, argomenti trattati, modalità d'esame."
+  },
+  {
+    "anno_accademico": "2025/2026",
+    "titolo": "ESEMPIO - Idrogeochimica",
+    "docente": "Prof.ssa Nome Cognome",
+    "cfu": 9,
+    "corso_laurea": "Laurea Triennale in Scienze Geologiche",
+    "link": "https://elearning.unimib.it/",
+    "descrizione": "Sostituisci con la descrizione reale del corso."
+  },
+  {
+    "anno_accademico": "2024/2025",
+    "titolo": "ESEMPIO - Modellazione delle Acque Sotterranee",
+    "docente": "Prof. Nome Cognome",
+    "cfu": 6,
+    "corso_laurea": "Laurea Magistrale in Scienze Ambientali",
+    "link": "",
+    "descrizione": "Sostituisci con la descrizione reale del corso."
+  }
+]
