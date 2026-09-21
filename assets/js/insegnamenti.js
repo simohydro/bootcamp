@@ -31,6 +31,7 @@
       '<div class="course-meta"><i class="bi bi-person-badge"></i> ' + c.docente + '</div>' +
       '<div class="course-meta"><i class="bi bi-award"></i> ' + c.cfu + ' CFU</div>' +
       '<div class="course-meta"><i class="bi bi-mortarboard"></i> ' + c.corso_laurea + '</div>' +
+      '<div class="course-meta"><i class="bi bi-calendar3"></i> A.A. ' + c.anno_accademico + '</div>' +
       '<div class="course-card-footer">' +
       (c.link ? '<a href="' + c.link + '" target="_blank" rel="noopener" class="btn btn-sm btn-outline-primary">Scopri di più</a>' : '<span></span>') +
       '<button type="button" class="btn btn-sm btn-flip" aria-label="Mostra descrizione"><i class="bi bi-arrow-repeat"></i></button>' +
