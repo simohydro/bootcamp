@@ -188,7 +188,7 @@ section { padding: 80px 0; }
 .btn-flip:hover { background: var(--color-accent-light); }
 .btn-flip-back { position: absolute; top: 16px; right: 16px; }
 .course-back-title { font-weight: 600; color: var(--color-primary); margin-bottom: 8px; }
-.course-back-desc { font-size: 0.95rem; color: var(--color-muted); }
+.course-back-desc { font-size: 0.95rem; color: var(--color-muted); max-height: 180px; overflow-y: auto; padding-right: 6px;}
 @media (max-width: 768px) {
   .course-card-inner, .course-card-front, .course-card-back { min-height: 220px; }
   .course-card-front, .course-card-back { padding: 18px; }
