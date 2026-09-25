@@ -149,7 +149,7 @@ section { padding: 80px 0; }
 .identity-desc { font-size: 0.98rem; color: var(--color-muted); }
 .identity-card-back { transform: rotateY(180deg); z-index: 3; background: #f2f8fa; flex-direction: column; padding: 32px; justify-content: center; align-items: flex-start; }
 .identity-back-title { font-size: 1.15rem; font-weight: 600; margin-bottom: 8px; color: var(--color-primary); }
-.identity-back-desc { font-size: 0.98rem; color: var(--color-muted); }
+.identity-back-desc { font-size: 0.98rem; color: var(--color-muted); max-height: 170px; overflow-y: auto; padding-right: 6px; }
 .identity-back-contacts { margin-top: 1.5rem; }
 .identity-back-contacts a { margin-right: 10px; color: var(--color-primary); font-size: 1.3rem; }
 @media (max-width: 768px) {
