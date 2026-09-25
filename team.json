@@ -1,74 +1,74 @@
 {
   "membri": [
     {
-      "nome": "Prof.ssa Tullia Bonomi",
-      "ruolo": "Professoressa associata",
-      "foto": "image/team/membersb.jpg",
-      "descrizione": "",
-      "retro_titolo": "Progetti",
-      "retro_html": "",
+      "nome": "Prof. Tullia Bonomi",
+      "ruolo": "Associate Professor",
+      "foto": "image/team/membertb.jpg",
+      "descrizione": "Head of the research group",
+      "retro_titolo": "About me",
+      "retro_html": "Associate Professor of Hydrogeology at the University of Milano-Bicocca, I have over 25 years of experience in applied research on groundwater systems. My expertise includes hydrogeological and hydrochemical characterization, numerical modeling of groundwater flow and contaminant transport, and support for the sustainable management of water resources. I coordinate scientific projects in collaboration with public authorities, companies, and environmental agencies, and I teach in both degree programs and advanced training courses. Since 2010, I have been leading the Environmental Hydrogeology Research Group at DISAT, which includes researchers, postdocs, PhD students, and undergraduate and graduate thesis students.",
       "email": " tullia.bonomi@unimib.it",
       "linkedin": "#"
     },
         {
-      "nome": "Dott. Marco Rotiroti",
-      "ruolo": "Professore associato",
-      "foto": "image/team/membermr.jpg",
-      "descrizione": "MISTER.<br/> Esperto di idrogeologia, attività di campo e modellazione.",
-      "retro_titolo": "Progetti e responsabilità",
+      "nome": "Prof. Marco Rotiroti",
+      "ruolo": "Associate Professor",
+      "foto": "image/team/membermr_2.jpg",
+      "descrizione": "Head or the research group and field activites",
+      "retro_titolo": "About me",
       "retro_html": "• <a href=\"https://sites.google.com/unimib.it/ambra/home-page?authuser=0\" target=\"_blank\">AMBRA</a><br/> • Attività di campo <br/> • MidAS-Po: Ricostruzione idrogeologica della pianura padana",
       "email": "marco.rotiroti@unimib.it",
       "linkedin": "#"
-    },
+    },    
     {
-      "nome": "Dott. Simone Bruno",
-      "ruolo": "Dottoranda di ricerca",
-      "foto": "image/team/membersb.jpg",
-      "descrizione": "Creatore del sito.<br/> Dipartimento di Scienze della Terra e dell'Ambiente, Università degli Studi di Milano-Bicocca.",
-      "retro_titolo": "Progetti",
-      "retro_html": "• MidAS-Po: Ricostruzione idrogeologica della pianura padana<br/> • GIS<br/> • Modellazione 3D",
-      "email": "simone.bruno@unimib.it",
-      "linkedin": "#"
-    },
-    {
-      "nome": "Dott.ssa Chiara Zanotti",
-      "ruolo": "Ricercatrice a tempo determinato",
-      "foto": "image/team/memberds.jpg",
-      "descrizione": "Prosopagnosica",
-      "retro_titolo": "Contatti",
-      "retro_html": "",
+      "nome": "Dr. Chiara Zanotti",
+      "ruolo": "Assistant professor",
+      "foto": "image/team/membercz.jpg",
+      "descrizione": "...",
+      "retro_titolo": "About me",
+      "retro_html": "...",
       "email": "chiara.zanotti@unimib.it",
       "linkedin": "#"
     },
     {
-      "nome": "Dott. Davide Sartirana",
-      "ruolo": "Tecnologo",
-      "foto": "image/team/memberds.jpg",
-      "descrizione": "Inguaribile interista, devoto al Capitano.<br/>",
-      "retro_titolo": "Contatti",
+      "nome": "Dr. Agnese Redaelli",
+      "ruolo": "Postdoc researcher",
+      "foto": "image/team/memberar.jpg",
+      "descrizione": "",
+      "retro_titolo": "About me",
+      "retro_html": "...",
+      "email": "agnese.redaelli@unimib.it",
+      "linkedin": "https://www.linkedin.com/in/agnese-redaelli-08a000174/"
+    },
+    {
+      "nome": "Dr. Davide Sartirana",
+      "ruolo": "Research Technologist",
+      "foto": "image/team/memberds_2.jpg",
+      "descrizione": "Davide is a Postdoc researcher, graduated in Sciences and Technologies for the Environment and the Territory, holding a PhD in Chemical, Geological and Environmental Sciences. His PhD project, titled “Integrating numerical modelling and 3D Open Data Databases for groundwater management in Milan Metropolitan City”, was mostly focused on evaluating the interactions between rising groundwater levels and the underground infrastructures in Milan’s urban area, through applying GIS, data-driven and numerical modelling approaches. During is PhD he completed an abroad period at the Department of Geosciences of the University of Wisconsin-Milwaukee, under the supervision of Prof. Daniel Feinstein. Currently, his research is mostly focused on reactive transport modelling at contaminated sites, in the framework of a project titled “Reactive transport modelling of hydrocarbons plume in groundwater”. In 2024, he spent a period as visiting Postdoc at the Geochemistry Department of the Geological Survey of Denmark and Greenland, under the supervision of Prof. Rasmus Jakobsen. He has collaborated also in other projects, as the MidAS-Po project coordinated by the Autorità di Bacino Distrettuale del Fiume Po. Since 2022 he gives support to the teaching activities of the research group, addressed both to students and to public Authorities (i.e. ARPA). In 2025, he has been contract professor for the course “Idrogeologia Applicata” (master degree course at the Scienze dell’Ambiente e della Terra department of the Università degli Studi di Milano-Bicocca). Member of the ECHN-Italy task team, he loves all kind of sports, travelling and connecting with people. And, of course, he is devoted to Inter.",
+      "retro_titolo": "About me",
       "retro_html": "<i class=\"bi bi-envelope me-2\"></i> davide.sartirana@unimib.it",
       "email": "davide.sartirana@unimib.it",
-      "linkedin": "#"
+      "linkedin": "https://www.linkedin.com/in/davide-sartirana-b88466145/"
     },
     {
-      "nome": "Dott.ssa Alice Palazzi",
-      "ruolo": "Dottoranda di ricerca",
+      "nome": "Simone Bruno",
+      "ruolo": "PhD student",
+      "foto": "image/team/membersb_2.jpg",
+      "descrizione": "Creatore del sito.<br/> Dipartimento di Scienze della Terra e dell'Ambiente, Università degli Studi di Milano-Bicocca.",
+      "retro_titolo": "About me",
+      "retro_html": "I am a PhD researcher with a background in hydrogeology, GIS, and machine learning. I hold a BSc in Geological Sciences and Technologies (2020) and an MSc in Geological Sciences and Technologies, specializing in Georisk and Climate Change (2023), from the University of Milano-Bicocca. During my academic and research experience, I have worked on the reconstruction of the hydrogeological structure of the po plain within the <a href=\" https://www.adbpo.it/midas-po-lo-stato-di-salute-delle-acque-sotterranee-della-pianura-padana-mappato-dallautorita-di-bacino-del-po/">MidAS-Po</a> project. I am currently working on my PhD research titled “Machine Learning-based estimation of Natural Background Levels for sustainable groundwater management in Lombardy region” with the aim of developing data-driven approaches to create predictive maps of natural background level of contaminants in Lombardy region. I love field activities and I have collaborated in field campaigns involving the sampling of wells and piezometers, as well as in the collection and processing of hydrogeological and environmental data. I was pro athlete in shot put and love all kind of sport, reading and travelling.",
+      "email": "simone.bruno@unimib.it",
+      "linkedin": "https://www.linkedin.com/in/simone-bruno-282342248/"
+    },
+    {
+      "nome": "Alice Palazzi",
+      "ruolo": "PhD student",
       "foto": "image/team/memberap.jpg",
-      "descrizione": "Saggia<br/>",
-      "retro_titolo": "Contatti",
-      "retro_html": "<i class=\"bi bi-envelope me-2\"></i> alice.palazzi@unimib.it",
+      "descrizione": "...",
+      "retro_titolo": "About me",
+      "retro_html": "...",
       "email": "alice.palazzi@unimib.it",
-      "linkedin": "#"
-    },
-    {
-      "nome": "Dott.ssa Agnese Redaelli",
-      "ruolo": "Contrattista di ricerca",
-      "foto": "image/team/memberar.jpg",
-      "descrizione": "Tagliente.<br/>",
-      "retro_titolo": "Contatti",
-      "retro_html": "<i class=\"bi bi-envelope me-2\"></i> a.redaelli33@campus.unimib.it",
-      "email": "a.redaelli33@campus.unimib.it",
-      "linkedin": "#"
+      "linkedin": "https://www.linkedin.com/in/alice-palazzi-5a4513210/"
     }
   ],
   "studenti": [
