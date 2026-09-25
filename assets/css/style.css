@@ -48,7 +48,7 @@ section { padding: 80px 0; }
   color: var(--color-primary-dark);
   font-size: 1.15rem;
 }
-#main-nav .navbar-brand i { color: var(--color-accent); margin-right: 6px; }
+#main-nav .navbar-brand i { color: var(--color-accent); margin-right: 6px; } .navbar-logo { height: 34px; width: auto; margin-left: 10px; vertical-align: middle; }
 #main-nav .nav-link {
   color: var(--color-ink);
   font-weight: 500;
