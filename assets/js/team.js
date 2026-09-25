@@ -53,7 +53,6 @@
     return (
       '<div class="col">' +
       '<div class="card h-100 shadow">' +
-      '<img src="' + s.foto + '" class="card-img-top" alt="' + s.nome + '">' +
       '<div class="card-body">' +
       '<h5 class="card-title">' + s.nome + '</h5>' +
       '<p class="card-subtitle mb-2 text-muted">' + s.ruolo + '</p>' +
