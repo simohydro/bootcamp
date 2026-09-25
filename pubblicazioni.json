@@ -1,4 +1,34 @@
-[
+[  {
+    "year": "2026",
+    "titolo": "Changes in irrigation practices may deplete aquifers faster and more severely than meteorological droughts: A numerical modeling approach",
+    "autori": "Redaelli, A., Bonomi, T., Sartirana, D., Sinatra, G., Feinstein, D., Hunt, R., Rotiroti, M., Zanotti, C,.  (2026)",
+    "rivista": "Journal of Hydrology",
+    "keywords": [
+      "Groundwater recharge",
+      "Climate change",
+      "Water management",
+      "Po Plain"
+    ],
+    "link": "https://dx.doi.org/10.1016/j.jhydrol.2026.135337",
+    "abstract": "Groundwater availability worldwide is threatened by a changing climate. Aquifers in intensively irrigated systems may present peculiar vulnerability to climate change related to changes in irrigation practices triggered by potential surface water scarcity. This work aims to provide a quantitative assessment of the major drivers of aquifer depletion in agricultural areas: hydrological droughts and changes to more efficient irrigation practices as a response to reduced surface availability. Based on a site-specific conceptual model, a three-dimensional combined steady-state and transient numerical groundwater flow model was developed and calibrated using groundwater level and groundwater-river exchange flow data to reconstruct the 2015–2017 dynamics of an intensively irrigated hydrogeological system, where irrigation return flow dominates the recharge mechanism. Two hypothetical scenarios were simulated: (1) a two-year meteorological drought and (2) a change in irrigation practices from surface irrigation method to the more efficient drip irrigation technique, while maintaining all other conditions the same as in the baseline simulation. The drought scenario leads to a significant reduction of the recharge processes, resulting in a total groundwater storage loss of 2.34 × 105 m3/d over the two simulated years. However, the relative dynamics and seasonal patterns of groundwater storage, groundwater heads, lowland springs discharge, and surface water-groundwater interactions observed in the baseline simulation are preserved. In contrast, the scenario representing the reduction in irrigation return flow determines a disruption in the seasonal pattern over the two simulated years, leading to a loss in groundwater storage up to 2.77 × 105 m3/d and critical impacts on lowland springs and connected surface water bodies. The comparison of baseline conditions and the two scenarios demonstrates that surface-water irrigation return flow is critical to sustaining groundwater balance and the ecological functioning of groundwater-dependent systems in intensively cultivated areas. Therefore, the results indicate that potential policymakers’ adaptation measures to address surface water scarcity induced by climate change may have a more significant impact on groundwater resources than the direct effects of climate change itself, highlighting the crucial role of scientific evidence in informing and guiding policymakers."    "abstract_short": "The Po Plain in northern Italy is a critical agricultural region and one of the largest water users in the European Union. Recent dry conditions have put future water resource availability into question. This study...",
+    "abstract_short": "Groundwater availability worldwide is threatened by a changing climate. Aquifers in intensively irrigated systems may present peculiar vulnerability to climate change related to changes in irrigation practices triggered by..."
+  },
+  {
+    "year": "2025",
+    "titolo": "Developing a hydrogeological data management system with a participatory approach for supporting sustainable groundwater use in low-income countries: the case of Guinea-Bissau (West Africa)",
+    "autori": "Marcolla, A., Fussi, F., Fabbri, F., Dalla Libera, N., Asplund, F., Rotiroti, M., Bonomi, T,.  (2025)",
+    "rivista": "Hydrogeology Journal",
+    "keywords": [
+      "Developing countries",
+      "Groundwater management",
+      "Lithologs",
+      "Markovian-type categorical prediction",
+      "Guinea Bissau"
+    ],
+    "link": "https://doi.org/10.1007/s10040-025-02936-w",
+    "abstract": "The close collaboration between different stakeholders through a participatory approach has allowed the creation of a functional standardized management system for hydrogeological data specifically designed for low-income African countries. Its potential to better support the management of groundwater resources is presented here using Guinea-Bissau as a case study. The proposed data management system integrates the existing digital centralized national water points geodatabase (mWater) with two other tools capable of (i) organizing, codifying, and processing hydrogeological data (TANGAFRIC) and (ii) spatially interpreting lithological data (spMC). This workflow has been born of the need of local authorities for a hydrogeological database with standardized attributes (e.g., lithological terms), allowing the extraction and processing of the values of hydrogeological parameters. A key aspect of the participatory approach used has been the direct involvement of local authorities in data verification and standardization, following training programs. While the primary users of this data management system are expected to be local authorities, the databases produced can also be used by non-government organization technicians, hydrogeological consultants, and academic researchers for a variety of applications. The potential of the proposed hydrogeological data management system has been demonstrated through a pilot study where spatial interpretation of lithological data and interpretation of hydrogeological features have allowed a preliminary hydrogeological conceptual model to be constructed of an area affected by high iron concentrations and salinity. The proposed workflow represents a significant step forward in hydrogeological data management for Guinea-Bissau and could be easily replicated in other low-income African countries with similar constraints",    
+    "abstract_short": "The close collaboration between different stakeholders through a participatory approach has allowed the creation of a functional standardized management system for hydrogeological data specifically designed for low-income African countries..."
+  },
   {
     "year": "2025",
     "titolo": "Intensive irrigation buffers groundwater declines in key European breadbasket",
