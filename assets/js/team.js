@@ -36,6 +36,7 @@
       '<div class="identity-title">' + m.nome + '</div>' +
       '<div class="identity-role">' + m.ruolo + '</div>' +
       '<div class="identity-desc">' + (m.descrizione || '') + '</div>' +
+      '<button type="button" class="btn btn-sm btn-outline-primary btn-flip-team mt-2 align-self-start">About me</button>' +
       '</div></div>' +
       '<div class="identity-card-back identity-card"><div>' +
       '<div class="identity-back-title">' + (m.retro_titolo || 'Contatti') + '</div>' +
@@ -64,20 +65,30 @@
   }
 
   function initFlip() {
-    document.querySelectorAll('.identity-card-container').forEach(function (card) {
-      card.addEventListener('click', function () {
-        if (window.innerWidth <= 768) {
-          card.querySelector('.identity-card-inner').classList.toggle('flipped');
+      document.querySelectorAll('.identity-card-container').forEach(function (card) {
+        var inner = card.querySelector('.identity-card-inner');
+  
+        var flipBtn = card.querySelector('.btn-flip-team');
+        if (flipBtn) {
+          flipBtn.addEventListener('click', function (e) {
+            e.stopPropagation();
+            inner.classList.add('flipped');
+          });
+        }
+  
+        card.addEventListener('mouseleave', function () {
+          inner.classList.remove('flipped');
+        });
+  
+        var back = card.querySelector('.identity-card-back');
+        if (back) {
+          back.addEventListener('click', function (e) {
+            if (e.target.closest('a')) return;
+            inner.classList.remove('flipped');
+          });
         }
       });
-      card.addEventListener('mouseover', function () {
-        if (window.innerWidth > 768) card.querySelector('.identity-card-inner').classList.add('flipped');
-      });
-      card.addEventListener('mouseout', function () {
-        if (window.innerWidth > 768) card.querySelector('.identity-card-inner').classList.remove('flipped');
-      });
-    });
-  }
+    }
 
   fetch('team.json')
     .then(function (res) { return res.json(); })
