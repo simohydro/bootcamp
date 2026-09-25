@@ -73,11 +73,28 @@
   ],
   "studenti": [
     {
-      "nome": "Nome Studente",
-      "ruolo": "Laureando Magistrale",
-      "descrizione": "Descrizione dello studente",
-      "foto": "image/team/student-placeholder.jpg",
-      "email": "email@unimib.it"
-    }
+      "nome": "Davide Brioschi",
+      "ruolo": "MSc student",
+      "descrizione": "Thesis title: Quantification of Aquifer Recharge Processes in the Upper Lombardy Plain Using Mixing Models",
+      "email": "d.brioschi10@campus.unimib.it"
+    },
+    {
+      "nome": "Leonardo Cassese",
+      "ruolo": "MSc student",
+      "descrizione": "Thesis title: Quantification of Recharge Flows from Rivers to the Aquifer in the Upper Lombardy Plain",
+      "email": "l.cassese1@campus.unimib.it"
+    },
+    {
+      "nome": "Pietro Iunco",
+      "ruolo": "MSc student",
+      "descrizione": "Thesis title: Hydrogeological Flow Model of the Equalization Tank in a Wastewater Treatment Plant",
+      "email": "..."
+    },
+    {
+      "nome": "Erika Ripamonti",
+      "ruolo": "MSc student",
+      "descrizione": "Thesis title: ...",
+      "email": "..."
+    }   
   ]
 }
